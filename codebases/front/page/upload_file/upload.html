@@ -1,0 +1,103 @@
+<div class="upload-container">
+  <div class="top-container">
+    <div class="">
+      <!-- <button class="tab-button" onclick="showTab('all')">전체</button>
+    <button class="tab-button" onclick="showTab('review')">검토상태</button>
+    <button class="tab-button" onclick="showTab('return')">반환상태</button> -->
+    </div>
+    <div id="middle-box">
+      <div id="filter-container"></div>
+      <button id="downloadCsvButton">
+        <span data-translate="result_download_btn" class="button-text">
+          Download
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-pdf-container" id="all">
+    <div id="resultTableBody">
+      <table class="file-table">
+        <thead>
+          <tr>
+            <th data-translate="th_field">FIELD</th>
+            <th data-translate="th_extracted">EXTRACTED</th>
+            <th data-translate="th_reviewed">REVIEWED</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-translate="td_file_name">FILE NAME</td>
+            <td><a href="#" class="file-link">example.pdf</a></td>
+            <td class="uneditable">example.pdf</td>
+          </tr>
+          <tr>
+            <td data-translate="td_status">STATUS</td>
+            <td>SUCCESS</td>
+            <td class="uneditable">SUCCESS</td>
+          </tr>
+          <tr>
+            <td data-translate="td_file_type">FILE TYPE</td>
+            <td>PDF</td>
+            <td class="uneditable">PDF</td>
+          </tr>
+          <tr>
+            <td data-translate="td_case_number">CASE NUMBER</td>
+            <td>12345</td>
+            <td>
+              <input type="text" value="12345" class="editable-input" />
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="td_master_name_code">MASTER NAME:CODE</td>
+            <td>example sample (012, AC, example sample, USD)</td>
+            <td>
+              <input
+                type="text"
+                value="Acme Corp (123, AC, Acme Corporation, USD)"
+                class="editable-input"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="td_invoice_date">INVOICE DATE</td>
+            <td>2023-05-15</td>
+            <td>
+              <input type="text" value="2023-05-15" class="editable-input" />
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="td_invoice_number">INVOICE NUMBER</td>
+            <td>INV-2023-001</td>
+            <td>
+              <input type="text" value="INV-2023-001" class="editable-input" />
+            </td>
+          </tr>
+          <tr>
+            <td data-translate="td_amount_billed">AMOUNT BILLED</td>
+            <td>100,000</td>
+            <td>
+              <input type="text" value="100,000" class="editable-input" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="dragBar"></div>
+    <iframe id="pdfViewer"></iframe>
+  </div>
+
+  <div class="table-pdf-container" id="review" style="display: none">
+    <h1>검토상태</h1>
+    <!-- 검토상태에 대한 콘텐츠 추가 -->
+  </div>
+
+  <div class="table-pdf-container" id="return" style="display: none">
+    <h1>반환상태</h1>
+    <!-- 반환상태에 대한 콘텐츠 추가 -->
+  </div>
+
+  <!-- CSV 다운로드 버튼 추가 -->
+</div>
+
+<script src="/component/upload/filter/filter.js" defer type="module"></script>

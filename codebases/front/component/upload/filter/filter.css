@@ -1,0 +1,22 @@
+.filter-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 15rem;
+  width: 100%;
+
+  #companyFilter {
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    color: var(--text-primary-color);
+    font-weight: 500;
+    padding: 0.5rem;
+
+    &:focus {
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}

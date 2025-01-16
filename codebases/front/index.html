@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>파일 업로드</title>
+    <link rel="stylesheet" href="style/color.css" />
+    <link rel="stylesheet" href="style/font.css" />
+    <link rel="stylesheet" href="style/global.css" />
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="page/upload_file/upload.css" />
+    <link rel="stylesheet" href="layout/sidebar/sidebar.css" />
+    <style>
+      /* PDF 뷰어 스타일 */
+    </style>
+  </head>
+
+  <body>
+    <aside id="sidebar"></aside>
+    <main id="main">
+      <div class="result-container">
+        <div class="result-header">
+          <h1 data-translate="upload_page_title">데이터 추출 결과</h1>
+          <div class="result-header-right">
+            <select id="languageSelector">
+              <option value="en">English</option>
+              <option value="ko">한국어</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="upload-result-container"></div>
+      </div>
+    </main>
+
+    <script src="page/upload_file/upload.js" defer type="module"></script>
+    <script src="layout/sidebar/sidebar.js" defer type="module"></script>
+    <script src="utils/functions/set_language.js" defer type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+:root {
+  --main-color: #4318ff;
+  --secondary-color: #2ecc71;
+  --text-primary-color: #2b3674;
+  --text-secondary-color: #8f9bba;
+  --text-third-color: #a3aed0;
+  --text-fourth-color: #e0e5f2;
+  --primary-white: #fff;
+  --box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+  --box-shadow-2: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+  --background-color: #f4f7fe;
+  --background-color: #f4f7fe;
+  --background-color-2: #fafcfe;
+  --error-red-500: #e31a1a;
+  --success-green-500: #01b574;
+  --blue-500: #3965ff;
+  --warnning-orange-500: #ffb547;
+} /* Shadows/Soft Shadow/Soft Shadow - Style 1 */

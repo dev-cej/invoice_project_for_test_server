@@ -1,0 +1,38 @@
+
+
+# PHP
+vendor/
+
+# Logs
+logs/
+*.log
+
+# java
+backend/opt/
+opt/
+
+# Python
+*.pyc
+__pycache__/
+venv/
+backend/venv/
+
+# Uploads
+backend/uploads/
+uploads/
+
+# 빌드 아티팩트
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE 설정 파일
+.idea/
+*.iml
+.vscode/
+
+# OS 파일
+.DS_Store
+Thumbs.db

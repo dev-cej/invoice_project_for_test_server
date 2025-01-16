@@ -1,0 +1,57 @@
+<div id="container">
+  <div id="sidebar-header">
+    <div id="sidebar-header-title">
+      <span id="name">KTA</span>
+      <span id="title">INVOICE VERIFY</span>
+    </div>
+  </div>
+
+  <div id="upload-box">
+    <div id="upload-zone">
+      <div id="before-upload">
+        <div id="upload-file-box">
+          <img
+            id="upload-arrow"
+            src="assets/icon/upload_arrow.svg"
+            alt="upload-arrow"
+          />
+          <span id="upload-files">upload Files</span>
+          <input
+            accept=".pdf"
+            multiple
+            required
+            type="file"
+            id="file-input"
+            style="display: none"
+          />
+        </div>
+        <span id="annotation">PDF files are allowed</span>
+      </div>
+
+      <div id="after-upload" style="display: none">
+        <span id="file-count">0 files selected</span>
+        <button type="submit" id="upload-button">업로드</button>
+        <div id="loading-spinner" style="display: none"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="file-box">
+    <div id="file-list">
+      <span id="file-list-title" data-translate="sidebar_upload_files"
+        >Uploaded Files</span
+      >
+      <ul id="file-list-box">
+        <!-- 업로드된 파일 목록이 여기에 추가됩니다 -->
+      </ul>
+    </div>
+  </div>
+
+  <div id="content-box">
+    <ul id="content-box-list">
+      <!-- <li><a href="#">Extraction</a></li>
+      <li><a href="#">Verification</a></li>
+      <li><a href="#">Comparison</a></li> -->
+    </ul>
+  </div>
+</div>

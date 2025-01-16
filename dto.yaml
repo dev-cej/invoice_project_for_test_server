@@ -1,0 +1,103 @@
+# 기본적인 응답 구조 API_RESPONSE_DTO
+{
+    "__comment": "API 응답의 기본 구조입니다.",
+    "status": "success" | "failure",  # 요청의 성공 여부
+    "message": "클라이언트에게 전달할 메시지입니다.",
+    "data": {
+        "__comment": "응답에 포함될 실제 데이터입니다. 데이터의 구조는 상황에 따라 달라질 수 있습니다."
+    }
+}
+
+# FILE_UPLOAD_RESPONSE_DTO
+{
+    "status": "success" | "failure",  # 파일 업로드의 성공 여부
+    "message": "클라이언트에게 전달할 메시지입니다.",
+    "data": {
+        "upload_result": [
+            # FILE_UPLOAD_DETAIL_DTO 참고
+        ],
+        "extract_result": [
+            # EXTRACT_RESULT_DTO 참고
+        ]
+    }
+}
+
+# FILE_UPLOAD_DETAIL_DTO
+{
+    "file_name": "파일명",  # 업로드된 파일의 이름
+    "file_handle_status": "success" | "failure",  # 파일 처리 상태
+    "file_type": "text" | "image" | "unknown"  # 파일의 유형
+}
+
+# EXTRACT_RESULT_DTO
+{
+    "file_name": "파일명",  # 처리된 파일의 이름
+    "file_handle_status": "success" | "failure",  # 파일 처리 상태
+    "file_type": "text" | "image" | "unknown",  # 파일의 유형
+    "case_number": {
+        # CASE_NUMBER_DTO 참고
+    },
+    "payer_company": {
+        # PAYER_COMPANY_DTO 참고
+    },
+    "invoice_date": {
+        # DATE_INFO_DTO 참고
+    },
+    "invoice_number": {
+        # INVOICE_NUMBER_DTO 참고
+    },
+    "amount_billed": {
+        # AMOUNT_BILLED_DTO 참고
+    }
+}
+
+# CASE_NUMBER_DTO
+{
+    "selected_candidate": [],  # 선택된 안건번호
+    "alternative_options": ["다른 가능한 선택지들", "다른 가능한 선택지들"]  # 다른 후보들
+}
+
+# PAYER_COMPANY_DTO
+{
+    "matched_candidate": {
+        "matched_phrase": "후보 문자열",  # 매칭된 구문
+        "matched_master_data": {
+            "code": "84",  # 회사 코드
+            "short_name": "SAIDMAN",  # 회사의 짧은 이름
+            "name": "SAIDMAN Design Law Group",  # 회사의 전체 이름
+            "currency": "USD"  # 통화
+        },
+        "similarity": 100,  # 유사도 점수
+        "match_type": "short_name" | "name"  # 매칭된 이름 유형
+    },
+    "alternative_options": [
+        # 각 선택지는 matched_candidate와 같은 구조를 가집니다.
+        { ... },
+        { ... }
+    ]
+}
+
+# DATE_INFO_DTO
+{
+    "selected_candidate": "선택된 후보",  # 선택된 날짜
+    "alternative_options": ["다른 가능한 선택지들", "다른 가능한 선택지들"]  # 다른 날짜 후보들
+}
+
+# INVOICE_NUMBER_DTO
+{
+    "selected_candidate": "선택된 후보",  # 선택된 송장 번호
+    "alternative_options": ["다른 가능한 선택지들", "다른 가능한 선택지들"]  # 다른 송장 번호 후보들
+}
+
+# AMOUNT_BILLED_DTO
+{
+    "selected_candidate": {
+        "amount": "금액",  # 청구 금액
+        "currency": "통화"  # 통화
+    },
+    "alternative_options": [
+        # 각 선택지는 selected_candidate와 같은 구조를 가집니다.
+        { ... },
+        { ... }
+    ]
+}
