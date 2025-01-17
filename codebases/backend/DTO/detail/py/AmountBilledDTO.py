@@ -53,13 +53,16 @@ class AmountBilledDTO:
 
     @alternative_options.setter
     def alternative_options(self, value):
-        self._alternative_options = value
+        if len(value) > 3:
+            self._alternative_options = value[:3]  # 최대 3개로 제한
+        else:
+            self._alternative_options = value
 
     @staticmethod
     def from_dict(data: Dict) -> 'AmountBilledDTO':
         return AmountBilledDTO(
             selected_candidate=[AmountDetail.from_dict(item) for item in data.get('selected_candidate', [])],
-            alternative_options=[AmountDetail.from_dict(option) for option in data.get('alternative_options', [])]
+            alternative_options=[AmountDetail.from_dict(option) for option in data.get('alternative_options', [3])]
         )
 
     def to_dict(self) -> Dict:
