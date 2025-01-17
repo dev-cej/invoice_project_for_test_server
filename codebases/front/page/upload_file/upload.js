@@ -4,6 +4,7 @@ import {
 } from "../../component/upload/filter/filter.js";
 import { getTranslation } from "../../utils/functions/set_language.js";
 import { translationKeys } from "../../constants/Transitions.js";
+import { FileType } from "../../constants/FileType.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   try {
@@ -15,20 +16,35 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
+const UPLOAD_HTML_PATH = "/page/upload_file/upload.html";
+const EXTRACTED_DATA_HTML_PATH = "/template/upload/extracted_data_table.html";
+
 async function loadUploadResult() {
   try {
-    const response = await fetch("/page/upload_file/upload.html");
-    if (!response.ok) {
-      throw new Error(`Failed to load sidebar: ${response.statusText}`);
-    }
-    const data = await response.text();
-    document
-      .querySelector(".upload-result-container")
-      .insertAdjacentHTML("afterbegin", data);
+    const [data, data2] = await Promise.all([
+      fetchHTML(UPLOAD_HTML_PATH),
+      fetchHTML(EXTRACTED_DATA_HTML_PATH),
+    ]);
+
+    insertHTMLToContainer(".upload-result-container", data, data2);
   } catch (error) {
-    console.error("Error loading sidebar:", error);
-    throw error;
+    console.error("Error loading upload result:", error);
   }
+}
+
+async function fetchHTML(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Failed to load HTML from ${path}: ${response.statusText}`);
+  }
+  return response.text();
+}
+
+function insertHTMLToContainer(containerSelector, ...htmlContents) {
+  const container = document.querySelector(containerSelector);
+  htmlContents.forEach((html) => {
+    container.insertAdjacentHTML("afterbegin", html);
+  });
 }
 
 function setupUploadResultInteractions() {
@@ -60,29 +76,24 @@ function formatDateToYYYYMMDD(dateString) {
 }
 
 export function createDynamicRows(file) {
+  const rows = getRowData(file);
+  const fragment = document.createDocumentFragment();
+  const template = document.getElementById("row-template");
+
+  rows.forEach((row) => {
+    const clone = template.content.cloneNode(true);
+    populateRow(clone, row);
+    fragment.appendChild(clone);
+  });
+
+  return fragment;
+}
+
+function getRowData(file) {
   const originalDate = file.getInvoiceDate().getSelectedCandidate();
   const formattedDate = formatDateToYYYYMMDD(originalDate);
 
-  const rows = [
-    {
-      label: getTranslation(translationKeys.tableFileName),
-      data_translate: translationKeys.tableFileName,
-      value: file.getFileName(),
-      editable: false,
-      className: "file-link",
-    },
-    {
-      label: getTranslation(translationKeys.tableStatus),
-      data_translate: translationKeys.tableStatus,
-      value: file.getStatus(),
-      editable: false,
-    },
-    {
-      label: getTranslation(translationKeys.tableFileType),
-      data_translate: translationKeys.tableFileType,
-      value: file.getFileType(),
-      editable: false,
-    },
+  return [
     {
       label: getTranslation(translationKeys.tableCaseNumber),
       data_translate: translationKeys.tableCaseNumber,
@@ -116,36 +127,27 @@ export function createDynamicRows(file) {
       editable: true,
     },
   ];
+}
 
-  return rows
-    .map((row) => {
-      if (row.editable) {
-        const inputType = row.inputType || "text";
-        const inputValue = row.inputValue || row.value;
-        return `
-            <tr>
-              <td data-translate="${row.data_translate}">${row.label}</td>
-              <td>${row.value}</td>
-              <td><input type="${inputType}" value="${inputValue}" class="editable-input" /></td>
-            </tr>
-          `;
-      } else {
-        return `
-            <tr>
-              <td data-translate="${row.data_translate}">${row.label}</td>
-              <td class="${row.className}">${row.value}</td>
-              <td>${row.value}</td>
-            </tr>
-          `;
-      }
-    })
-    .join("");
+function populateRow(clone, row) {
+  const tds = clone.querySelectorAll("td");
+  tds[0].setAttribute("data-translate", row.data_translate);
+  tds[0].textContent = row.label;
+  tds[1].textContent = row.value;
+
+  if (row.editable) {
+    const input = tds[2].querySelector("input");
+    input.type = row.inputType || "text";
+    input.value = row.inputValue || row.value;
+  } else {
+    tds[2].textContent = row.value;
+  }
 }
 
 export function handleAddTable(file) {
   const resultTableBody = document.getElementById("resultTableBody");
-  const tableHTML = createDynamicTable(file);
-  resultTableBody.insertAdjacentHTML("afterbegin", tableHTML);
+  const tableElement = createDynamicTable(file);
+  resultTableBody.insertBefore(tableElement, resultTableBody.firstChild);
   const newFileLink = resultTableBody.querySelector(
     `tr:first-child .file-link`
   );
@@ -162,31 +164,124 @@ export function handleAddTable(file) {
   }
 }
 
+function getFileTypeIcon(fileType) {
+  switch (fileType) {
+    case FileType.FILE_TYPE_UNKNOWN:
+      return "file_type_unknown ";
+    case FileType.FILE_TYPE_IMAGE:
+      return "file_type_image";
+    case FileType.FILE_TYPE_TEXT:
+      return "file_type_text";
+    default:
+      return "file_type_unknown";
+  }
+}
+
 export function createDynamicTable(file) {
+  // 파일의 회사 코드 가져오기
   const matchedCandidate = file.getPayerCompany().getMatchedCandidate();
   const companyCode = matchedCandidate
     ? matchedCandidate.getMatchedMasterData().getCode()
     : "other"; // 회사 코드가 없으면 "기타"로 설정
-  return `
-      <table class="file-table" data-company-code="${companyCode}">
-        <thead>
-          <tr>
-            <th data-translate="${translationKeys.tableField}">${getTranslation(
-    translationKeys.tableField
-  )}</th>
-            <th data-translate="${
-              translationKeys.tableExtracted
-            }">${getTranslation(translationKeys.tableExtracted)}</th>
-            <th data-translate="${
-              translationKeys.tableReviewed
-            }">${getTranslation(translationKeys.tableReviewed)}</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${createDynamicRows(file)}
-        </tbody>
-      </table>
-    `;
+
+  // 테이블 템플릿 복제
+  const template = document.getElementById("table-template");
+  const clone = template.content.cloneNode(true);
+  const table = clone.querySelector(".file-table-container");
+  table.setAttribute("data-company-code", companyCode);
+
+  // 파일 링크 설정
+  const fileLink = clone.querySelector(".file-link");
+  fileLink.classList.add(getFileTypeIcon(file.getFileType()));
+  fileLink.textContent = file.getFileName();
+
+  // 테이블 헤더 설정
+  const ths = clone.querySelectorAll("th");
+  ths[0].setAttribute("data-translate", translationKeys.tableField);
+  ths[0].textContent = getTranslation(translationKeys.tableField);
+  ths[1].setAttribute("data-translate", translationKeys.tableExtracted);
+  ths[1].textContent = getTranslation(translationKeys.tableExtracted);
+  ths[2].setAttribute("data-translate", translationKeys.tableReviewed);
+  ths[2].textContent = getTranslation(translationKeys.tableReviewed);
+
+  // 테이블 본문에 동적으로 생성된 행 추가
+  const tbody = clone.querySelector("tbody");
+  tbody.appendChild(createDynamicRows(file));
+
+  // Alternative data 추가
+  const alternativeDataContent = clone.querySelector(
+    ".alternative-data-content"
+  );
+  const alternativeData = createAlternativeData(file);
+  alternativeDataContent.appendChild(alternativeData);
+
+  return table;
+}
+
+function createAlternativeData(file) {
+  const fragment = document.createDocumentFragment();
+
+  const alternativeItems = [
+    {
+      title: "CASE NUMBER",
+      data: file.getCaseNumber().getAlternativeOptions(),
+    },
+    {
+      title: "PAYER NAME",
+      data: file
+        .getPayerCompany()
+        .getAlternativeOptions()
+        .map((option) => option.getMatchedPhrase()),
+    },
+    {
+      title: "INVOICE DATE",
+      data: file.getInvoiceDate().getAlternativeOptions(),
+    },
+    {
+      title: "INVOICE NUMBER",
+      data: file.getInvoiceNumber().getAlternativeOptions(),
+    },
+    {
+      title: "AMOUNT",
+      data: file
+        .getAmountBilled()
+        .getAlternativeOptions()
+        .map((option) => `${option.getAmount()} ${option.getCurrency()}`),
+    },
+  ];
+
+  alternativeItems.forEach((item) => {
+    if (!Array.isArray(item.data)) {
+      console.error(`Data for ${item.title} is not an array:`, item.data);
+      return;
+    }
+
+    const itemBox = document.createElement("div");
+    itemBox.classList.add("alternative-item-box");
+
+    const itemTitle = document.createElement("span");
+    itemTitle.classList.add("alternative-title");
+    itemTitle.textContent = item.title;
+    itemBox.appendChild(itemTitle);
+
+    const contentBox = document.createElement("div");
+    contentBox.classList.add("alternative-content-box");
+
+    item.data.forEach((data) => {
+      const dataSpan = document.createElement("span");
+      dataSpan.classList.add(
+        `alternative-data`,
+        `alternative-${item.title.toLowerCase().replace(" ", "-")}`
+      );
+      dataSpan.textContent = data;
+      contentBox.appendChild(dataSpan);
+    });
+
+    itemBox.appendChild(contentBox);
+    fragment.appendChild(itemBox);
+  });
+
+  return fragment;
 }
 
 function getAmountBilledInfo(file) {
@@ -315,6 +410,10 @@ function extractTableData(table) {
       rowData[fieldName] = value;
     }
   });
+
+  rowData[getTranslation(translationKeys.tableFileName)] = table
+    .querySelector(".file-link")
+    .textContent.trim();
 
   return rowData;
 }

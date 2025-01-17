@@ -1,50 +1,54 @@
+/* 상단 컨테이너 스타일 */
 .top-container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
   height: fit-content;
-
-  #middle-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--primary-white);
-    box-shadow: var(--box-shadow-2);
-    border-radius: 0.9375rem;
-    padding: 0.625rem 1rem;
-    #filter-container {
-      width: 50%;
-    }
-  }
-
-  #downloadCsvButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 2.5rem;
-    width: 8rem;
-    padding: 0rem 0.5rem;
-    align-self: flex-end;
-    border-radius: 0.625rem;
-    background: var(--blue-500);
-    color: var(--primary-white);
-    border: none;
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 150%; /* 0.9375rem */
-    cursor: pointer;
-
-    &:disabled {
-      background-color: var(--text-third-color);
-      cursor: not-allowed;
-    }
-  }
 }
 
+/* 중간 박스 스타일 */
+#middle-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-white);
+  box-shadow: var(--box-shadow-2);
+  border-radius: 0.9375rem;
+  padding: 0.625rem 1rem;
+}
+
+#filter-container {
+  width: 50%;
+}
+
+/* CSV 다운로드 버튼 스타일 */
+#downloadCsvButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 8rem;
+  padding: 0rem 0.5rem;
+  align-self: flex-end;
+  border-radius: 0.625rem;
+  background: var(--blue-500);
+  color: var(--primary-white);
+  border: none;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 150%; /* 0.9375rem */
+  cursor: pointer;
+}
+
+#downloadCsvButton:disabled {
+  background-color: var(--text-third-color);
+  cursor: not-allowed;
+}
+
+/* 업로드 컨테이너 스타일 */
 .upload-container {
   width: 100%;
   height: 100%;
@@ -52,125 +56,298 @@
   flex-direction: column;
   gap: 0.5rem;
   border-radius: 1.25rem;
+}
 
-  .table-pdf-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    gap: 0.5rem;
+/* PDF 테이블 컨테이너 스타일 */
+.table-pdf-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  gap: 0.5rem;
+}
 
-    #resultTableBody {
-      border-radius: 0.6rem;
-      display: flex;
-      flex-direction: column;
-      overflow: auto;
-      width: 100%;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      border-radius: 0.9375rem;
-    }
+/* 결과 테이블 바디 스타일 */
+#resultTableBody {
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.9375rem;
+}
 
-    #dragBar {
-      display: none;
-      width: 3px;
-      background-color: var(--text-primary-color);
-      cursor: col-resize;
-      float: left;
-      height: 100%;
-      transition: background-color 0.3s;
-      margin: 0 0.2rem;
-      border-radius: 0.6rem;
-    }
+/* 드래그 바 스타일 */
+#dragBar {
+  display: none;
+  width: 3px;
+  background-color: var(--text-primary-color);
+  cursor: col-resize;
+  float: left;
+  height: 100%;
+  transition: background-color 0.3s;
+  margin: 0 0.2rem;
+  border-radius: 0.6rem;
+}
 
-    #dragBar:hover {
-      background-color: var(--main-color);
-    }
+#dragBar:hover {
+  background-color: var(--main-color);
+}
 
-    .file-link {
-      cursor: pointer;
-      text-decoration: underline;
-      color: var(--main-color);
-    }
+/* 파일 정보 헤더 스타일 */
+.file-info-header-row {
+  color: var(--text-primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+}
 
-    .file-table {
-      width: 100%;
-      color: var(--text-primary-color);
-      background-color: var(--primary-white);
-      border-collapse: collapse;
-      font-size: 0.875rem;
-      padding-bottom: 1rem;
-      border-radius: 1.25rem;
-      line-height: 1.5rem; /* 171.429% */
-      letter-spacing: -0.0175rem;
-      box-shadow: var(--box-shadow-2);
-    }
+.file-info-header-row td {
+  padding-bottom: 1.44rem;
+  height: 2.5rem;
+}
 
-    /* 테이블 헤더 스타일 */
-    .file-table thead {
-      background-color: transparent;
-      border-bottom: 0.5px solid var(--text-third-color);
-      text-align: left;
-      padding: 0.7rem 1rem;
-    }
+.file-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--main-color);
+}
 
-    .file-table thead th {
-      color: var(--text-third-color);
-      padding: 1rem;
-      font-weight: 200;
-    }
+.file-link.file_type_unknown::before {
+  content: url("/assets/icon/disable_circle.svg");
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
-    /* 테이블 바디 스타일 */
-    .file-table tbody td:first-child {
-      width: 10%;
-    }
+.file-link.file_type_image::before {
+  content: url("/assets/icon/error_circle.svg");
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
-    .file-table tbody td:nth-child(2) {
-      width: 30%;
-      font-weight: 700;
-    }
-    .file-table tbody td:nth-child(3) {
-      width: 30%;
-    }
+.file-link.file_type_text::before {
+  content: url("/assets/icon/check_circle.svg");
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
-    .file-table tbody td {
-      max-width: 6rem;
-      overflow: hidden;
-      white-space: nowrap;
-      border: none;
-      padding: 0.94rem 1rem;
-    }
+.file-info-header-column {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
 
-    /* 추출된 값 및 검토된 값 입력 필드 스타일 */
-    .file-table tbody td input.editable-input {
-      border: none;
-      background-color: transparent;
-      font-size: 14px;
-      color: var(--text-primary-color);
-      border-bottom: 1px solid var(--text-third-color);
-      width: 80%;
-      font-weight: 700;
-    }
+/* 파일 필드 헤더 스타일 */
+.file-field-header-reviewed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
 
-    .file-table tbody td input.editable-input:focus {
-      border-color: var(--main-color);
-      outline: none;
-      border-bottom: 1px solid var(--main-color);
-    }
+.file-field-header-reviewed::before {
+  content: url("/assets/icon/edit_pen.svg");
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
-    .file-table tbody td.uneditable {
-      color: var(--text-third-color);
-      font-weight: 200;
-    }
+/* 파일 테이블 컨테이너 스타일 */
+.file-table-container {
+  height: fit-content;
+  background-color: var(--primary-white);
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
 
-    #pdfViewer {
-      width: 100%;
-      height: 100%;
-      display: none;
-      border: none;
-      border-radius: 0.9375rem;
-      background-color: var(--primary-white);
-    }
-  }
+/* 대체 데이터 컨테이너 스타일 */
+.alternative-data-container {
+  height: fit-content;
+  background-color: var(--primary-white);
+  border-radius: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.94rem 0.5rem 1.94rem;
+}
+
+.alternative-data-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  letter-spacing: -0.0175rem;
+  color: var(--text-third-color);
+  position: relative;
+}
+
+.alternative-data-title::after {
+  content: "";
+  width: calc(100%);
+  height: 0.25px;
+  background-color: var(--text-fourth-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.alternative-data-content {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.alternative-title {
+  font-weight: 500;
+  color: var(--text-primary-color);
+  line-height: 1.5rem;
+}
+
+.alternative-data {
+  padding: 0.125rem 0.35rem;
+  border-radius: 0.9375rem;
+  text-align: center;
+  font-weight: 500;
+  margin: 0.15rem 0;
+  display: inline-block;
+}
+
+.alternative-case-number {
+  color: #f86f9e;
+  background: rgba(248, 111, 158, 0.1);
+}
+
+.alternative-invoice-date {
+  color: #40cd5a;
+  background: rgba(64, 205, 90, 0.1);
+}
+
+.alternative-invoice-number {
+  color: #3a77f3;
+  background: rgba(58, 119, 243, 0.1);
+}
+
+.alternative-payer-name {
+  color: #ffd900;
+  background: rgba(255, 237, 71, 0.1);
+}
+
+.alternative-amount {
+  color: #ff9a47;
+  background: rgba(255, 154, 71, 0.1);
+}
+
+/* 파일 테이블 스타일 */
+.file-table {
+  width: 100%;
+  color: var(--text-primary-color);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.0175rem;
+  padding: 1.19rem 1.94rem;
+}
+
+/* 테이블 헤더 스타일 */
+.file-table thead {
+  text-align: left;
+  position: relative;
+}
+
+.file-table thead::after {
+  content: "";
+  width: 100%;
+  height: 0.25px;
+  background-color: var(--text-third-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.file-table thead th {
+  color: var(--text-third-color);
+  font-weight: 500;
+  padding-bottom: 0.38rem;
+  font-size: 0.875rem;
+}
+
+/* 테이블 바디 스타일 */
+.file-table tbody td:first-child {
+  width: 15%;
+}
+
+.file-table tbody td:nth-child(2) {
+  width: 30%;
+  font-weight: 700;
+}
+
+.file-table tbody td:nth-child(3) {
+  width: 30%;
+  padding: 0.44rem 0rem;
+}
+
+.file-table tbody td {
+  max-width: 6rem;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  padding: 0.94rem 0rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.0175rem;
+}
+
+.file-table tbody .candidate-row-td {
+  padding-top: 0rem;
+}
+
+/* 입력 필드 스타일 */
+.file-table tbody td input.editable-input {
+  border: none;
+  width: 70%;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  padding: 0.5rem 0rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.0175rem;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  border-radius: 0.6rem;
+}
+
+.file-table tbody td input.editable-input:hover {
+  cursor: pointer;
+  background-color: var(--background-color-2);
+  border: 1px solid var(--blue-500);
+  outline: none;
+}
+
+.file-table tbody td input.editable-input:focus {
+  outline: none;
+  cursor: text;
+  background-color: var(--background-color-2);
+  border: 1px solid var(--blue-500);
+}
+
+.file-table tbody td.uneditable {
+  color: var(--text-third-color);
+  font-weight: 200;
+}
+
+/* PDF 뷰어 스타일 */
+#pdfViewer {
+  width: 100%;
+  height: 100%;
+  display: none;
+  border: none;
+  border-radius: 0.9375rem;
+  background-color: var(--primary-white);
 }

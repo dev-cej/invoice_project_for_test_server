@@ -1,0 +1,41 @@
+<!-- index.html -->
+<template id="row-template">
+  <tr>
+    <td data-translate=""></td>
+    <td></td>
+    <td><input type="text" class="editable-input" /></td>
+  </tr>
+</template>
+
+<template id="table-template">
+  <div class="file-table-container">
+    <table class="file-table" data-company-code="">
+      <thead>
+        <tr class="file-info-header-row">
+          <td colspan="3">
+            <div class="file-info-header-column">
+              <div>
+                <a href="#" class="file-link"></a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="file-field-header">
+          <th data-translate=""></th>
+          <th data-translate=""></th>
+          <th class="file-field-header-reviewed" data-translate=""></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <!-- Alternative Data Template -->
+    <div class="alternative-data-container">
+      <div class="alternative-data-title">
+        <span>Alternative Data</span>
+      </div>
+      <div class="alternative-data-content">
+        <!-- Alternative data items will be dynamically inserted here -->
+      </div>
+    </div>
+  </div>
+</template>
