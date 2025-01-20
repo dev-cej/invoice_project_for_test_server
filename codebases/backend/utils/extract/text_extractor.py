@@ -3,6 +3,7 @@ import re
 import logging
 from backend.config.logging_config import setup_logging
 from typing import Tuple, List
+from backend.utils.extract.preprocess_text import filter_empty_lines
 
 setup_logging()
 
@@ -65,14 +66,12 @@ def find_keyword_in_line(line: str, keyword: str) -> Tuple[bool, str]:
     # 3. 단일 키워드인 경우 (예: "No")
     if len(keyword_parts) == 1:
         found = keyword_parts[0] in words
-        logging.debug(f"!!find_keyword_in_line 단일 키워드 매칭 시작: {keyword_parts} \n word: {words}")
         if found:
             logging.debug(f"!!find_keyword_in_line 단일 키워드 매칭 성공: {keyword}")
         return found, keyword
     
     # 4. 여러 단어로 된 키워드인 경우 (예: "Invoice No")
     for i in range(len(words) - len(keyword_parts) + 1):
-        logging.debug(f"!!find_keyword_in_line 복합 키워드 매칭 시작: {keyword_parts} \n word: {words}")
         if words[i:i+len(keyword_parts)] == keyword_parts:
             logging.debug(f"!!find_keyword_in_line 복합 키워드 매칭 성공: {keyword}")
             return True, keyword
@@ -101,7 +100,6 @@ def remove_text_after_multiple_spaces(text: str, space_count: int = 3) -> str:
 
 def extract_after_separator(text: str, separators: List[str]) -> str:
     """
-    구분자 이후의 텍스트를 추출하는 함수
     
     Args:
         text: 처리할 텍스트
@@ -221,9 +219,9 @@ def extract_data_from_text(
     """
     logging.debug(f"!!extract_data_from_text 시작: keyword: {keyword} extract_type: {extract_type} line_offset: {line_offset} separators: {separators}")
 
-    lines = text.splitlines()
+
     # 빈 라인 제거
-    lines = [line for line in lines if line.strip()]
+    lines = [filter_empty_lines(text)]
     
     for i, line in enumerate(lines):
         found, matched_keyword = find_keyword_in_line(line, keyword)

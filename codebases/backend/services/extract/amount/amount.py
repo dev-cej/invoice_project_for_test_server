@@ -45,7 +45,7 @@ def extract_amount_candidates(text: str) -> List[Dict]:
             # 쉼표와 소수점 처리
             normalized_amount = amount.replace('.', '').replace(',', '.')
             try:
-                if float(normalized_amount) != 0:
+                if float(normalized_amount) > 0:
                     logging.debug(f"추출된 금액 후보: {amount} {currency}")
                     candidates.append({'amount': amount, 'currency': currency})
             except ValueError:

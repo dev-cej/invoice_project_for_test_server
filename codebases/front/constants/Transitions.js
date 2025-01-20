@@ -37,7 +37,7 @@ export const TRANSLATIONS = {
     [translationKeys.tableExtracted]: "EXTRACTED",
     [translationKeys.tableReviewed]: "REVIEWED",
     [translationKeys.tableFileName]: "FILE NAME",
-    [translationKeys.tableCaseNumber]: "TEMPORARY CASE NO",
+    [translationKeys.tableCaseNumber]: "CASE NUMBER",
     [translationKeys.tableStatus]: "STATUS",
     [translationKeys.tableFileType]: "FILE TYPE",
     [translationKeys.tableMasterNameCode]: "MASTER NAME:CODE",

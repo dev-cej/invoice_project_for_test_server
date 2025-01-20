@@ -19,6 +19,7 @@ def preprocess_text(text):
 
 def preprocess_line(line):
     """특정 패턴을 제거하여 전처리된 줄을 반환"""
+    # 콜론을 기준으로 문장 분리
     if ':' in line:
         return line.split(':', 1)[1].strip()
     return line.strip()

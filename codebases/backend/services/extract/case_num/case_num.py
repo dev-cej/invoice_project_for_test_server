@@ -82,7 +82,7 @@ def extract_case_number_from_text(text: str, company_code: str = None) -> Tuple[
     processed_text = filter_empty_lines(text)
 
     # 1. 회사 코드가 있는 경우 회사별 패턴으로 시도
-    if company_code:
+    if  company_code in ["10101", "10201"]:
         pattern_result = extract_case_by_company_pattern(processed_text, company_code)
         logging.debug(f"!!pattern_result: {pattern_result}")
         # 시연용으로 회사코드 10101, 10201 일때만 해당 로직을 적용 (시연용 CASE NUMBER의 패턴이 다르기 때문)

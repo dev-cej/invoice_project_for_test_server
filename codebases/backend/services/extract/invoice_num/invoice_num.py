@@ -190,6 +190,8 @@ def extract_invoice_by_company_pattern(text: str, company_code: str) -> Optional
             line_offset=pattern['line_offset']
         )
         
+        # 추출된 데이터가 단어가 아닌 구문인 경우 처리
+        # 1개의 단어가 문장으로 추출되는 경우
         if extracted_text:
             # 공백 3개 이상으로 분리
             parts = re.split(r'\s{3,}', extracted_text)
