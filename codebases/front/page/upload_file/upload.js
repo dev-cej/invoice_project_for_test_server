@@ -335,9 +335,13 @@ async function openPdfInViewer(fileName) {
 
   // 경로 목록 정의
   const paths = [
-    `/uploads/highlight/${encodeURIComponent(highlightedFileName)}`,
-    `/uploads/pdfs/${encodeURIComponent(fileName)}`,
+    `/uploads/highlight/${encodeURIComponent(
+      highlightedFileName
+    )}#pagemode=none`,
+    `/uploads/pdfs/${encodeURIComponent(fileName)}#pagemode=none`,
   ];
+
+  console.log("paths: ", paths);
 
   // 순차적으로 파일 존재 여부 확인
   for (const path of paths) {
@@ -345,6 +349,7 @@ async function openPdfInViewer(fileName) {
       const response = await fetch(path, { method: "HEAD" });
       if (response.ok) {
         pdfViewer.src = path;
+        console.log("path2: ", path);
         pdfViewer.style.display = "block";
         dragBar.style.display = "block";
         return;

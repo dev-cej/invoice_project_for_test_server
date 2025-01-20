@@ -1,4 +1,11 @@
 <?php
+// CORS 헤더 설정
+if (isset($_SERVER['HTTP_ORIGIN']) && ($_SERVER['HTTP_ORIGIN'] == 'https://www.ktainvoice.o-r.kr')) {
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
+}
+
 // Content-Type을 JSON으로 설정
 header('Content-Type: application/json');
 

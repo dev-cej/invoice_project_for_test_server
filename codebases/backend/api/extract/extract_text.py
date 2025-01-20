@@ -13,7 +13,7 @@ from backend.DTO.detail.py.PayerCompanyDTO import PayerCompanyDTO
 from backend.DTO.detail.py.DateInfoDTO import DateInfoDTO
 from backend.DTO.detail.py.InvoiceNumberDTO import InvoiceNumberDTO
 from backend.utils.extract.filter_text import get_alternative_options
-from backend.services.extract.case_num.case_num import extract_case_numbers_from_text, filter_case_numbers_by_context
+from backend.services.extract.case_num.case_num import extract_case_number_from_text
 from backend.services.extract.match_company.match_company import find_similar_phrases_in_text, select_matched_candidate
 from backend.services.extract.invoice_num.invoice_num import extract_invoice_number_from_text
 from backend.services.extract.date.date import extract_dates_from_text, filter_primary_date
@@ -87,19 +87,14 @@ def main():
         else:
             logging.warning("회사 정보를 찾을 수 없습니다.")    
 
-
         # 안건번호 및 송장번호 추출
-        raw_case_numbers = extract_case_numbers_from_text(text_content)
-        filtered_case_numbers = filter_case_numbers_by_context(text_content, raw_case_numbers)
-        
-        # 필터링된 후보를 제외한 나머지 후보를 alternative_options에 저장
-        alternative_options = get_alternative_options(raw_case_numbers, filtered_case_numbers)
-        
+        case_number,alternative_options = extract_case_number_from_text(text_content, company_code)
+
         case_number = [CaseNumberDTO.from_dict({
             'selected_candidate': number,
             'alternative_options': alternative_options
-        }) for number in filtered_case_numbers]
-
+        }) for number in case_number]
+        
         logging.info(f"추출된 안건번호!: {case_number}")
 
 

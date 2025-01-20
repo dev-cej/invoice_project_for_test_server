@@ -1,4 +1,50 @@
 COMPANY_PATTERNS = {
+    "10101": {  # L O U I S · P Ö H L A U · L O H R E N T Z
+        "name": "L O U I S · P Ö H L A U · L O H R E N T Z",
+        "invoice_number": {
+            "keywords": ["Invoice No"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        },
+        "date": {
+            "keywords": ["Invoice No"],
+            "line_offset": 1,
+            "extract_type": "line"
+        },
+        "amount": {
+            "keywords": ["Total Sum"],
+            "line_offset": 0,
+            "extract_type": "line"
+        },
+        "case_number": {
+            "keywords": ["Your Ref"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        }
+    },
+    "10201": {  # WTA Patents
+        "name": "WTA Patents",
+        "invoice_number": {
+            "keywords": ["Invoice"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        },
+        "date": {
+            "keywords": ["Invoice"],
+            "line_offset": 1,
+            "extract_type": "line"
+        },
+        "amount": {
+            "keywords": ["Please Pay This Amount"],
+            "line_offset": 0,
+            "extract_type": "line"
+        },
+        "case_number": {
+            "keywords": ["Your ref"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        }
+    },
     "248": {  # DANIEL
         "name": "DANIEL",
         "invoice_number": {

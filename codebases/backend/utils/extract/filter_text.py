@@ -31,15 +31,3 @@ def get_alternative_options(raw_candidates, filtered_candidates):
         step4 = ''.join(c.upper() if c.isascii() else c for c in step3)
         
         return step4
-    
-    # 라인과 키워드 정규화
-    clean_line = clean_text(line)
-    clean_keyword = clean_text(keyword)
-    
-    print(f"정규화된 라인: '{clean_line}'")
-    print(f"정규화된 키워드: '{clean_keyword}'")
-    
-    if clean_keyword in clean_line:
-        return True, keyword  # 원본 키워드 반환
-    
-    return False, ""

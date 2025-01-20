@@ -1,1403 +1,1407 @@
-
-{    "companies": [
-        {
-            "code": "290",
-            "short_name": "AAA LAW",
-            "name": "AAA LAW",
-            "currency": "EUR"
-        },
-        {
-            "code": "380",
-            "short_name": "ABG PATENTES S.L.",
-            "name": "ABG PATENTES, S.L.",
-            "currency": "EUR"
-        },
-        {
-            "code": "80",
-            "short_name": "Abu_Ghazaleh",
-            "name": "Abu-Ghazaleh Intellectual Property",
-            "currency": "USD"
-        },
-        {
-            "code": "76",
-            "short_name": "ABU-GHAZALEH LEGAL SERVICES",
-            "name": "ABU-GHAZALEH LEGAL SERVICES LIMITED",
-            "alias": ["ABU-GHAZALEH_LEGAL_SERVICES"],
-            "currency": "USD"
-        },
-        {
-            "code": "398",
-            "short_name": "ACEMARK",
-            "name": "ACEMARK",
-            "currency": "USD"
-        },
-        {
-            "code": "67",
-            "short_name": "ADVANCE CHINA",
-            "name": "ADVANCE CHINA I.P.LAW OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "450",
-            "short_name": "AFD China Intellectual Property Law Office",
-            "name": "AFD China Intellectual Property Law Office",
-            "currency": "USD"
-        },
-        {
-            "code": "255",
-            "short_name": "AGENCY TRIA ROBIT(EUR)",
-            "name": "AGENCY TRIA ROBIT(EUR)",
-            "currency": "EUR"
-        },
-        {
-            "code": "404",
-            "short_name": "AGENCY TRIA ROBIT(USD)",
-            "name": "AGENCY TRIA ROBIT(USD)",
-            "currency": "USD"
-        },
-        {
-            "code": "109",
-            "short_name": "AIP LAW",
-            "name": "AIP LAW",
-            "currency": "USD"
-        },
-        {
-            "code": "142",
-            "short_name": "AJ Park IP Limited",
-            "name": "AJ Park IP Limited",
-            "currency": "USD"
-        },
-        {
-            "code": "441",
-            "short_name": "Am Badar & Am Badar",
-            "name": "Am Badar & Am Badar",
-            "currency": "USD"
-        },
-        {
-            "code": "38",
-            "short_name": "ANAND",
-            "name": "ANAND AND ANAND",
-            "currency": "USD"
-        },
-        {
-            "code": "105",
-            "short_name": "ARIAS",
-            "name": "ARIAS, FABREGA & FABREGA",
-            "currency": "USD"
-        },
-        {
-            "code": "337",
-            "short_name": "ARNASON FAKTOR",
-            "name": "ARNASON FAKTOR",
-            "currency": "EUR"
-        },
-        {
-            "code": "365",
-            "short_name": "Ashurst",
-            "name": "Ashurst",
-            "currency": "USD"
-        },
-        {
-            "code": "445",
-            "short_name": "ASIAWISE",
-            "name": "ASIAWISE",
-            "currency": "USD"
-        },
-        {
-            "code": "433",
-            "short_name": "ATB Intellectual Property LLC",
-            "name": "ATB Intellectual Property LLC",
-            "currency": "USD"
-        },
-        {
-            "code": "310",
-            "short_name": "AWA Norway AS",
-            "name": "AWA Norway AS",
-            "currency": "USD"
-        },
-        {
-            "code": "399",
-            "short_name": "Baker_McKenzie",
-            "name": "Baker & McKenzie Ltd.",
-            "currency": "USD"
-        },
-        {
-            "code": "307",
-            "short_name": "BEER & PARTNER",
-            "name": "BEER & PARTNER PATENTANWALTEKG",
-            "currency": "EUR"
-        },
-        {
-            "code": "366",
-            "short_name": "EAST IP",
-            "name": "BEIJING EAST IP LTD.",
-            "currency": "USD"
-        },
-        {
-            "code": "68",
-            "short_name": "F&S",
-            "name": "BEIJING F&S INTELLECTUAL PROPERTY LTD",
-            "currency": "USD"
-        },
-        {
-            "code": "417",
-            "short_name": "BENTATA ABOGADOS",
-            "name": "BENTATA ABOGADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "421",
-            "short_name": "BENTATA ABOGADOS(Grant tax)",
-            "name": "BENTATA ABOGADOS(Grant tax)",
-            "currency": "USD"
-        },
-        {
-            "code": "381",
-            "short_name": "BERKEMEYER",
-            "name": "BERKEMEYER Attorneys and Counselors",
-            "currency": "USD"
-        },
-        {
-            "code": "432",
-            "short_name": "BEYOND ATTORNEYS AT LAW",
-            "name": "BEYOND ATTORNEYS AT LAW",
-            "currency": "USD"
-        },
-        {
-            "code": "261",
-            "short_name": "BEZZINA & MIFSUD",
-            "name": "BEZZINA & MIFSUD PATENTBUREAU",
-            "currency": "EUR"
-        },
-        {
-            "code": "384",
-            "short_name": "BIRD GOEN & CO",
-            "name": "BIRD GOEN & CO",
-            "currency": "EUR"
-        },
-        {
-            "code": "43",
-            "short_name": "BIRO OKTROI",
-            "name": "BIRO OKTROI ROOSSENO",
-            "currency": "USD"
-        },
-        {
-            "code": "149",
-            "short_name": "BLAKE DAWSON",
-            "name": "BLAKE DAWSON WALDRON",
-            "currency": "USD"
-        },
-        {
-            "code": "157",
-            "short_name": "BOLTON",
-            "name": "BOLTON INDUSTIRIAL PROPERTY SERVICES LTD",
-            "currency": "USD"
-        },
-        {
-            "code": "224",
-            "short_name": "Borden",
-            "name": "Borden Ladner Gervais LLP Lawyers-Patent & Trade-mark Agents",
-            "currency": "CAD"
-        },
-        {
-            "code": "83",
-            "short_name": "BRIGARD",
-            "name": "BRIGARD & CASTRO",
-            "currency": "USD"
-        },
-        {
-            "code": "306",
-            "short_name": "Buchanan",
-            "name": "Buchanan Ingersoll PC",
-            "currency": "USD"
-        },
-        {
-            "code": "214",
-            "short_name": "Busco",
-            "name": "BUSCO MARCAS E PATENTES",
-            "currency": "USD"
-        },
-        {
-            "code": "321",
-            "short_name": "Lomenie",
-            "name": "Cabinet Beau de Loménie",
-            "currency": "EUR"
-        },
-        {
-            "code": "467",
-            "short_name": "Cabinet de Lespinasse",
-            "name": "Cabinet de Lespinasse",
-            "currency": "USD"
-        },
-        {
-            "code": "311",
-            "short_name": "CABINET ENPORA",
-            "name": "CABINET ENPORA",
-            "currency": "EUR"
-        },
-        {
-            "code": "65",
-            "short_name": "CALTY",
-            "name": "CALTY DESIGN RESEARCH",
-            "currency": "USD"
-        },
-        {
-            "code": "81",
-            "short_name": "CAREY",
-            "name": "Carey y Cía. Ltda.",
-            "alias": [
-
-            ],
-            "currency": "USD"
-        },
-        {
-            "code": "26",
-            "short_name": "CCPIT",
-            "name": "CCPIT Patent and Trademark Law Office",
-            "currency": "USD"
-        },
-        {
-            "code": "196",
-            "short_name": "CELAPI",
-            "name": "CELAPI S.A.",
-            "currency": "USD"
-        },
-        {
-            "code": "12",
-            "short_name": "CENTRAL INTERNATIONAL LAW FIRM",
-            "name": "CENTRAL INTERNATIONAL LAW FIRM",
-            "currency": "USD"
-        },
-        {
-            "code": "367",
-            "short_name": "CHANDRAKANT",
-            "name": "CHANDRAKANT M. JOSHI",
-            "currency": "USD"
-        },
-        {
-            "code": "449",
-            "short_name": "CHINA PAT",
-            "name": "CHINA PAT INTELLECTUAL PROPERTY OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "57",
-            "short_name": "CHINA PATENT AGENT(H.K.)LTD",
-            "name": "CHINA PATENT AGENT(H.K.)LTD",
-            "currency": "USD"
-        },
-        {
-            "code": "133",
-            "short_name": "CSPTAL",
-            "name": "CHINA SCIENCE PATENT & TRADEMARK AGENT LTD",
-            "currency": "USD"
-        },
-        {
-            "code": "27",
-            "short_name": "中原(CHINA SINDA)",
-            "name": "CHINA SINDA INTELLECTUAL PROPERTY LIMITED",
-            "currency": "USD"
-        },
-        {
-            "code": "96",
-            "short_name": "Clarke Mexico",
-            "name": "Clarke, Modet & Co., Mexico",
-            "currency": "USD"
-        },
-        {
-            "code": "114",
-            "short_name": "CLT(H.K.)",
-            "name": "CLT PATENT & TRADEMARK (H.K.) LTD.",
-            "currency": "USD"
-        },
-        {
-            "code": "440",
-            "short_name": "CORRS CHAMBERS WESTGARTH",
-            "name": "CORRS CHAMBERS WESTGARTH",
-            "currency": "USD"
-        },
-        {
-            "code": "164",
-            "short_name": "CPA",
-            "name": "CPA Global Limited",
-            "currency": "GBP"
-        },
-        {
-            "code": "128",
-            "short_name": "CURACAO TRADE MARK AGENCY",
-            "name": "CURACAO TRADE MARK AGENCY",
-            "currency": "USD"
-        },
-        {
-            "code": "260",
-            "short_name": "D YOUNG",
-            "name": "D YOUNG & CO LLP",
-            "currency": "GBP"
-        },
-        {
-            "code": "248",
-            "short_name": "DANIEL",
-            "name": "DANIEL ADVOGADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "63",
-            "short_name": "DANNEMANN SIEMSEN ADVOGADOS",
-            "name": "DANNEMANN SIEMSEN ADVOGADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "90",
-            "short_name": "DANNEMANN SIEMSEN BIGLER",
-            "name": "DANNEMANN SIEMSEN BIGLER & IPANEMA MOREIRA",
-            "currency": "USD"
-        },
-        {
-            "code": "215",
-            "short_name": "DANUBIA",
-            "name": "DANUBIA Patent & Law Office",
-            "currency": "EUR"
-        },
-        {
-            "code": "457",
-            "short_name": "Darrow Mustafa PC",
-            "name": "Darrow Mustafa PC",
-            "currency": "USD"
-        },
-        {
-            "code": "426",
-            "short_name": "DERIS ATTORNEY AT LAW",
-            "name": "DERIS ATTORNEY AT LAW",
-            "currency": "USD"
-        },
-        {
-            "code": "412",
-            "short_name": "DERIS PATENTS & TRADEMARKS",
-            "name": "DERIS PATENTS & TRADEMARKS",
-            "currency": "USD"
-        },
-        {
-            "code": "419",
-            "short_name": "Dickinson Wright PLLC",
-            "name": "Dickinson Wright PLLC",
-            "currency": "USD"
-        },
-        {
-            "code": "410",
-            "short_name": "Dinsmore",
-            "name": "Dinsmore & Shohl LLP",
-            "currency": "USD"
-        },
-        {
-            "code": "37",
-            "short_name": "DOMNERN",
-            "name": "DOMNERN SOMGIAT & BOONMA",
-            "currency": "YEN"
-        },
-        {
-            "code": "42",
-            "short_name": "DR. MODIANO",
-            "name": "DR. MODIANO & ASSOCIATI",
-            "currency": "EUR"
-        },
-        {
-            "code": "127",
-            "short_name": "DREW & NAPIER",
-            "name": "DREW & NAPIER",
-            "currency": "USD"
-        },
-        {
-            "code": "192",
-            "short_name": "Ehrner & Delmar",
-            "name": "Ehrner & Delmar Patentbyrå AB",
-            "currency": "EUR"
-        },
-        {
-            "code": "262",
-            "short_name": "ELZABURU",
-            "name": "ELZABURU SA",
-            "currency": "USD"
-        },
-        {
-            "code": "466",
-            "short_name": "ESTUDIO MUÑIZ",
-            "name": "ESTUDIO MUÑIZ",
-            "currency": "USD"
-        },
-        {
-            "code": "61",
-            "short_name": "FINNEGAN",
-            "name": "FINNEGAN, HENDERSON, FARABOW, GARRETT & DUNNER, L.L.P.",
-            "currency": "USD"
-        },
-        {
-            "code": "159",
-            "short_name": "FITZWILLIAM STONE",
-            "name": "FITZWILLIAM STONE FURNESS-SMITH & MORGAN",
-            "currency": "USD"
-        },
-        {
-            "code": "234",
-            "short_name": "FREYGNER Law firm",
-            "name": "FREYGNER Law firm",
-            "currency": "CHF"
-        },
-        {
-            "code": "305",
-            "short_name": "G. RONALD BELL",
-            "name": "G. RONALD BELL & ASSOCIATES",
-            "currency": "USD"
-        },
-        {
-            "code": "88",
-            "short_name": "G.BREUER",
-            "name": "G.BREUER",
-            "currency": "USD"
-        },
-        {
-            "code": "145",
-            "short_name": "GABRIEL PATENT&TRADEMARK OFFICE",
-            "name": "GABRIEL PATENT&TRADEMARK OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "413",
-            "short_name": "GOODRICH,RIQUELME",
-            "name": "GOODRICH,RIQUELME Y ASSOCIADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "459",
-            "short_name": "Gorodissky(EUR)",
-            "name": "Gorodissky & Patent Law Firm(EUR)",
-            "alias": ["GORODISSKY_EUR"],
-            "currency": "EUR"
-        },
-        {
-            "code": "115",
-            "short_name": "Gorodissky(USD)",
-            "name": "Gorodissky & Patent Law Firm(USD)",
-            "alias": ["GORODISSKY_USD"],
-            "currency": "USD"
-        },
-        {
-            "code": "102",
-            "short_name": "Gowling",
-            "name": "Gowling Lafleur Henderson LLP",
-            "currency": "CAD"
-        },
-        {
-            "code": "386",
-            "short_name": "Greenblum",
-            "name": "Greenblum & Bernstein, P.L.C.",
-            "currency": "USD"
-        },
-        {
-            "code": "392",
-            "short_name": "GROSSE",
-            "name": "Grosse Schumacher Knauer von Hirschhausen",
-            "currency": "EUR"
-        },
-        {
-            "code": "390",
-            "short_name": "Gruenecker",
-            "name": "Gruenecker Patent- und Rechtsanwaelte PartG mbB.",
-            "currency": "EUR"
-        },
-        {
-            "code": "82",
-            "short_name": "GUDBERTO",
-            "name": "GUDBERTO ORTIR & HIJOS & ASOCIADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "397",
-            "short_name": "Gudberto Ortiz",
-            "name": "Gudberto Ortiz & Hijos & Asociados",
-            "currency": "USD"
-        },
-        {
-            "code": "144",
-            "short_name": "GUSTAVO FISCHER",
-            "name": "GUSTAVO FISCHER O MARIA DE LAS MERCEDES CASTELLS",
-            "currency": "USD"
-        },
-        {
-            "code": "111",
-            "short_name": "GUY JOSE BENDANA",
-            "name": "GUY JOSE BENDANA GUERRERO & ASOCIADOS",
-            "currency": "USD"
-        },
-        {
-            "code": "112",
-            "short_name": "HALL MARK (TMOA)",
-            "name": "HALL MARK (TMOA)",
-            "currency": "GBP"
-        },
-        {
-            "code": "424",
-            "short_name": "Hauptman Ham",
-            "name": "Hauptman Ham",
-            "currency": "USD"
-        },
-        {
-            "code": "401",
-            "short_name": "Henry Goh",
-            "name": "Henry Goh & Co. Sdn. Bhd.",
-            "currency": "USD"
-        },
-        {
-            "code": "169",
-            "short_name": "HIGGS & KELLY",
-            "name": "HIGGS & KELLY",
-            "currency": "USD"
-        },
-        {
-            "code": "295",
-            "short_name": "HIRSCH & ASSOCIES",
-            "name": "HIRSCH & ASSOCIES",
-            "currency": "EUR"
-        },
-        {
-            "code": "375",
-            "short_name": "HOEFER",
-            "name": "HOEFER & PARTNER",
-            "currency": "EUR"
-        },
-        {
-            "code": "200",
-            "short_name": "HOFFMANN EITLE",
-            "name": "HOFFMANN EITLE",
-            "currency": "EUR"
-        },
-        {
-            "code": "50",
-            "short_name": "HUNTON ANDREWS KURTH LLP",
-            "name": "HUNTON ANDREWS KURTH LLP",
-            "currency": "USD"
-        },
-        {
-            "code": "368",
-            "short_name": "INEUREKA",
-            "name": "INEUREKA",
-            "currency": "EUR"
-        },
-        {
-            "code": "77",
-            "short_name": "Inventa International Ltd.",
-            "name": "Inventa International Ltd.",
-            "currency": "USD"
-        },
-        {
-            "code": "372",
-            "short_name": "INVENTA INTERNATIONAL",
-            "name": "INVENTA INTERNATIONAL,LTD",
-            "currency": "EUR"
-        },
-        {
-            "code": "451",
-            "short_name": "IPITeC Limited",
-            "name": "IPITeC Limited",
-            "currency": "GBP"
-        },
-        {
-            "code": "35",
-            "short_name": "IPOA Limited",
-            "name": "IPOA Limited",
-            "currency": "GBP"
-        },
-        {
-            "code": "124",
-            "short_name": "IRIN PATENT",
-            "name": "IRIN PATENT",
-            "currency": "EUR"
-        },
-        {
-            "code": "258",
-            "short_name": "J.A.KEMP",
-            "name": "J.A.KEMP",
-            "alias": [
-                "JAKEMP",
-                "J A KEMP LLP",
-                "J A KEMP",
-                "J.A.KEMP & CO",
-                "J A KEMP AND CO",
-                "J.A.KEMP"
-            ],
-            "domain": "jakemp.com",
-            "currency": "GBP"
-        },
-        {
-            "code": "455",
-            "short_name": "JAH Intellectual Property",
-            "name": "JAH Intellectual Property",
-            "currency": "USD"
-        },
-        {
-            "code": "153",
-            "short_name": "JORGE MERA & VILLEGAS",
-            "name": "JORGE MERA & VILLEGAS",
-            "currency": "USD"
-        },
-        {
-            "code": "152",
-            "short_name": "JULIUS & CREASY",
-            "name": "JULIUS & CREASY",
-            "currency": "USD"
-        },
-        {
-            "code": "465",
-            "short_name": "JUPITER LAW PARTNERS",
-            "name": "JUPITER LAW PARTNERS",
-            "currency": "USD"
-        },
-        {
-            "code": "405",
-            "short_name": "K&K",
-            "name": "K&K Advocates",
-            "currency": "USD"
-        },
-        {
-            "code": "369",
-            "short_name": "K&S",
-            "name": "K&S Partners",
-            "currency": "USD"
-        },
-        {
-            "code": "402",
-            "short_name": "KAN & KRISHME",
-            "name": "KAN & KRISHME Advocates, Patent & Trademark Attorneys",
-            "currency": "USD"
-        },
-        {
-            "code": "94",
-            "short_name": "Kaosaar & Co",
-            "name": "Kaosaar & Co",
-            "currency": "EUR"
-        },
-        {
-            "code": "158",
-            "short_name": "KEY MARK PVT.LTD.",
-            "name": "KEY MARK PVT.LTD.",
-            "currency": "USD"
-        },
-        {
-            "code": "49",
-            "short_name": "金&張(KIM&CHANG)",
-            "name": "KIM&CHANG",
-            "alias": [
-                "KIM AND CHANG",
-                "K&C",
-                "KIM & CHANG LAW OFFICES",
-                "KIM AND CHANG LAW FIRM"
-            ],
-            "currency": "USD"
-        },
-        {
-            "code": "228",
-            "short_name": "KING & WOOD",
-            "name": "KING & WOOD",
-            "currency": "USD"
-        },
-        {
-            "code": "352",
-            "short_name": "金信(KINGSOUND)",
-            "name": "KINGSOUND & PARTNERS Intellectual Property Law",
-            "currency": "USD"
-        },
-        {
-            "code": "460",
-            "short_name": "KLUNKER IP",
-            "name": "KLUNKER IP",
-            "currency": "EUR"
-        },
-        {
-            "code": "205",
-            "short_name": "Kramer",
-            "name": "Kramer Barske Schmidtchen Patentanwälte PartG mbB",
-            "currency": "EUR"
-        },
-        {
-            "code": "403",
-            "short_name": "KSNH",
-            "name": "KSNH Patentanwälte Klunker . Schmitt - Nilson . Hirsch",
-            "currency": "EUR"
-        },
-        {
-            "code": "185",
-            "short_name": "KUHNEN",
-            "name": "Kuhnen & Wacker Patent and Law Firm P. C.",
-            "currency": "EUR"
-        },
-        {
-            "code": "422",
-            "short_name": "Laine IP Oy",
-            "name": "Laine IP Oy",
-            "currency": "EUR"
-        },
-        {
-            "code": "75",
-            "short_name": "Lakshmikumaran",
-            "name": "Lakshmikumaran & Sridharan",
-            "currency": "USD"
-        },
-        {
-            "code": "448",
-            "short_name": "Leader Patent",
-            "name": "Leader Patent & Trademark Firm",
-            "currency": "USD"
-        },
-        {
-            "code": "388",
-            "short_name": "LINDA LIU",
-            "name": "LINDA LIU & PARTNERS",
-            "currency": "USD"
-        },
-        {
-            "code": "453",
-            "short_name": "LINKER IP LLC",
-            "name": "LINKER IP LLC",
-            "currency": "USD"
-        },
-        {
-            "code": "416",
-            "short_name": "LONGAN LAW FIRM",
-            "name": "LONGAN LAW FIRM",
-            "currency": "USD"
-        },
-        {
-            "code": "283",
-            "short_name": "LUNG TIN",
-            "name": "LUNG TIN INTERNATIONAL INTELLECTUAL PROPERTY AGENT LTD.",
-            "currency": "USD"
-        },
-        {
-            "code": "15",
-            "short_name": "Maiwald",
-            "name": "Maiwald Patentanwalts GmbH",
-            "currency": "EUR"
-        },
-        {
-            "code": "438",
-            "short_name": "Maschoff Brennan",
-            "name": "Maschoff Brennan",
-            "currency": "USD"
-        },
-        {
-            "code": "264",
-            "short_name": "MASUDA VISA",
-            "name": "MASUDA VISA",
-            "currency": "YEN"
-        },
-        {
-            "code": "374",
-            "short_name": "McGINN",
-            "name": "McGINN INTELLECTUAL PROPERTY LAW GROUP, PLLC",
-            "currency": "USD"
-        },
-        {
-            "code": "163",
-            "short_name": "MUNRO LEYS",
-            "name": "MUNRO LEYS",
-            "currency": "USD"
-        },
-        {
-            "code": "229",
-            "short_name": "MYANMAR TRADEMARK",
-            "name": "MYANMAR TRADEMARK & PATENT LAW FIRM",
-            "currency": "USD"
-        },
-        {
-            "code": "415",
-            "short_name": "NOETINGER AND ARMANDO",
-            "name": "NOETINGER AND ARMANDO",
-            "currency": "USD"
-        },
-        {
-            "code": "101",
-            "short_name": "NOVAGRAAF FRANCE",
-            "name": "NOVAGRAAF FRANCE SA",
-            "currency": "EUR"
-        },
-        {
-            "code": "199",
-            "short_name": "NOVAGRAAF INTERNATIONAL",
-            "name": "NOVAGRAAF INTERNATIONAL SA",
-            "currency": "EUR"
-        },
-        {
-            "code": "406",
-            "short_name": "NOVAGRAAF SWITZERLAND",
-            "name": "NOVAGRAAF SWITZERLAND SA",
-            "currency": "CHF"
-        },
-        {
-            "code": "55",
-            "short_name": "NTD",
-            "name": "NTD PATENT & TRADE MARK AGENCY LIMITED",
-            "currency": "USD"
-        },
-        {
-            "code": "71",
-            "short_name": "OBLON",
-            "name": "Oblon, McClelland, Maier & Neustadt, LLP",
-            "currency": "USD"
-        },
-        {
-            "code": "10",
-            "short_name": "OLIFF",
-            "name": "OLIFF PLC",
-            "currency": "USD"
-        },
-        {
-            "code": "312",
-            "short_name": "OY JALO",
-            "name": "OY JALO ANT-WUORINEN AB",
-            "currency": "EUR"
-        },
-        {
-            "code": "458",
-            "short_name": "pacific patent multiglobal",
-            "name": "pacific patent multiglobal",
-            "currency": "USD"
-        },
-        {
-            "code": "391",
-            "short_name": "Patent&Law Firm Dyne",
-            "name": "Patent&Law Firm Dyne",
-            "currency": "USD"
-        },
-        {
-            "code": "117",
-            "short_name": "PATENTSERVIS",
-            "name": "PATENTSERVIS Praha a.s.",
-            "currency": "USD"
-        },
-        {
-            "code": "315",
-            "short_name": "Patrinos & Kilimiris",
-            "name": "Patrinos & Kilimiris",
-            "currency": "EUR"
-        },
-        {
-            "code": "286",
-            "short_name": "POLSERVICE",
-            "name": "POLSERVICE",
-            "currency": "EUR"
-        },
-        {
-            "code": "231",
-            "short_name": "POSZ LAW",
-            "name": "POSZ LAW GROUP,PLC",
-            "currency": "USD"
-        },
-        {
-            "code": "385",
-            "short_name": "PT BIRO OKTROI ROOSSENO",
-            "name": "PT BIRO OKTROI ROOSSENO",
-            "alias": [
-                "PT. BIRO OKTROI ROOSSENO"
-            ],
-            "currency": "USD"
-        },
-        {
-            "code": "463",
-            "short_name": "RABIN & BERDO P.C.",
-            "name": "RABIN & BERDO, P.C.",
-            "currency": "USD"
-        },
-        {
-            "code": "316",
-            "short_name": "RCF PI",
-            "name": "RCF Protecting Innovation, S.A.(RCF PI)",
-            "currency": "EUR"
-        },
-        {
-            "code": "182",
-            "short_name": "Remfry & Sagar",
-            "name": "Remfry & Sagar Attorneys at law",
-            "currency": "USD"
-        },
-        {
-            "code": "154",
-            "short_name": "REMFRY & SON",
-            "name": "REMFRY & SON",
-            "currency": "USD"
-        },
-        {
-            "code": "98",
-            "short_name": "RICARDO ROMERO-GUZMAN",
-            "name": "RICARDO ROMERO-GUZMAN",
-            "currency": "USD"
-        },
-        {
-            "code": "429",
-            "short_name": "Ridout and Maybee LLP",
-            "name": "Ridout and Maybee LLP",
-            "currency": "CAD"
-        },
-        {
-            "code": "221",
-            "short_name": "RWS GROUP",
-            "name": "RWS INFORMATION LIMITED (U.K)",
-            "currency": "YEN"
-        },
-        {
-            "code": "299",
-            "short_name": "S & I ASIA",
-            "name": "S & I ASIA CO.,LTD.",
-            "currency": "YEN"
-        },
-        {
-            "code": "47",
-            "short_name": "S & I",
-            "name": "S & I International Bangkok Office",
-            "currency": "YEN"
-        },
-        {
-            "code": "131",
-            "short_name": "S. Horowitz & Co.",
-            "name": "S. Horowitz & Co.",
-            "currency": "USD"
-        },
-        {
-            "code": "288",
-            "short_name": "S.A.P.I.M.",
-            "name": "S.A.P.I.M.",
-            "currency": "EUR"
-        },
-        {
-            "code": "84",
-            "short_name": "SAIDMAN",
-            "name": "SAIDMAN Design Law Group",
-            "currency": "USD"
-        },
-        {
-            "code": "46",
-            "short_name": "SAPALO",
-            "name": "SAPALO VELEZ BUNDANG & BULILAN LAW OFFICES",
-            "currency": "USD"
-        },
-        {
-            "code": "303",
-            "short_name": "SBMP",
-            "name": "SCHAAD BALASS MENZL & PARTNER AG",
-            "currency": "CHF"
-        },
-        {
-            "code": "461",
-            "short_name": "Schoppe Zimmermann",
-            "name": "Schoppe Zimmermann",
-            "currency": "EUR"
-        },
-        {
-            "code": "423",
-            "short_name": "SCIHEAD IP LAW FIRM",
-            "name": "SCIHEAD IP LAW FIRM",
-            "currency": "USD"
-        },
-        {
-            "code": "289",
-            "short_name": "SD PETOSEVIC",
-            "name": "SD PETOSEVIC",
-            "currency": "EUR"
-        },
-        {
-            "code": "414",
-            "short_name": "SERJEANTS LLP",
-            "name": "SERJEANTS LLP",
-            "currency": "EUR"
-        },
-        {
-            "code": "443",
-            "short_name": "SHANGHAI PATENT",
-            "name": "SHANGHAI PATENT & TRADEMARK LAW OFFICE, LLC",
-            "currency": "USD"
-        },
-        {
-            "code": "447",
-            "short_name": "SheppardMullin",
-            "name": "SheppardMullin",
-            "currency": "USD"
-        },
-        {
-            "code": "454",
-            "short_name": "Simmons & Simmons LLP",
-            "name": "Simmons & Simmons LLP",
-            "currency": "USD"
-        },
-        {
-            "code": "135",
-            "short_name": "Sjiem Fat & Co.",
-            "name": "Sjiem Fat & Co. Law Offices",
-            "currency": "USD"
-        },
-        {
-            "code": "150",
-            "short_name": "SJIEM FAT & MAHABIR",
-            "name": "SJIEM FAT & MAHABIR",
-            "currency": "USD"
-        },
-        {
-            "code": "45",
-            "short_name": "SKRINE",
-            "name": "SKRINE & Co.",
-            "currency": "USD"
-        },
-        {
-            "code": "435",
-            "short_name": "Snell＆Wilmer LLP",
-            "name": "Snell＆Wilmer LLP",
-            "currency": "USD"
-        },
-        {
-            "code": "446",
-            "short_name": "SoraIP",
-            "name": "SoraIP",
-            "alias": [
-                "SORA IP",
-                "SORAIP",
-                "Sora IP"
-            ],
-            "currency": "USD"
-        },
-        {
-            "code": "287",
-            "short_name": "SPOOR AND FISHER JERSEY(￡)",
-            "name": "SPOOR AND FISHER JERSEY(￡)",
-            "currency": "GBP"
-        },
-        {
-            "code": "407",
-            "short_name": "SPOOR AND FISHER (￡)",
-            "name": "SPOOR AND FISHER SOUTH AFRICA(￡)",
-            "currency": "GBP"
-        },
-        {
-            "code": "134",
-            "short_name": "SPOOR AND FISHER SOUTH AFRICA(USD)",
-            "name": "SPOOR AND FISHER SOUTH AFRICA(USD)",
-            "currency": "USD"
-        },
-        {
-            "code": "428",
-            "short_name": "SPRUSON & FERGUSON (ASIA)",
-            "name": "SPRUSON & FERGUSON (ASIA) PTE LTD",
-            "currency": "USD"
-        },
-        {
-            "code": "204",
-            "short_name": "SPRUSON",
-            "name": "Spruson & Ferguson Pty Limited.",
-            "currency": "USD"
-        },
-        {
-            "code": "123",
-            "short_name": "STUDIO TORTA",
-            "name": "STUDIO TORTA s.r.l.",
-            "currency": "EUR"
-        },
-        {
-            "code": "325",
-            "short_name": "Sughrue",
-            "name": "Sughrue Mion, PLLC",
-            "currency": "USD"
-        },
-        {
-            "code": "20",
-            "short_name": "TIPLO",
-            "name": "TAIWAN INTERNATIONAL PATENT & LAW OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "73",
-            "short_name": "TBK",
-            "name": "TBK",
-            "currency": "EUR"
-        },
-        {
-            "code": "78",
-            "short_name": "TEE & HOWE",
-            "name": "Tee & Howe Intellectual Property Attorneys",
-            "currency": "USD"
-        },
-        {
-            "code": "408",
-            "short_name": "DR. CHRISTOS A. (EUR)",
-            "name": "The Law Offices of Dr. Christos A. Theodoulou K.ST.J.(EUR)",
-            "currency": "EUR"
-        },
-        {
-            "code": "129",
-            "short_name": "DR. CHRISTOS A. (USD)",
-            "name": "The Law Offices of Dr. Christos A. Theodoulou K.ST.J.(USD)",
-            "currency": "USD"
-        },
-        {
-            "code": "180",
-            "short_name": "Tilleke",
-            "name": "Tilleke & Gibbins International Ltd.",
-            "currency": "USD"
-        },
-        {
-            "code": "314",
-            "short_name": "TOMKINS(EUR)",
-            "name": "TOMKINS(EUR)",
-            "currency": "EUR"
-        },
-        {
-            "code": "378",
-            "short_name": "TOMKINS(USD)",
-            "name": "TOMKINS(USD)",
-            "currency": "USD"
-        },
-        {
-            "code": "394",
-            "short_name": "TOP&PARTNERS",
-            "name": "TOP&PARTNERS INTERNATIONAL",
-            "currency": "USD"
-        },
-        {
-            "code": "330",
-            "short_name": "UNITALEN",
-            "name": "UNITALEN ATTORNEYS AT LAW",
-            "currency": "USD"
-        },
-        {
-            "code": "62",
-            "short_name": "UNITED TRADEMARK",
-            "name": "UNITED TRADEMARK & PATENT SERVICE",
-            "currency": "USD"
-        },
-        {
-            "code": "439",
-            "short_name": "UNITED TRADEMARK (EUR)",
-            "name": "UNITED TRADEMARK & PATENT SERVICE (EUR)",
-            "currency": "EUR"
-        },
-        {
-            "code": "217",
-            "short_name": "udl",
-            "name": "URQUHART-DYKES & LORD LLP",
-            "currency": "EUR"
-        },
-        {
-            "code": "79",
-            "short_name": "VALENCIA LAW OFFICE",
-            "name": "VALENCIA LAW OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "356",
-            "short_name": "VCCI",
-            "name": "VCCI IP CO., LTD.",
-            "currency": "USD"
-        },
-        {
-            "code": "304",
-            "short_name": "V.O. Patents & Trademarks",
-            "name": "Vereenigde Octrooibureaux N.V.",
-            "currency": "EUR"
-        },
-        {
-            "code": "92",
-            "short_name": "VICTOR VARGAS",
-            "name": "VICTOR VARGAS VALENZUELA",
-            "currency": "USD"
-        },
-        {
-            "code": "371",
-            "short_name": "WANGER(USD)",
-            "name": "WANGER Advokaturbüro(USD)",
-            "currency": "USD"
-        },
-        {
-            "code": "425",
-            "short_name": "Watson & Band",
-            "name": "Watson & Band Intellectual Property Agent Ltd.",
-            "currency": "USD"
-        },
-        {
-            "code": "462",
-            "short_name": "Wilson Field",
-            "name": "Wilson Field",
-            "currency": "GBP"
-        },
-        {
-            "code": "184",
-            "short_name": "WINTER",
-            "name": "Winter, Brandl & Partner",
-            "alias": [
-                "WINTER BRANDL",
-                "WINTER BRANDL PARTNERSCHAFT MBB",
-                "WINTER, BRANDL - PARTNERSCHAFT MBB",
-                "Winter Brandl – Partnerschaft mbB",
-                "WBETAL"
-            ],
-            "domain": "wbetal.de",
-            "currency": "EUR"
-        },
-        {
-            "code": "400",
-            "short_name": "WONG & PARTNERS",
-            "name": "WONG & PARTNERS",
-            "currency": "USD"
-        },
-        {
-            "code": "1",
-            "short_name": "WOOLCOTT(THOMSON)",
-            "name": "WOOLCOTT(THOMSON)",
-            "currency": "USD"
-        },
-        {
-            "code": "148",
-            "short_name": "Y. S. Chang",
-            "name": "Y. S. Chang & Associates",
-            "currency": "USD"
-        },
-        {
-            "code": "317",
-            "short_name": "Yoon_Yang",
-            "name": "Yoon & Yang",
-            "currency": "USD"
-        },
-        {
-            "code": "284",
-            "short_name": "YOU ME",
-            "name": "YOU ME PATENT & LAW FIRM",
-            "currency": "USD"
-        },
-        {
-            "code": "313",
-            "short_name": "Zacco",
-            "name": "Zacco Denmark A/S",
-            "currency": "EUR"
-        },
-        {
-            "code": "222",
-            "short_name": "中咨(ZHONGZI)",
-            "name": "ZHONGZI LAW OFFICE",
-            "currency": "USD"
-        },
-        {
-            "code": "434",
-            "short_name": "ダイハツ工業",
-            "name": "ダイハツ工業株式会社",
-            "currency": "YEN"
-        },
-        {
-            "code": "64",
-            "short_name": "ﾄﾖﾀ自動車東日本",
-            "name": "ﾄﾖﾀ自動車東日本株式会社",
-            "currency": "YEN"
-        },
-        {
-            "code": "418",
-            "short_name": "ﾄﾖﾀ車体",
-            "name": "ﾄﾖﾀ車体株式会社",
-            "currency": "YEN"
-        },
-        {
-            "code": "396",
-            "short_name": "愛知華僑総会",
-            "name": "一般社団法人愛知華僑総会",
-            "currency": "YEN"
-        },
-        {
-            "code": "431",
-            "short_name": "テクノアートリサーチ",
-            "name": "株式会社テクノアートリサーチ",
-            "currency": "YEN"
-        },
-        {
-            "code": "420",
-            "short_name": "小糸製作所",
-            "name": "株式会社小糸製作所",
-            "currency": "YEN"
-        },
-        {
-            "code": "427",
-            "short_name": "豊田自動織機",
-            "name": "株式会社豊田自動織機",
-            "currency": "YEN"
-        },
-        {
-            "code": "456",
-            "short_name": "カットベル国際法務事務所",
-            "name": "行政書士法人カットベル国際法務事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "395",
-            "short_name": "山田・林法律事務所",
-            "name": "山田・林法律事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "436",
-            "short_name": "青和特許法律事務所",
-            "name": "青和特許法律事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "444",
-            "short_name": "中辻特許事務所",
-            "name": "中辻特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "452",
-            "short_name": "東京セントラル特許事務所",
-            "name": "東京セントラル特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "151",
-            "short_name": "KOREANA",
-            "name": "特許法人KOREANA",
-            "currency": "USD"
-        },
-        {
-            "code": "168",
-            "short_name": "日本技術貿易(NGB)",
-            "name": "日本技術貿易株式会社",
-            "currency": "YEN"
-        },
-        {
-            "code": "409",
-            "short_name": "日野自動車",
-            "name": "日野自動車株式会社",
-            "currency": "YEN"
-        },
-        {
-            "code": "72",
-            "short_name": "ﾌﾟﾛｽﾍﾟｯｸ特許事務所",
-            "name": "弁理士法人ﾌﾟﾛｽﾍﾟｯｸ特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "464",
-            "short_name": "岡田国際特許事務所",
-            "name": "弁理士法人岡田国際特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "437",
-            "short_name": "深見特許事務所",
-            "name": "弁理士法人深見特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "442",
-            "short_name": "太陽国際特許事務所",
-            "name": "弁理士法人太陽国際特許事務所",
-            "currency": "YEN"
-        },
-        {
-            "code": "430",
-            "short_name": "弁理士法人白坂",
-            "name": "弁理士法人白坂",
-            "currency": "YEN"
-        }
-    ]
-} 
+{
+  "companies": [
+    {
+      "code": "10101",
+      "short_name": "L O U I S · P Ö H L A U · L O H R E N T Z",
+      "name": "L O U I S · P Ö H L A U · L O H R E N T Z  Patentanwälte",
+      "currency": "USD"
+    },
+    {
+      "code": "10201",
+      "short_name": "WTA Patents",
+      "name": "WTA Patents",
+      "currency": "USD"
+    },
+    {
+      "code": "290",
+      "short_name": "AAA LAW",
+      "name": "AAA LAW",
+      "currency": "EUR"
+    },
+    {
+      "code": "380",
+      "short_name": "ABG PATENTES S.L.",
+      "name": "ABG PATENTES, S.L.",
+      "currency": "EUR"
+    },
+    {
+      "code": "80",
+      "short_name": "Abu_Ghazaleh",
+      "name": "Abu-Ghazaleh Intellectual Property",
+      "currency": "USD"
+    },
+    {
+      "code": "76",
+      "short_name": "ABU-GHAZALEH LEGAL SERVICES",
+      "name": "ABU-GHAZALEH LEGAL SERVICES LIMITED",
+      "alias": ["ABU-GHAZALEH_LEGAL_SERVICES"],
+      "currency": "USD"
+    },
+    {
+      "code": "398",
+      "short_name": "ACEMARK",
+      "name": "ACEMARK",
+      "currency": "USD"
+    },
+    {
+      "code": "67",
+      "short_name": "ADVANCE CHINA",
+      "name": "ADVANCE CHINA I.P.LAW OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "450",
+      "short_name": "AFD China Intellectual Property Law Office",
+      "name": "AFD China Intellectual Property Law Office",
+      "currency": "USD"
+    },
+    {
+      "code": "255",
+      "short_name": "AGENCY TRIA ROBIT(EUR)",
+      "name": "AGENCY TRIA ROBIT(EUR)",
+      "currency": "EUR"
+    },
+    {
+      "code": "404",
+      "short_name": "AGENCY TRIA ROBIT(USD)",
+      "name": "AGENCY TRIA ROBIT(USD)",
+      "currency": "USD"
+    },
+    {
+      "code": "109",
+      "short_name": "AIP LAW",
+      "name": "AIP LAW",
+      "currency": "USD"
+    },
+    {
+      "code": "142",
+      "short_name": "AJ Park IP Limited",
+      "name": "AJ Park IP Limited",
+      "currency": "USD"
+    },
+    {
+      "code": "441",
+      "short_name": "Am Badar & Am Badar",
+      "name": "Am Badar & Am Badar",
+      "currency": "USD"
+    },
+    {
+      "code": "38",
+      "short_name": "ANAND",
+      "name": "ANAND AND ANAND",
+      "currency": "USD"
+    },
+    {
+      "code": "105",
+      "short_name": "ARIAS",
+      "name": "ARIAS, FABREGA & FABREGA",
+      "currency": "USD"
+    },
+    {
+      "code": "337",
+      "short_name": "ARNASON FAKTOR",
+      "name": "ARNASON FAKTOR",
+      "currency": "EUR"
+    },
+    {
+      "code": "365",
+      "short_name": "Ashurst",
+      "name": "Ashurst",
+      "currency": "USD"
+    },
+    {
+      "code": "445",
+      "short_name": "ASIAWISE",
+      "name": "ASIAWISE",
+      "currency": "USD"
+    },
+    {
+      "code": "433",
+      "short_name": "ATB Intellectual Property LLC",
+      "name": "ATB Intellectual Property LLC",
+      "currency": "USD"
+    },
+    {
+      "code": "310",
+      "short_name": "AWA Norway AS",
+      "name": "AWA Norway AS",
+      "currency": "USD"
+    },
+    {
+      "code": "399",
+      "short_name": "Baker_McKenzie",
+      "name": "Baker & McKenzie Ltd.",
+      "currency": "USD"
+    },
+    {
+      "code": "307",
+      "short_name": "BEER & PARTNER",
+      "name": "BEER & PARTNER PATENTANWALTEKG",
+      "currency": "EUR"
+    },
+    {
+      "code": "366",
+      "short_name": "EAST IP",
+      "name": "BEIJING EAST IP LTD.",
+      "currency": "USD"
+    },
+    {
+      "code": "68",
+      "short_name": "F&S",
+      "name": "BEIJING F&S INTELLECTUAL PROPERTY LTD",
+      "currency": "USD"
+    },
+    {
+      "code": "417",
+      "short_name": "BENTATA ABOGADOS",
+      "name": "BENTATA ABOGADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "421",
+      "short_name": "BENTATA ABOGADOS(Grant tax)",
+      "name": "BENTATA ABOGADOS(Grant tax)",
+      "currency": "USD"
+    },
+    {
+      "code": "381",
+      "short_name": "BERKEMEYER",
+      "name": "BERKEMEYER Attorneys and Counselors",
+      "currency": "USD"
+    },
+    {
+      "code": "432",
+      "short_name": "BEYOND ATTORNEYS AT LAW",
+      "name": "BEYOND ATTORNEYS AT LAW",
+      "currency": "USD"
+    },
+    {
+      "code": "261",
+      "short_name": "BEZZINA & MIFSUD",
+      "name": "BEZZINA & MIFSUD PATENTBUREAU",
+      "currency": "EUR"
+    },
+    {
+      "code": "384",
+      "short_name": "BIRD GOEN & CO",
+      "name": "BIRD GOEN & CO",
+      "currency": "EUR"
+    },
+    {
+      "code": "43",
+      "short_name": "BIRO OKTROI",
+      "name": "BIRO OKTROI ROOSSENO",
+      "currency": "USD"
+    },
+    {
+      "code": "149",
+      "short_name": "BLAKE DAWSON",
+      "name": "BLAKE DAWSON WALDRON",
+      "currency": "USD"
+    },
+    {
+      "code": "157",
+      "short_name": "BOLTON",
+      "name": "BOLTON INDUSTIRIAL PROPERTY SERVICES LTD",
+      "currency": "USD"
+    },
+    {
+      "code": "224",
+      "short_name": "Borden",
+      "name": "Borden Ladner Gervais LLP Lawyers-Patent & Trade-mark Agents",
+      "currency": "CAD"
+    },
+    {
+      "code": "83",
+      "short_name": "BRIGARD",
+      "name": "BRIGARD & CASTRO",
+      "currency": "USD"
+    },
+    {
+      "code": "306",
+      "short_name": "Buchanan",
+      "name": "Buchanan Ingersoll PC",
+      "currency": "USD"
+    },
+    {
+      "code": "214",
+      "short_name": "Busco",
+      "name": "BUSCO MARCAS E PATENTES",
+      "currency": "USD"
+    },
+    {
+      "code": "321",
+      "short_name": "Lomenie",
+      "name": "Cabinet Beau de Loménie",
+      "currency": "EUR"
+    },
+    {
+      "code": "467",
+      "short_name": "Cabinet de Lespinasse",
+      "name": "Cabinet de Lespinasse",
+      "currency": "USD"
+    },
+    {
+      "code": "311",
+      "short_name": "CABINET ENPORA",
+      "name": "CABINET ENPORA",
+      "currency": "EUR"
+    },
+    {
+      "code": "65",
+      "short_name": "CALTY",
+      "name": "CALTY DESIGN RESEARCH",
+      "currency": "USD"
+    },
+    {
+      "code": "81",
+      "short_name": "CAREY",
+      "name": "Carey y Cía. Ltda.",
+      "alias": [],
+      "currency": "USD"
+    },
+    {
+      "code": "26",
+      "short_name": "CCPIT",
+      "name": "CCPIT Patent and Trademark Law Office",
+      "currency": "USD"
+    },
+    {
+      "code": "196",
+      "short_name": "CELAPI",
+      "name": "CELAPI S.A.",
+      "currency": "USD"
+    },
+    {
+      "code": "12",
+      "short_name": "CENTRAL INTERNATIONAL LAW FIRM",
+      "name": "CENTRAL INTERNATIONAL LAW FIRM",
+      "currency": "USD"
+    },
+    {
+      "code": "367",
+      "short_name": "CHANDRAKANT",
+      "name": "CHANDRAKANT M. JOSHI",
+      "currency": "USD"
+    },
+    {
+      "code": "449",
+      "short_name": "CHINA PAT",
+      "name": "CHINA PAT INTELLECTUAL PROPERTY OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "57",
+      "short_name": "CHINA PATENT AGENT(H.K.)LTD",
+      "name": "CHINA PATENT AGENT(H.K.)LTD",
+      "currency": "USD"
+    },
+    {
+      "code": "133",
+      "short_name": "CSPTAL",
+      "name": "CHINA SCIENCE PATENT & TRADEMARK AGENT LTD",
+      "currency": "USD"
+    },
+    {
+      "code": "27",
+      "short_name": "中原(CHINA SINDA)",
+      "name": "CHINA SINDA INTELLECTUAL PROPERTY LIMITED",
+      "currency": "USD"
+    },
+    {
+      "code": "96",
+      "short_name": "Clarke Mexico",
+      "name": "Clarke, Modet & Co., Mexico",
+      "currency": "USD"
+    },
+    {
+      "code": "114",
+      "short_name": "CLT(H.K.)",
+      "name": "CLT PATENT & TRADEMARK (H.K.) LTD.",
+      "currency": "USD"
+    },
+    {
+      "code": "440",
+      "short_name": "CORRS CHAMBERS WESTGARTH",
+      "name": "CORRS CHAMBERS WESTGARTH",
+      "currency": "USD"
+    },
+    {
+      "code": "164",
+      "short_name": "CPA",
+      "name": "CPA Global Limited",
+      "currency": "GBP"
+    },
+    {
+      "code": "128",
+      "short_name": "CURACAO TRADE MARK AGENCY",
+      "name": "CURACAO TRADE MARK AGENCY",
+      "currency": "USD"
+    },
+    {
+      "code": "260",
+      "short_name": "D YOUNG",
+      "name": "D YOUNG & CO LLP",
+      "currency": "GBP"
+    },
+    {
+      "code": "248",
+      "short_name": "DANIEL",
+      "name": "DANIEL ADVOGADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "63",
+      "short_name": "DANNEMANN SIEMSEN ADVOGADOS",
+      "name": "DANNEMANN SIEMSEN ADVOGADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "90",
+      "short_name": "DANNEMANN SIEMSEN BIGLER",
+      "name": "DANNEMANN SIEMSEN BIGLER & IPANEMA MOREIRA",
+      "currency": "USD"
+    },
+    {
+      "code": "215",
+      "short_name": "DANUBIA",
+      "name": "DANUBIA Patent & Law Office",
+      "currency": "EUR"
+    },
+    {
+      "code": "457",
+      "short_name": "Darrow Mustafa PC",
+      "name": "Darrow Mustafa PC",
+      "currency": "USD"
+    },
+    {
+      "code": "426",
+      "short_name": "DERIS ATTORNEY AT LAW",
+      "name": "DERIS ATTORNEY AT LAW",
+      "currency": "USD"
+    },
+    {
+      "code": "412",
+      "short_name": "DERIS PATENTS & TRADEMARKS",
+      "name": "DERIS PATENTS & TRADEMARKS",
+      "currency": "USD"
+    },
+    {
+      "code": "419",
+      "short_name": "Dickinson Wright PLLC",
+      "name": "Dickinson Wright PLLC",
+      "currency": "USD"
+    },
+    {
+      "code": "410",
+      "short_name": "Dinsmore",
+      "name": "Dinsmore & Shohl LLP",
+      "currency": "USD"
+    },
+    {
+      "code": "37",
+      "short_name": "DOMNERN",
+      "name": "DOMNERN SOMGIAT & BOONMA",
+      "currency": "YEN"
+    },
+    {
+      "code": "42",
+      "short_name": "DR. MODIANO",
+      "name": "DR. MODIANO & ASSOCIATI",
+      "currency": "EUR"
+    },
+    {
+      "code": "127",
+      "short_name": "DREW & NAPIER",
+      "name": "DREW & NAPIER",
+      "currency": "USD"
+    },
+    {
+      "code": "192",
+      "short_name": "Ehrner & Delmar",
+      "name": "Ehrner & Delmar Patentbyrå AB",
+      "currency": "EUR"
+    },
+    {
+      "code": "262",
+      "short_name": "ELZABURU",
+      "name": "ELZABURU SA",
+      "currency": "USD"
+    },
+    {
+      "code": "466",
+      "short_name": "ESTUDIO MUÑIZ",
+      "name": "ESTUDIO MUÑIZ",
+      "currency": "USD"
+    },
+    {
+      "code": "61",
+      "short_name": "FINNEGAN",
+      "name": "FINNEGAN, HENDERSON, FARABOW, GARRETT & DUNNER, L.L.P.",
+      "currency": "USD"
+    },
+    {
+      "code": "159",
+      "short_name": "FITZWILLIAM STONE",
+      "name": "FITZWILLIAM STONE FURNESS-SMITH & MORGAN",
+      "currency": "USD"
+    },
+    {
+      "code": "234",
+      "short_name": "FREYGNER Law firm",
+      "name": "FREYGNER Law firm",
+      "currency": "CHF"
+    },
+    {
+      "code": "305",
+      "short_name": "G. RONALD BELL",
+      "name": "G. RONALD BELL & ASSOCIATES",
+      "currency": "USD"
+    },
+    {
+      "code": "88",
+      "short_name": "G.BREUER",
+      "name": "G.BREUER",
+      "currency": "USD"
+    },
+    {
+      "code": "145",
+      "short_name": "GABRIEL PATENT&TRADEMARK OFFICE",
+      "name": "GABRIEL PATENT&TRADEMARK OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "413",
+      "short_name": "GOODRICH,RIQUELME",
+      "name": "GOODRICH,RIQUELME Y ASSOCIADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "459",
+      "short_name": "Gorodissky(EUR)",
+      "name": "Gorodissky & Patent Law Firm(EUR)",
+      "alias": ["GORODISSKY_EUR"],
+      "currency": "EUR"
+    },
+    {
+      "code": "115",
+      "short_name": "Gorodissky(USD)",
+      "name": "Gorodissky & Patent Law Firm(USD)",
+      "alias": ["GORODISSKY_USD"],
+      "currency": "USD"
+    },
+    {
+      "code": "102",
+      "short_name": "Gowling",
+      "name": "Gowling Lafleur Henderson LLP",
+      "currency": "CAD"
+    },
+    {
+      "code": "386",
+      "short_name": "Greenblum",
+      "name": "Greenblum & Bernstein, P.L.C.",
+      "currency": "USD"
+    },
+    {
+      "code": "392",
+      "short_name": "GROSSE",
+      "name": "Grosse Schumacher Knauer von Hirschhausen",
+      "currency": "EUR"
+    },
+    {
+      "code": "390",
+      "short_name": "Gruenecker",
+      "name": "Gruenecker Patent- und Rechtsanwaelte PartG mbB.",
+      "currency": "EUR"
+    },
+    {
+      "code": "82",
+      "short_name": "GUDBERTO",
+      "name": "GUDBERTO ORTIR & HIJOS & ASOCIADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "397",
+      "short_name": "Gudberto Ortiz",
+      "name": "Gudberto Ortiz & Hijos & Asociados",
+      "currency": "USD"
+    },
+    {
+      "code": "144",
+      "short_name": "GUSTAVO FISCHER",
+      "name": "GUSTAVO FISCHER O MARIA DE LAS MERCEDES CASTELLS",
+      "currency": "USD"
+    },
+    {
+      "code": "111",
+      "short_name": "GUY JOSE BENDANA",
+      "name": "GUY JOSE BENDANA GUERRERO & ASOCIADOS",
+      "currency": "USD"
+    },
+    {
+      "code": "112",
+      "short_name": "HALL MARK (TMOA)",
+      "name": "HALL MARK (TMOA)",
+      "currency": "GBP"
+    },
+    {
+      "code": "424",
+      "short_name": "Hauptman Ham",
+      "name": "Hauptman Ham",
+      "currency": "USD"
+    },
+    {
+      "code": "401",
+      "short_name": "Henry Goh",
+      "name": "Henry Goh & Co. Sdn. Bhd.",
+      "currency": "USD"
+    },
+    {
+      "code": "169",
+      "short_name": "HIGGS & KELLY",
+      "name": "HIGGS & KELLY",
+      "currency": "USD"
+    },
+    {
+      "code": "295",
+      "short_name": "HIRSCH & ASSOCIES",
+      "name": "HIRSCH & ASSOCIES",
+      "currency": "EUR"
+    },
+    {
+      "code": "375",
+      "short_name": "HOEFER",
+      "name": "HOEFER & PARTNER",
+      "currency": "EUR"
+    },
+    {
+      "code": "200",
+      "short_name": "HOFFMANN EITLE",
+      "name": "HOFFMANN EITLE",
+      "currency": "EUR"
+    },
+    {
+      "code": "50",
+      "short_name": "HUNTON ANDREWS KURTH LLP",
+      "name": "HUNTON ANDREWS KURTH LLP",
+      "currency": "USD"
+    },
+    {
+      "code": "368",
+      "short_name": "INEUREKA",
+      "name": "INEUREKA",
+      "currency": "EUR"
+    },
+    {
+      "code": "77",
+      "short_name": "Inventa International Ltd.",
+      "name": "Inventa International Ltd.",
+      "currency": "USD"
+    },
+    {
+      "code": "372",
+      "short_name": "INVENTA INTERNATIONAL",
+      "name": "INVENTA INTERNATIONAL,LTD",
+      "currency": "EUR"
+    },
+    {
+      "code": "451",
+      "short_name": "IPITeC Limited",
+      "name": "IPITeC Limited",
+      "currency": "GBP"
+    },
+    {
+      "code": "35",
+      "short_name": "IPOA Limited",
+      "name": "IPOA Limited",
+      "currency": "GBP"
+    },
+    {
+      "code": "124",
+      "short_name": "IRIN PATENT",
+      "name": "IRIN PATENT",
+      "currency": "EUR"
+    },
+    {
+      "code": "258",
+      "short_name": "J.A.KEMP",
+      "name": "J.A.KEMP",
+      "alias": [
+        "JAKEMP",
+        "J A KEMP LLP",
+        "J A KEMP",
+        "J.A.KEMP & CO",
+        "J A KEMP AND CO",
+        "J.A.KEMP"
+      ],
+      "domain": "jakemp.com",
+      "currency": "GBP"
+    },
+    {
+      "code": "455",
+      "short_name": "JAH Intellectual Property",
+      "name": "JAH Intellectual Property",
+      "currency": "USD"
+    },
+    {
+      "code": "153",
+      "short_name": "JORGE MERA & VILLEGAS",
+      "name": "JORGE MERA & VILLEGAS",
+      "currency": "USD"
+    },
+    {
+      "code": "152",
+      "short_name": "JULIUS & CREASY",
+      "name": "JULIUS & CREASY",
+      "currency": "USD"
+    },
+    {
+      "code": "465",
+      "short_name": "JUPITER LAW PARTNERS",
+      "name": "JUPITER LAW PARTNERS",
+      "currency": "USD"
+    },
+    {
+      "code": "405",
+      "short_name": "K&K",
+      "name": "K&K Advocates",
+      "currency": "USD"
+    },
+    {
+      "code": "369",
+      "short_name": "K&S",
+      "name": "K&S Partners",
+      "currency": "USD"
+    },
+    {
+      "code": "402",
+      "short_name": "KAN & KRISHME",
+      "name": "KAN & KRISHME Advocates, Patent & Trademark Attorneys",
+      "currency": "USD"
+    },
+    {
+      "code": "94",
+      "short_name": "Kaosaar & Co",
+      "name": "Kaosaar & Co",
+      "currency": "EUR"
+    },
+    {
+      "code": "158",
+      "short_name": "KEY MARK PVT.LTD.",
+      "name": "KEY MARK PVT.LTD.",
+      "currency": "USD"
+    },
+    {
+      "code": "49",
+      "short_name": "金&張(KIM&CHANG)",
+      "name": "KIM&CHANG",
+      "alias": [
+        "KIM AND CHANG",
+        "K&C",
+        "KIM & CHANG LAW OFFICES",
+        "KIM AND CHANG LAW FIRM"
+      ],
+      "currency": "USD"
+    },
+    {
+      "code": "228",
+      "short_name": "KING & WOOD",
+      "name": "KING & WOOD",
+      "currency": "USD"
+    },
+    {
+      "code": "352",
+      "short_name": "金信(KINGSOUND)",
+      "name": "KINGSOUND & PARTNERS Intellectual Property Law",
+      "currency": "USD"
+    },
+    {
+      "code": "460",
+      "short_name": "KLUNKER IP",
+      "name": "KLUNKER IP",
+      "currency": "EUR"
+    },
+    {
+      "code": "205",
+      "short_name": "Kramer",
+      "name": "Kramer Barske Schmidtchen Patentanwälte PartG mbB",
+      "currency": "EUR"
+    },
+    {
+      "code": "403",
+      "short_name": "KSNH",
+      "name": "KSNH Patentanwälte Klunker . Schmitt - Nilson . Hirsch",
+      "currency": "EUR"
+    },
+    {
+      "code": "185",
+      "short_name": "KUHNEN",
+      "name": "Kuhnen & Wacker Patent and Law Firm P. C.",
+      "currency": "EUR"
+    },
+    {
+      "code": "422",
+      "short_name": "Laine IP Oy",
+      "name": "Laine IP Oy",
+      "currency": "EUR"
+    },
+    {
+      "code": "75",
+      "short_name": "Lakshmikumaran",
+      "name": "Lakshmikumaran & Sridharan",
+      "currency": "USD"
+    },
+    {
+      "code": "448",
+      "short_name": "Leader Patent",
+      "name": "Leader Patent & Trademark Firm",
+      "currency": "USD"
+    },
+    {
+      "code": "388",
+      "short_name": "LINDA LIU",
+      "name": "LINDA LIU & PARTNERS",
+      "currency": "USD"
+    },
+    {
+      "code": "453",
+      "short_name": "LINKER IP LLC",
+      "name": "LINKER IP LLC",
+      "currency": "USD"
+    },
+    {
+      "code": "416",
+      "short_name": "LONGAN LAW FIRM",
+      "name": "LONGAN LAW FIRM",
+      "currency": "USD"
+    },
+    {
+      "code": "283",
+      "short_name": "LUNG TIN",
+      "name": "LUNG TIN INTERNATIONAL INTELLECTUAL PROPERTY AGENT LTD.",
+      "currency": "USD"
+    },
+    {
+      "code": "15",
+      "short_name": "Maiwald",
+      "name": "Maiwald Patentanwalts GmbH",
+      "currency": "EUR"
+    },
+    {
+      "code": "438",
+      "short_name": "Maschoff Brennan",
+      "name": "Maschoff Brennan",
+      "currency": "USD"
+    },
+    {
+      "code": "264",
+      "short_name": "MASUDA VISA",
+      "name": "MASUDA VISA",
+      "currency": "YEN"
+    },
+    {
+      "code": "374",
+      "short_name": "McGINN",
+      "name": "McGINN INTELLECTUAL PROPERTY LAW GROUP, PLLC",
+      "currency": "USD"
+    },
+    {
+      "code": "163",
+      "short_name": "MUNRO LEYS",
+      "name": "MUNRO LEYS",
+      "currency": "USD"
+    },
+    {
+      "code": "229",
+      "short_name": "MYANMAR TRADEMARK",
+      "name": "MYANMAR TRADEMARK & PATENT LAW FIRM",
+      "currency": "USD"
+    },
+    {
+      "code": "415",
+      "short_name": "NOETINGER AND ARMANDO",
+      "name": "NOETINGER AND ARMANDO",
+      "currency": "USD"
+    },
+    {
+      "code": "101",
+      "short_name": "NOVAGRAAF FRANCE",
+      "name": "NOVAGRAAF FRANCE SA",
+      "currency": "EUR"
+    },
+    {
+      "code": "199",
+      "short_name": "NOVAGRAAF INTERNATIONAL",
+      "name": "NOVAGRAAF INTERNATIONAL SA",
+      "currency": "EUR"
+    },
+    {
+      "code": "406",
+      "short_name": "NOVAGRAAF SWITZERLAND",
+      "name": "NOVAGRAAF SWITZERLAND SA",
+      "currency": "CHF"
+    },
+    {
+      "code": "55",
+      "short_name": "NTD",
+      "name": "NTD PATENT & TRADE MARK AGENCY LIMITED",
+      "currency": "USD"
+    },
+    {
+      "code": "71",
+      "short_name": "OBLON",
+      "name": "Oblon, McClelland, Maier & Neustadt, LLP",
+      "currency": "USD"
+    },
+    {
+      "code": "10",
+      "short_name": "OLIFF",
+      "name": "OLIFF PLC",
+      "currency": "USD"
+    },
+    {
+      "code": "312",
+      "short_name": "OY JALO",
+      "name": "OY JALO ANT-WUORINEN AB",
+      "currency": "EUR"
+    },
+    {
+      "code": "458",
+      "short_name": "pacific patent multiglobal",
+      "name": "pacific patent multiglobal",
+      "currency": "USD"
+    },
+    {
+      "code": "391",
+      "short_name": "Patent&Law Firm Dyne",
+      "name": "Patent&Law Firm Dyne",
+      "currency": "USD"
+    },
+    {
+      "code": "117",
+      "short_name": "PATENTSERVIS",
+      "name": "PATENTSERVIS Praha a.s.",
+      "currency": "USD"
+    },
+    {
+      "code": "315",
+      "short_name": "Patrinos & Kilimiris",
+      "name": "Patrinos & Kilimiris",
+      "currency": "EUR"
+    },
+    {
+      "code": "286",
+      "short_name": "POLSERVICE",
+      "name": "POLSERVICE",
+      "currency": "EUR"
+    },
+    {
+      "code": "231",
+      "short_name": "POSZ LAW",
+      "name": "POSZ LAW GROUP,PLC",
+      "currency": "USD"
+    },
+    {
+      "code": "385",
+      "short_name": "PT BIRO OKTROI ROOSSENO",
+      "name": "PT BIRO OKTROI ROOSSENO",
+      "alias": ["PT. BIRO OKTROI ROOSSENO"],
+      "currency": "USD"
+    },
+    {
+      "code": "463",
+      "short_name": "RABIN & BERDO P.C.",
+      "name": "RABIN & BERDO, P.C.",
+      "currency": "USD"
+    },
+    {
+      "code": "316",
+      "short_name": "RCF PI",
+      "name": "RCF Protecting Innovation, S.A.(RCF PI)",
+      "currency": "EUR"
+    },
+    {
+      "code": "182",
+      "short_name": "Remfry & Sagar",
+      "name": "Remfry & Sagar Attorneys at law",
+      "currency": "USD"
+    },
+    {
+      "code": "154",
+      "short_name": "REMFRY & SON",
+      "name": "REMFRY & SON",
+      "currency": "USD"
+    },
+    {
+      "code": "98",
+      "short_name": "RICARDO ROMERO-GUZMAN",
+      "name": "RICARDO ROMERO-GUZMAN",
+      "currency": "USD"
+    },
+    {
+      "code": "429",
+      "short_name": "Ridout and Maybee LLP",
+      "name": "Ridout and Maybee LLP",
+      "currency": "CAD"
+    },
+    {
+      "code": "221",
+      "short_name": "RWS GROUP",
+      "name": "RWS INFORMATION LIMITED (U.K)",
+      "currency": "YEN"
+    },
+    {
+      "code": "299",
+      "short_name": "S & I ASIA",
+      "name": "S & I ASIA CO.,LTD.",
+      "currency": "YEN"
+    },
+    {
+      "code": "47",
+      "short_name": "S & I",
+      "name": "S & I International Bangkok Office",
+      "currency": "YEN"
+    },
+    {
+      "code": "131",
+      "short_name": "S. Horowitz & Co.",
+      "name": "S. Horowitz & Co.",
+      "currency": "USD"
+    },
+    {
+      "code": "288",
+      "short_name": "S.A.P.I.M.",
+      "name": "S.A.P.I.M.",
+      "currency": "EUR"
+    },
+    {
+      "code": "84",
+      "short_name": "SAIDMAN",
+      "name": "SAIDMAN Design Law Group",
+      "currency": "USD"
+    },
+    {
+      "code": "46",
+      "short_name": "SAPALO",
+      "name": "SAPALO VELEZ BUNDANG & BULILAN LAW OFFICES",
+      "currency": "USD"
+    },
+    {
+      "code": "303",
+      "short_name": "SBMP",
+      "name": "SCHAAD BALASS MENZL & PARTNER AG",
+      "currency": "CHF"
+    },
+    {
+      "code": "461",
+      "short_name": "Schoppe Zimmermann",
+      "name": "Schoppe Zimmermann",
+      "currency": "EUR"
+    },
+    {
+      "code": "423",
+      "short_name": "SCIHEAD IP LAW FIRM",
+      "name": "SCIHEAD IP LAW FIRM",
+      "currency": "USD"
+    },
+    {
+      "code": "289",
+      "short_name": "SD PETOSEVIC",
+      "name": "SD PETOSEVIC",
+      "currency": "EUR"
+    },
+    {
+      "code": "414",
+      "short_name": "SERJEANTS LLP",
+      "name": "SERJEANTS LLP",
+      "currency": "EUR"
+    },
+    {
+      "code": "443",
+      "short_name": "SHANGHAI PATENT",
+      "name": "SHANGHAI PATENT & TRADEMARK LAW OFFICE, LLC",
+      "currency": "USD"
+    },
+    {
+      "code": "447",
+      "short_name": "SheppardMullin",
+      "name": "SheppardMullin",
+      "currency": "USD"
+    },
+    {
+      "code": "454",
+      "short_name": "Simmons & Simmons LLP",
+      "name": "Simmons & Simmons LLP",
+      "currency": "USD"
+    },
+    {
+      "code": "135",
+      "short_name": "Sjiem Fat & Co.",
+      "name": "Sjiem Fat & Co. Law Offices",
+      "currency": "USD"
+    },
+    {
+      "code": "150",
+      "short_name": "SJIEM FAT & MAHABIR",
+      "name": "SJIEM FAT & MAHABIR",
+      "currency": "USD"
+    },
+    {
+      "code": "45",
+      "short_name": "SKRINE",
+      "name": "SKRINE & Co.",
+      "currency": "USD"
+    },
+    {
+      "code": "435",
+      "short_name": "Snell＆Wilmer LLP",
+      "name": "Snell＆Wilmer LLP",
+      "currency": "USD"
+    },
+    {
+      "code": "446",
+      "short_name": "SoraIP",
+      "name": "SoraIP",
+      "alias": ["SORA IP", "SORAIP", "Sora IP"],
+      "currency": "USD"
+    },
+    {
+      "code": "287",
+      "short_name": "SPOOR AND FISHER JERSEY(￡)",
+      "name": "SPOOR AND FISHER JERSEY(￡)",
+      "currency": "GBP"
+    },
+    {
+      "code": "407",
+      "short_name": "SPOOR AND FISHER (￡)",
+      "name": "SPOOR AND FISHER SOUTH AFRICA(￡)",
+      "currency": "GBP"
+    },
+    {
+      "code": "134",
+      "short_name": "SPOOR AND FISHER SOUTH AFRICA(USD)",
+      "name": "SPOOR AND FISHER SOUTH AFRICA(USD)",
+      "currency": "USD"
+    },
+    {
+      "code": "428",
+      "short_name": "SPRUSON & FERGUSON (ASIA)",
+      "name": "SPRUSON & FERGUSON (ASIA) PTE LTD",
+      "currency": "USD"
+    },
+    {
+      "code": "204",
+      "short_name": "SPRUSON",
+      "name": "Spruson & Ferguson Pty Limited.",
+      "currency": "USD"
+    },
+    {
+      "code": "123",
+      "short_name": "STUDIO TORTA",
+      "name": "STUDIO TORTA s.r.l.",
+      "currency": "EUR"
+    },
+    {
+      "code": "325",
+      "short_name": "Sughrue",
+      "name": "Sughrue Mion, PLLC",
+      "currency": "USD"
+    },
+    {
+      "code": "20",
+      "short_name": "TIPLO",
+      "name": "TAIWAN INTERNATIONAL PATENT & LAW OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "73",
+      "short_name": "TBK",
+      "name": "TBK",
+      "currency": "EUR"
+    },
+    {
+      "code": "78",
+      "short_name": "TEE & HOWE",
+      "name": "Tee & Howe Intellectual Property Attorneys",
+      "currency": "USD"
+    },
+    {
+      "code": "408",
+      "short_name": "DR. CHRISTOS A. (EUR)",
+      "name": "The Law Offices of Dr. Christos A. Theodoulou K.ST.J.(EUR)",
+      "currency": "EUR"
+    },
+    {
+      "code": "129",
+      "short_name": "DR. CHRISTOS A. (USD)",
+      "name": "The Law Offices of Dr. Christos A. Theodoulou K.ST.J.(USD)",
+      "currency": "USD"
+    },
+    {
+      "code": "180",
+      "short_name": "Tilleke",
+      "name": "Tilleke & Gibbins International Ltd.",
+      "currency": "USD"
+    },
+    {
+      "code": "314",
+      "short_name": "TOMKINS(EUR)",
+      "name": "TOMKINS(EUR)",
+      "currency": "EUR"
+    },
+    {
+      "code": "378",
+      "short_name": "TOMKINS(USD)",
+      "name": "TOMKINS(USD)",
+      "currency": "USD"
+    },
+    {
+      "code": "394",
+      "short_name": "TOP&PARTNERS",
+      "name": "TOP&PARTNERS INTERNATIONAL",
+      "currency": "USD"
+    },
+    {
+      "code": "330",
+      "short_name": "UNITALEN",
+      "name": "UNITALEN ATTORNEYS AT LAW",
+      "currency": "USD"
+    },
+    {
+      "code": "62",
+      "short_name": "UNITED TRADEMARK",
+      "name": "UNITED TRADEMARK & PATENT SERVICE",
+      "currency": "USD"
+    },
+    {
+      "code": "439",
+      "short_name": "UNITED TRADEMARK (EUR)",
+      "name": "UNITED TRADEMARK & PATENT SERVICE (EUR)",
+      "currency": "EUR"
+    },
+    {
+      "code": "217",
+      "short_name": "udl",
+      "name": "URQUHART-DYKES & LORD LLP",
+      "currency": "EUR"
+    },
+    {
+      "code": "79",
+      "short_name": "VALENCIA LAW OFFICE",
+      "name": "VALENCIA LAW OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "356",
+      "short_name": "VCCI",
+      "name": "VCCI IP CO., LTD.",
+      "currency": "USD"
+    },
+    {
+      "code": "304",
+      "short_name": "V.O. Patents & Trademarks",
+      "name": "Vereenigde Octrooibureaux N.V.",
+      "currency": "EUR"
+    },
+    {
+      "code": "92",
+      "short_name": "VICTOR VARGAS",
+      "name": "VICTOR VARGAS VALENZUELA",
+      "currency": "USD"
+    },
+    {
+      "code": "371",
+      "short_name": "WANGER(USD)",
+      "name": "WANGER Advokaturbüro(USD)",
+      "currency": "USD"
+    },
+    {
+      "code": "425",
+      "short_name": "Watson & Band",
+      "name": "Watson & Band Intellectual Property Agent Ltd.",
+      "currency": "USD"
+    },
+    {
+      "code": "462",
+      "short_name": "Wilson Field",
+      "name": "Wilson Field",
+      "currency": "GBP"
+    },
+    {
+      "code": "184",
+      "short_name": "WINTER",
+      "name": "Winter, Brandl & Partner",
+      "alias": [
+        "WINTER BRANDL",
+        "WINTER BRANDL PARTNERSCHAFT MBB",
+        "WINTER, BRANDL - PARTNERSCHAFT MBB",
+        "Winter Brandl – Partnerschaft mbB",
+        "WBETAL"
+      ],
+      "domain": "wbetal.de",
+      "currency": "EUR"
+    },
+    {
+      "code": "400",
+      "short_name": "WONG & PARTNERS",
+      "name": "WONG & PARTNERS",
+      "currency": "USD"
+    },
+    {
+      "code": "1",
+      "short_name": "WOOLCOTT(THOMSON)",
+      "name": "WOOLCOTT(THOMSON)",
+      "currency": "USD"
+    },
+    {
+      "code": "148",
+      "short_name": "Y. S. Chang",
+      "name": "Y. S. Chang & Associates",
+      "currency": "USD"
+    },
+    {
+      "code": "317",
+      "short_name": "Yoon_Yang",
+      "name": "Yoon & Yang",
+      "currency": "USD"
+    },
+    {
+      "code": "284",
+      "short_name": "YOU ME",
+      "name": "YOU ME PATENT & LAW FIRM",
+      "currency": "USD"
+    },
+    {
+      "code": "313",
+      "short_name": "Zacco",
+      "name": "Zacco Denmark A/S",
+      "currency": "EUR"
+    },
+    {
+      "code": "222",
+      "short_name": "中咨(ZHONGZI)",
+      "name": "ZHONGZI LAW OFFICE",
+      "currency": "USD"
+    },
+    {
+      "code": "434",
+      "short_name": "ダイハツ工業",
+      "name": "ダイハツ工業株式会社",
+      "currency": "YEN"
+    },
+    {
+      "code": "64",
+      "short_name": "ﾄﾖﾀ自動車東日本",
+      "name": "ﾄﾖﾀ自動車東日本株式会社",
+      "currency": "YEN"
+    },
+    {
+      "code": "418",
+      "short_name": "ﾄﾖﾀ車体",
+      "name": "ﾄﾖﾀ車体株式会社",
+      "currency": "YEN"
+    },
+    {
+      "code": "396",
+      "short_name": "愛知華僑総会",
+      "name": "一般社団法人愛知華僑総会",
+      "currency": "YEN"
+    },
+    {
+      "code": "431",
+      "short_name": "テクノアートリサーチ",
+      "name": "株式会社テクノアートリサーチ",
+      "currency": "YEN"
+    },
+    {
+      "code": "420",
+      "short_name": "小糸製作所",
+      "name": "株式会社小糸製作所",
+      "currency": "YEN"
+    },
+    {
+      "code": "427",
+      "short_name": "豊田自動織機",
+      "name": "株式会社豊田自動織機",
+      "currency": "YEN"
+    },
+    {
+      "code": "456",
+      "short_name": "カットベル国際法務事務所",
+      "name": "行政書士法人カットベル国際法務事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "395",
+      "short_name": "山田・林法律事務所",
+      "name": "山田・林法律事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "436",
+      "short_name": "青和特許法律事務所",
+      "name": "青和特許法律事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "444",
+      "short_name": "中辻特許事務所",
+      "name": "中辻特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "452",
+      "short_name": "東京セントラル特許事務所",
+      "name": "東京セントラル特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "151",
+      "short_name": "KOREANA",
+      "name": "特許法人KOREANA",
+      "currency": "USD"
+    },
+    {
+      "code": "168",
+      "short_name": "日本技術貿易(NGB)",
+      "name": "日本技術貿易株式会社",
+      "currency": "YEN"
+    },
+    {
+      "code": "409",
+      "short_name": "日野自動車",
+      "name": "日野自動車株式会社",
+      "currency": "YEN"
+    },
+    {
+      "code": "72",
+      "short_name": "ﾌﾟﾛｽﾍﾟｯｸ特許事務所",
+      "name": "弁理士法人ﾌﾟﾛｽﾍﾟｯｸ特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "464",
+      "short_name": "岡田国際特許事務所",
+      "name": "弁理士法人岡田国際特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "437",
+      "short_name": "深見特許事務所",
+      "name": "弁理士法人深見特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "442",
+      "short_name": "太陽国際特許事務所",
+      "name": "弁理士法人太陽国際特許事務所",
+      "currency": "YEN"
+    },
+    {
+      "code": "430",
+      "short_name": "弁理士法人白坂",
+      "name": "弁理士法人白坂",
+      "currency": "YEN"
+    }
+  ]
+}

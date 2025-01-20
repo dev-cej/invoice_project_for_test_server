@@ -45,3 +45,14 @@ def filter_empty_lines(text: str) -> str:
         line for line in text.splitlines()
         if line.strip()  # 공백만 있는 라인도 제거
     )
+
+def normalize_spaces(text: str) -> str:
+    """
+    텍스트의 공백을 정규화하는 함수
+    - 앞뒤 공백 제거
+    - 연속된 공백을 하나로 통일
+    """
+    if not text:
+        return ""
+    text = text.strip()
+    return re.sub(r'\s+', ' ', text)

@@ -37,13 +37,14 @@ function setupCompanyFilter() {
 }
 
 function filterResultsByCompany(code) {
+  console.log("code", code);
+
   // 결과 테이블의 모든 테이블 선택
-  const tables = document.querySelectorAll(".file-table");
+  const tables = document.querySelectorAll(".file-table-container");
   tables.forEach((table) => {
     // 테이블의 회사 코드 가져오기
     const companyCode = table.dataset.companyCode || "other";
     console.log("companyCode", companyCode);
-    console.log("code", code);
     // 선택된 코드와 테이블의 회사 코드가 일치하는지 확인
     if (code === "" || companyCode === code) {
       console.log("일치");
