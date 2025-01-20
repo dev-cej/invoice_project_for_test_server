@@ -12,6 +12,7 @@ export const translationKeys = {
   tableInvoiceDate: "td_invoice_date",
   tableInvoiceNumber: "td_invoice_number",
   tableAmountBilled: "td_amount_billed",
+  alternativeDataTitle: "alternative_data_title",
 
   sidebar: {
     uploadFiles: "sidebar_upload_files",
@@ -43,6 +44,7 @@ export const TRANSLATIONS = {
     [translationKeys.tableInvoiceDate]: "INVOICE DATE",
     [translationKeys.tableInvoiceNumber]: "INVOICE NUMBER",
     [translationKeys.tableAmountBilled]: "AMOUNT BILLED",
+    [translationKeys.alternativeDataTitle]: "Alternative Data",
     // ... 다른 번역 데이터
   },
   ko: {
@@ -63,6 +65,7 @@ export const TRANSLATIONS = {
     [translationKeys.tableInvoiceDate]: "송장일자",
     [translationKeys.tableInvoiceNumber]: "송장번호",
     [translationKeys.tableAmountBilled]: "송장금액",
+    [translationKeys.alternativeDataTitle]: "대체 데이터",
     // ... 다른 번역 데이터
   },
   ja: {
@@ -83,5 +86,6 @@ export const TRANSLATIONS = {
     [translationKeys.tableAmountBilled]: "請求金額",
     [translationKeys.tableStatus]: "ステータス",
     [translationKeys.tableFileType]: "ファイルタイプ",
+    [translationKeys.alternativeDataTitle]: "代替データ",
   },
 };

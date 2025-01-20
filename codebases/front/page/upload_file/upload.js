@@ -225,6 +225,7 @@ function createAlternativeData(file) {
     {
       title: "CASE NUMBER",
       data: file.getCaseNumber().getAlternativeOptions(),
+      data_translate: translationKeys.tableCaseNumber,
     },
     {
       title: "PAYER NAME",
@@ -232,14 +233,17 @@ function createAlternativeData(file) {
         .getPayerCompany()
         .getAlternativeOptions()
         .map((option) => option.getMatchedPhrase()),
+      data_translate: translationKeys.tableMasterNameCode,
     },
     {
       title: "INVOICE DATE",
       data: file.getInvoiceDate().getAlternativeOptions(),
+      data_translate: translationKeys.tableInvoiceDate,
     },
     {
       title: "INVOICE NUMBER",
       data: file.getInvoiceNumber().getAlternativeOptions(),
+      data_translate: translationKeys.tableInvoiceNumber,
     },
     {
       title: "AMOUNT",
@@ -247,12 +251,13 @@ function createAlternativeData(file) {
         .getAmountBilled()
         .getAlternativeOptions()
         .map((option) => `${option.getAmount()} ${option.getCurrency()}`),
+      data_translate: translationKeys.tableAmountBilled,
     },
   ];
 
   alternativeItems.forEach((item) => {
-    if (!Array.isArray(item.data)) {
-      console.error(`Data for ${item.title} is not an array:`, item.data);
+    if (!Array.isArray(item.data) || item.data.length === 0) {
+      // 데이터가 배열이 아니거나 비어 있으면 건너뜀
       return;
     }
 
@@ -261,13 +266,15 @@ function createAlternativeData(file) {
 
     const itemTitle = document.createElement("span");
     itemTitle.classList.add("alternative-title");
+    itemTitle.setAttribute("data-translate", item.data_translate);
     itemTitle.textContent = item.title;
     itemBox.appendChild(itemTitle);
 
     const contentBox = document.createElement("div");
     contentBox.classList.add("alternative-content-box");
 
-    item.data.forEach((data) => {
+    // 최대 3개의 데이터만 표시
+    item.data.slice(0, 3).forEach((data) => {
       const dataSpan = document.createElement("span");
       dataSpan.classList.add(
         `alternative-data`,

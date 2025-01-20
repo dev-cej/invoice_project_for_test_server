@@ -42,10 +42,14 @@ function filterResultsByCompany(code) {
   tables.forEach((table) => {
     // 테이블의 회사 코드 가져오기
     const companyCode = table.dataset.companyCode || "other";
+    console.log("companyCode", companyCode);
+    console.log("code", code);
     // 선택된 코드와 테이블의 회사 코드가 일치하는지 확인
     if (code === "" || companyCode === code) {
+      console.log("일치");
       table.style.display = ""; // 일치하면 테이블을 표시
     } else {
+      console.log("불일치");
       table.style.display = "none"; // 일치하지 않으면 테이블을 숨김
     }
   });
