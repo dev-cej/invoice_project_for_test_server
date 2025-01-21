@@ -32,5 +32,7 @@ document
     setLanguage(selectedLanguage);
   });
 
-// 페이지 로드 시 초기 언어 설정
-setLanguage("en");
+// 페이지의 모든 리소스가 로드된 후 초기 언어 설정
+window.onload = function () {
+  setLanguage("ja");
+};

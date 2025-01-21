@@ -51,28 +51,97 @@ function setupUploadResultInteractions() {
   const resultTableBody = document.getElementById("resultTableBody");
   const downloadButton = document.getElementById("downloadCsvButton");
 
-  const tabs = document.querySelectorAll(".tab-button");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      showTab(tab.id);
-    });
+  // 탭 버튼에 이벤트 리스너 추가
+  document.querySelectorAll(".tab-button").forEach((tab) => {
+    tab.addEventListener("click", () => showTab(tab.id));
   });
 
+  // 다운로드 버튼에 이벤트 리스너 추가
   if (downloadButton) {
     downloadButton.addEventListener("click", downloadCSV);
   }
+
+  // 이벤트 위임을 사용하여 동적으로 추가되는 요소 처리
+  resultTableBody.addEventListener("click", handleAlternativeDataClick);
+}
+
+function handleAlternativeDataClick(event) {
+  if (!event.target.classList.contains("alternative-data")) return;
+
+  let alternativeData = event.target.textContent.trim();
+  console.log("alternativeData: ", alternativeData);
+
+  const alternativeType = event.target
+    .closest(".alternative-item-box")
+    ?.querySelector(".alternative-title")
+    ?.getAttribute("data-translate");
+  if (!alternativeType) {
+    console.warn("Alternative type not found.");
+    return;
+  }
+  console.log("alternativeType: ", alternativeType);
+
+  const fileTableContainer = event.target.closest(".file-table-container");
+  if (!fileTableContainer) {
+    console.warn("fileTableContainer not found.");
+    return;
+  }
+  console.log("fileTableContainer: ", fileTableContainer);
+
+  const reviewInput = fileTableContainer
+    .querySelector(`td[data-translate='${alternativeType}']`)
+    ?.nextElementSibling?.nextElementSibling?.querySelector("input");
+  if (!reviewInput) {
+    console.warn("Review input not found for type:", alternativeType);
+    return;
+  }
+  console.log("reviewInput: ", reviewInput);
+
+  if (alternativeType === "td_invoice_date") {
+    alternativeData = formatDateToYYYYMMDD(alternativeData);
+  }
+  reviewInput.value = alternativeData;
 }
 
 function formatDateToYYYYMMDD(dateString) {
-  // 날짜 형식이 'DD/MM/YYYY'인 경우 처리
-  const [day, month, year] = dateString.split("/");
-  const date = new Date(`${year}-${month}-${day}`);
+  let date;
 
-  const formattedYear = date.getFullYear();
-  const formattedMonth = String(date.getMonth() + 1).padStart(2, "0");
-  const formattedDay = String(date.getDate()).padStart(2, "0");
+  // Helper function to format date to YYYY-MM-DD
+  const formatDate = (date) => {
+    const formattedYear = date.getFullYear();
+    const formattedMonth = String(date.getMonth() + 1).padStart(2, "0");
+    const formattedDay = String(date.getDate()).padStart(2, "0");
+    return `${formattedYear}-${formattedMonth}-${formattedDay}`;
+  };
 
-  return `${formattedYear}-${formattedMonth}-${formattedDay}`;
+  // Check for YYYY-MM-DD format
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return dateString; // Already in correct format
+  }
+
+  // Check for MM/DD/YYYY or DD/MM/YYYY format
+  if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString)) {
+    const [part1, part2, year] = dateString.split("/").map(Number);
+
+    // Determine if MM/DD/YYYY or DD/MM/YYYY
+    if (part1 > 12) {
+      // Assume DD/MM/YYYY
+      date = new Date(year, part2 - 1, part1);
+    } else {
+      // Assume MM/DD/YYYY
+      date = new Date(year, part1 - 1, part2);
+    }
+  } else {
+    // Attempt to parse other formats (e.g., "Month Day, Year")
+    date = new Date(dateString);
+  }
+
+  // Validate date
+  if (isNaN(date.getTime())) {
+    throw new Error(`Invalid date format: ${dateString}`);
+  }
+
+  return formatDate(date);
 }
 
 export function createDynamicRows(file) {
@@ -223,34 +292,39 @@ function createAlternativeData(file) {
 
   const alternativeItems = [
     {
-      title: "CASE NUMBER",
+      className: "case-number",
       data: file.getCaseNumber().getAlternativeOptions(),
+      label: getTranslation(translationKeys.tableCaseNumber),
       data_translate: translationKeys.tableCaseNumber,
     },
     {
-      title: "PAYER NAME",
+      className: "payer-name",
       data: file
         .getPayerCompany()
         .getAlternativeOptions()
         .map((option) => option.getMatchedPhrase()),
+      label: getTranslation(translationKeys.tableMasterNameCode),
       data_translate: translationKeys.tableMasterNameCode,
     },
     {
-      title: "INVOICE DATE",
+      className: "invoice-date",
       data: file.getInvoiceDate().getAlternativeOptions(),
+      label: getTranslation(translationKeys.tableInvoiceDate),
       data_translate: translationKeys.tableInvoiceDate,
     },
     {
-      title: "INVOICE NUMBER",
+      className: "invoice-number",
       data: file.getInvoiceNumber().getAlternativeOptions(),
+      label: getTranslation(translationKeys.tableInvoiceNumber),
       data_translate: translationKeys.tableInvoiceNumber,
     },
     {
-      title: "AMOUNT",
+      className: "amount",
       data: file
         .getAmountBilled()
         .getAlternativeOptions()
         .map((option) => `${option.getAmount()} ${option.getCurrency()}`),
+      label: getTranslation(translationKeys.tableAmountBilled),
       data_translate: translationKeys.tableAmountBilled,
     },
   ];
@@ -267,7 +341,7 @@ function createAlternativeData(file) {
     const itemTitle = document.createElement("span");
     itemTitle.classList.add("alternative-title");
     itemTitle.setAttribute("data-translate", item.data_translate);
-    itemTitle.textContent = item.title;
+    itemTitle.textContent = item.label;
     itemBox.appendChild(itemTitle);
 
     const contentBox = document.createElement("div");
@@ -278,7 +352,7 @@ function createAlternativeData(file) {
       const dataSpan = document.createElement("span");
       dataSpan.classList.add(
         `alternative-data`,
-        `alternative-${item.title.toLowerCase().replace(" ", "-")}`
+        `alternative-${item.className}`
       );
       dataSpan.textContent = data;
       contentBox.appendChild(dataSpan);

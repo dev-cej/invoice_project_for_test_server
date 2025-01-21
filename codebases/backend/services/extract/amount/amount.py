@@ -31,13 +31,14 @@ def extract_amount_candidates(text: str) -> List[Dict]:
     
     logging.debug("금액 패턴을 정의합니다.")
     amount_patterns = [
-        r"[$€£¥]*\s*([\d]{1,3}(?:[.,]\d{3})*[.,]\d{2})",  # 쉼표 또는 소수점이 포함된 금액 패턴
-        r"[$€£¥]*\s*([\d]+[.,]\d{2})"  # 소수점 또는 쉼표가 포함된 금액 패턴
+        r"[$€£¥]*\s*([1-9][\d]{0,2}(?:[.,]\d{3})*[.,]\d{2})",  # 0으로 시작하지 않는 금액 패턴
+        r"[$€£¥]*\s*([1-9][\d]*[.,]\d{2})"  # 0으로 시작하지 않는 금액 패턴
     ]
 
     logging.debug(f"!!text_without_numbers: {text_without_numbers}")
 
     candidates = []
+    seen_candidates = set()  # 중복 확인을 위한 집합
     for pattern in amount_patterns:
         matches = re.findall(pattern, text_without_numbers)
         for match in matches:
@@ -46,10 +47,17 @@ def extract_amount_candidates(text: str) -> List[Dict]:
             normalized_amount = amount.replace('.', '').replace(',', '.')
             try:
                 if float(normalized_amount) > 0:
-                    logging.debug(f"추출된 금액 후보: {amount} {currency}")
-                    candidates.append({'amount': amount, 'currency': currency})
+                    candidate = {'amount': amount, 'currency': currency}
+                    candidate_tuple = (amount, currency)  # 중복 확인을 위한 튜플
+                    if candidate_tuple not in seen_candidates:
+                        logging.debug(f"추출된 금액 후보: {amount} {currency}")
+                        candidates.append(candidate)
+                        seen_candidates.add(candidate_tuple)
             except ValueError:
                 logging.error(f"금액 변환 오류: {amount}")
+
+    # 금액을 기준으로 내림차순 정렬
+    candidates.sort(key=lambda x: float(x['amount'].replace('.', '').replace(',', '.')), reverse=True)
 
     return candidates
 

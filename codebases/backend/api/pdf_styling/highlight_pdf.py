@@ -74,44 +74,20 @@ class PDFHighlighter:
         logging.debug(f"highlight_texts: {highlight_texts}")
         return highlight_texts
 
-    def highlight_text_in_pdf_by_search(self, pdf_path, output_path, search_texts, color):
-        """PDF에서 특정 텍스트를 검색하여 하이라이트하는 함수."""
-        logging.debug(f"PDF 파일에 하이라이트 추가 시작: search_texts: {search_texts}")
-        try:
-            doc = fitz.open(pdf_path)
-            for page_number, page in enumerate(doc):
-                logging.debug(f"페이지 번호: {page_number} 처리 중")
-                for search_text in search_texts:
-                    logging.debug(f"검색할 텍스트: '{search_text}'")
-                    text_instances = page.search_for(search_text)
-                    if not text_instances:
-                        logging.warning(f"텍스트를 찾을 수 없음: '{search_text}' - 페이지: {page_number}")
-                    for inst in text_instances:
-                        logging.debug(f"텍스트 인스턴스 발견: {inst}")
-                        highlight = page.add_highlight_annot(inst)
-                        highlight.set_colors(stroke=color, fill=color)
-                        highlight.set_opacity(0.5)
-                        highlight.update()
-            doc.save(output_path, garbage=4, deflate=True, clean=True)
-            doc.close()  # 파일 닫기
-            logging.info(f"하이라이트된 PDF 저장 완료: {output_path}")
-        except Exception as e:
-            logging.error(f"하이라이트 추가 중 오류 발생: {str(e)}", exc_info=True)
-
 
     def highlight_texts_in_pdf(self, pdf_path, highlight_texts):
-        """PDF에서 텍스트를 하이라이트합니다."""
+        """PDF에서 텍스트를 하이라이트하거나 밑줄을 긋습니다."""
         logging.debug(f"highlight_texts_in_pdf 시작: {pdf_path}")
         logging.debug(f"highlight_texts: {highlight_texts}")
         output_path = os.path.join(self.output_directory, f'{os.path.splitext(os.path.basename(pdf_path))[0]}_highlighted.pdf')
 
-        # 조화로운 파스텔 색상 팔레트
+        # 색상 팔레트
         color_map = {
-            "case_number": {"selected": (1.0, 0.6, 0.6), "alternative": (1.0, 0.8, 0.8)},  # 밝은 빨강
-            "invoice_date": {"selected": (0.6, 1.0, 0.6), "alternative": (0.8, 1.0, 0.8)},  # 밝은 초록
-            "invoice_number": {"selected": (0.4, 0.6, 1.0), "alternative": (0.6, 0.8, 1.0)},  # 밝은 파랑
-        "payer_company": {"selected": (1.0, 1.0, 0.0), "alternative": (1.0, 1.0, 0.5)},  # 형광 노랑
-            "amount_billed": {"selected": (1.0, 0.7, 0.5), "alternative": (1.0, 0.85, 0.7)}  # 밝은 주황
+            "case_number": {"selected": (1.0, 0.6, 0.6), "alternative": (1.0, 0.0, 0.0)},  # 진한 빨강
+            "invoice_date": {"selected": (0.6, 1.0, 0.6), "alternative": (0.0, 1.0, 0.0)},  # 진한 초록
+            "invoice_number": {"selected": (0.4, 0.6, 1.0), "alternative": (0.0, 0.0, 1.0)},  # 진한 파랑
+            "payer_company": {"selected": (1.0, 1.0, 0.0), "alternative": (1.0, 0.8, 0.0)},  # 진한 노랑
+            "amount_billed": {"selected": (1.0, 0.7, 0.5), "alternative": (1.0, 0.5, 0.0)}  # 진한 주황
         }
 
         try:
@@ -125,16 +101,14 @@ class PDFHighlighter:
                         for inst in text_instances:
                             highlight = page.add_highlight_annot(inst)
                             highlight.set_colors(stroke=color_map[category]["selected"], fill=color_map[category]["selected"])
-                            highlight.set_opacity(0.9)  # 진한 색상은 덜 투명하게
                             highlight.update()
                     for search_text in texts["alternative"]:
                         logging.debug(f"검색할 텍스트: '{search_text}'")
                         text_instances = page.search_for(search_text)
                         for inst in text_instances:
-                            highlight = page.add_highlight_annot(inst)
-                            highlight.set_colors(stroke=color_map[category]["alternative"], fill=color_map[category]["alternative"])
-                            highlight.set_opacity(0.5)  # 연한 색상은 더 투명하게
-                            highlight.update()
+                            squiggly = page.add_squiggly_annot(inst)
+                            squiggly.set_colors(stroke=color_map[category]["alternative"])
+                            squiggly.update()
             doc.save(output_path, garbage=4, deflate=True, clean=True)
             doc.close()
             logging.info(f"하이라이트된 PDF 저장 완료: {output_path}")
