@@ -45,20 +45,17 @@ def filter_primary_date(dates: List[str], context: str) -> str:
     for date in dates:
         for keyword in keywords:
             if keyword in context:
-                logging.debug(f"!!filter_primary_date 시작: {date}")
                 # 키워드와 날짜의 위치를 찾음
                 keyword_index = context.find(keyword)
                 date_index = context.find(date)
                 
                 if date_index != -1 and keyword_index != -1:
                     distance = abs(date_index - keyword_index)
-                    logging.debug(f"!!distance: {distance}")
                     
                     # 가장 가까운 날짜를 선택
                     if distance < min_distance:
                         min_distance = distance
                         closest_date = date
-                        logging.debug(f"!!closest_date 업데이트: {closest_date}")
     
     # 가장 가까운 날짜 반환
     return closest_date if closest_date else (dates[0] if dates else None)

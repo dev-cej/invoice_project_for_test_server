@@ -38,7 +38,6 @@ def process_lines(lines, companies, threshold, start, end):
     for i in range(start, end):
         line = preprocess_line(lines[i])
         processed_line = preprocess_text(line)
-        # logging.debug(f"처리된 줄: {processed_line}")
         for company in companies:
             similarity_result = calculate_similarity(processed_line, company, threshold)
             if similarity_result:
@@ -48,13 +47,11 @@ def process_lines(lines, companies, threshold, start, end):
                 # 높은 유사도를 가진 결과를 조기에 반환하여 성능을 최적화
                 # 전체 이름이 더 신뢰할 수 있는 매칭을 제공한다고 판단될 때 조기 종료
                 if similarity_result['similarity'] >= 90 and similarity_result['preferred'] == 'name':
-                    # logging.debug("높은 유사도 발견, 검색 중단")
                     return similar_phrases
     return similar_phrases
 
 def find_similar_phrases_in_text(text, companies, threshold=90):
     """텍스트에서 회사 이름과 유사한 구문을 찾는 함수"""
-    # logging.debug("find_similar_phrases_in_text 시작!")
     similar_phrases = []
     try:
         lines = text.splitlines()
@@ -66,7 +63,6 @@ def find_similar_phrases_in_text(text, companies, threshold=90):
         if not similar_phrases:
             similar_phrases.extend(process_lines(lines, companies, threshold, 5, num_lines - 5))
 
-        # logging.debug("유사 구문 찾기 성공")
     except Exception as e:
         logging.error(f"유사 구문 찾기 오류: {str(e)}", exc_info=True)
     return similar_phrases
@@ -74,7 +70,6 @@ def find_similar_phrases_in_text(text, companies, threshold=90):
 
 def select_matched_candidate(similar_phrases):
     """가장 많이 일치하는 code를 가진 후보자 중에서 일치율이 가장 높은 것을 선택"""
-    # logging.debug(f"select_matched_candidate 시작: {similar_phrases}")
     if not similar_phrases:
         return None, []
 

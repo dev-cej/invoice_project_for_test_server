@@ -22,12 +22,11 @@ class PDFHighlighter:
                 os.makedirs(self.output_directory, mode=0o755)  # 적절한 권한 설정
             os.chmod(self.output_directory, 0o755)  # 디렉토리 권한 확인
         except Exception as e:
-            logging.error(f"디렉토리 생성/권한 설정 실패: {str(e)}", exc_info=True)
+            
             raise
 
     def parse_extracted_data(self, extractResults):
         """JSON 문자열을 파싱하여 TextExtractionResponseDTO 객체 리스트를 반환합니다."""
-        logging.debug(f"extractResults: {extractResults}")
         data_list = json.loads(extractResults)
         return [TextExtractionResponseDTO.from_dict(data) for data in data_list]
 
@@ -71,14 +70,11 @@ class PDFHighlighter:
         for option in data_item.amount_billed.alternative_options[:3]:
             highlight_texts["amount_billed"]["alternative"].append(option.amount)
 
-        logging.debug(f"highlight_texts: {highlight_texts}")
         return highlight_texts
 
 
     def highlight_texts_in_pdf(self, pdf_path, highlight_texts):
         """PDF에서 텍스트를 하이라이트하거나 밑줄을 긋습니다."""
-        logging.debug(f"highlight_texts_in_pdf 시작: {pdf_path}")
-        logging.debug(f"highlight_texts: {highlight_texts}")
         output_path = os.path.join(self.output_directory, f'{os.path.splitext(os.path.basename(pdf_path))[0]}_highlighted.pdf')
 
         # 색상 팔레트
@@ -93,17 +89,14 @@ class PDFHighlighter:
         try:
             doc = fitz.open(pdf_path)
             for page_number, page in enumerate(doc):
-                logging.debug(f"페이지 번호: {page_number} 처리 중")
                 for category, texts in highlight_texts.items():
                     for search_text in texts["selected"]:
-                        logging.debug(f"검색할 텍스트: '{search_text}'")
                         text_instances = page.search_for(search_text)
                         for inst in text_instances:
                             highlight = page.add_highlight_annot(inst)
                             highlight.set_colors(stroke=color_map[category]["selected"], fill=color_map[category]["selected"])
                             highlight.update()
                     for search_text in texts["alternative"]:
-                        logging.debug(f"검색할 텍스트: '{search_text}'")
                         text_instances = page.search_for(search_text)
                         for inst in text_instances:
                             squiggly = page.add_squiggly_annot(inst)
@@ -111,13 +104,13 @@ class PDFHighlighter:
                             squiggly.update()
             doc.save(output_path, garbage=4, deflate=True, clean=True)
             doc.close()
-            logging.info(f"하이라이트된 PDF 저장 완료: {output_path}")
+            
         except Exception as e:
-            logging.error(f"하이라이트 추가 중 오류 발생: {str(e)}", exc_info=True)
+            
 
 def main():
     try:
-        logging.debug("하이라이트 작업 시작")
+        
         extractResults = sys.argv[1]  # JSON 문자열
         highlighter = PDFHighlighter('/var/www/html/invoiceProject/uploads/highlight/')
         extracted_data = highlighter.parse_extracted_data(extractResults)
@@ -125,18 +118,17 @@ def main():
         for data_item in extracted_data:
             # PDF 파일 경로 설정
             pdf_path = os.path.join('/var/www/html/invoiceProject/uploads/pdfs/', data_item.file_name)
-            logging.debug(f"처리할 PDF 파일: {pdf_path}")
             
             # 파일 존재 여부 확인
             if not os.path.exists(pdf_path):
-                logging.error(f"파일이 존재하지 않습니다: {pdf_path}")
+                
                 continue
 
             highlight_texts = highlighter.extract_highlight_texts(data_item)
             highlighter.highlight_texts_in_pdf(pdf_path, highlight_texts)
 
     except Exception as e:
-        logging.error(f"하이라이트 작업 중 예외 발생: {str(e)}", exc_info=True)
+        
 
 if __name__ == "__main__":
     main()

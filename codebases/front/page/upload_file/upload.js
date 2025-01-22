@@ -138,7 +138,7 @@ function formatDateToYYYYMMDD(dateString) {
 
   // Validate date
   if (isNaN(date.getTime())) {
-    throw new Error(`Invalid date format: ${dateString}`);
+    return dateString;
   }
 
   return formatDate(date);

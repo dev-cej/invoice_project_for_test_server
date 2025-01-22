@@ -21,7 +21,6 @@ def extract_case_numbers_from_text(text):
     return list(set(matches))
 
 def filter_case_numbers_by_context(text, candidates):
-    # logging.debug(f"filter_case_numbers_by_context 시작: {candidates}")
     """문맥을 기반으로 안건번호 후보를 필터링하는 함수"""
     context_keywords = [
         r"Docket\s*No\.?", r"Docket\s*Number", r"Dkt\s*No\.?", r"Dkt\s*Number",
@@ -51,7 +50,6 @@ def extract_case_by_company_pattern(text: str, company_code: str) -> Optional[st
         return None
 
     pattern = COMPANY_PATTERNS[company_code]['case_number']
-    logging.debug(f"!!pattern: {pattern}")
 
         # 유연한 공백 패턴 (0-2개 공백 허용)
 
@@ -64,7 +62,6 @@ def extract_case_by_company_pattern(text: str, company_code: str) -> Optional[st
         )
         
         if extracted_text:
-            logging.debug(f"!!case_number extracted_text: {extracted_text}")
             return normalize_spaces(extracted_text)
 
     return None
@@ -76,7 +73,6 @@ def handle_no_company_code(text: str) -> Tuple[List[str], List[str]]:
 
 def extract_case_number_from_text(text: str, company_code: str = None) -> Tuple[List[str], List[str]]:
     """텍스트에서 안건번호를 추출하는 함수"""
-    logging.debug(f"안건번호 추출 시작 - 회사 코드: {company_code}")
 
     # 텍스트 전처리
     processed_text = filter_empty_lines(text)
@@ -84,7 +80,6 @@ def extract_case_number_from_text(text: str, company_code: str = None) -> Tuple[
     # 1. 회사 코드가 있는 경우 회사별 패턴으로 시도
     if  company_code in ["10101", "10201"]:
         pattern_result = extract_case_by_company_pattern(processed_text, company_code)
-        logging.debug(f"!!pattern_result: {pattern_result}")
         # 시연용으로 회사코드 10101, 10201 일때만 해당 로직을 적용 (시연용 CASE NUMBER의 패턴이 다르기 때문)
         if company_code in ["10101", "10201"] and pattern_result:
             return [pattern_result], []  # 회사 패턴으로 찾은 경우 대체 옵션 없음

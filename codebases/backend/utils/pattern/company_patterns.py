@@ -12,8 +12,8 @@ COMPANY_PATTERNS = {
             "extract_type": "line"
         },
         "amount": {
-            "keywords": ["Total Sum"],
-            "line_offset": 0,
+            "keywords": ["Total Sum", "USD"],
+            "line_offset": 1,
             "extract_type": "line"
         },
         "case_number": {

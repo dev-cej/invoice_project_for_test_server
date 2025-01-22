@@ -24,7 +24,6 @@ except Exception as e:
     logging.error("FileHandleStatus.json 파일을 읽는 중 오류 발생", exc_info=True)
 
 def process_pdf(file_path):
-    logging.debug(f"process_pdf 시작: {file_path}")
     try:
         with pdfplumber.open(file_path) as pdf:
             text_found = False
@@ -43,7 +42,7 @@ def process_pdf(file_path):
                         text_file.write(f"Page {page_number + 1}:\n{text}\n\n")
             
             if text_found:
-                logging.info(f"텍스트가 포함된 PDF 처리 성공: {file_path}")
+                logging.debug(f"텍스트가 포함된 PDF 처리 성공: {file_path}")
                 return FileUploadDetail(status=file_handle_status['STATUS_SUCCESS'], file_type=file_type['FILE_TYPE_TEXT']).to_dict()
             else:
                 logging.warning(f"이미지로만 구성된 PDF: {file_path}")
@@ -61,7 +60,6 @@ if __name__ == '__main__':
     logging.debug("upload_file_handler.py 실행")
     if len(sys.argv) > 1:
         file_path = sys.argv[1]
-        logging.debug(f"전달된 파일 경로: {file_path}")
         result = process_pdf(file_path)
         print(json.dumps(result))
     else:

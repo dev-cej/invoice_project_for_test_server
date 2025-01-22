@@ -91,12 +91,10 @@ def extract_invoice_candidates(text):
     # case_num을 후보에서 제외
     filtered_candidates = [candidate for candidate in candidates if candidate not in case_nums]
 
-    logging.debug(f"!!candidates: {filtered_candidates}")
     
     return list(set(filtered_candidates))
 
 def filter_candidates_by_context(text, candidates):
-    logging.debug(f"!!filter_candidates_by_context 시작: ")
     """문맥을 기반으로 송장 번호 후보를 필터링하는 함수"""
     # 공백 패턴 정의
     SPACE = r"[ ]{0,2}"  # 최대 2개까지의 공백만 허용
@@ -152,13 +150,11 @@ def filter_candidates_by_context(text, candidates):
                             closest_candidate = candidate
 
         if closest_candidate:
-            logging.debug(f"!!context_found: sentence {sentence} closest_candidate: {closest_candidate} ")
             filtered.append(closest_candidate)
 
     return list(set(filtered))
 
 def extract_invoice_by_company_pattern(text: str, company_code: str) -> Optional[str]:
-    logging.debug(f"!!extract_invoice_by_company_pattern 시작: {company_code}")
     """
     회사별 패턴을 사용하여 송장 번호를 추출하는 함수
     
@@ -173,7 +169,6 @@ def extract_invoice_by_company_pattern(text: str, company_code: str) -> Optional
         return None
         
     pattern = COMPANY_PATTERNS[company_code]['invoice_number']
-    logging.debug(f"!!pattern: {pattern}")
 
     # 유연한 공백 패턴 (0-2개 공백 허용)
     FLEX_SPACE = r'\s{0,2}'
@@ -221,7 +216,6 @@ def extract_invoice_by_company_pattern(text: str, company_code: str) -> Optional
     return None
 
 def handle_no_company_code(text: str) -> Tuple[List[str], List[str]]:
-    logging.debug(f"!!handle_no_company_code 시작:")
     candidates = extract_invoice_candidates(text)
     filtered_candidates = filter_candidates_by_context(text, candidates)
     alternative_options = get_alternative_options(candidates, filtered_candidates)
@@ -229,7 +223,6 @@ def handle_no_company_code(text: str) -> Tuple[List[str], List[str]]:
 
 def extract_invoice_number_from_text(text: str, company_code: str = None) -> Tuple[List[str], List[str]]:
     """텍스트에서 송장 번호를 추출하는 함수"""
-    logging.debug(f"송장 번호 추출 시작 - 회사 코드: {company_code}")
 
     # 텍스트 전처리
     processed_text = filter_empty_lines(text)  # 빈 라인 제거도 포함되어 있음
@@ -238,7 +231,6 @@ def extract_invoice_number_from_text(text: str, company_code: str = None) -> Tup
     # 1. 회사 코드가 있는 경우 회사별 패턴으로 시도
     if company_code:
         pattern_result = extract_invoice_by_company_pattern(processed_text, company_code)
-        logging.debug(f"!!pattern_result: {pattern_result}")
         if pattern_result:
             return [pattern_result], []  # 회사 패턴으로 찾은 경우 대체 옵션 없음
         else: 

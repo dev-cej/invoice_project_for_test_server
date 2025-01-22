@@ -347,6 +347,7 @@
   width: 70%;
   transition: background-color 0.3s ease, border 0.3s ease;
   padding: 0.5rem 0rem;
+  margin-left: 1rem;
   font-size: 0.875rem;
   line-height: 1.5rem;
   letter-spacing: -0.0175rem;

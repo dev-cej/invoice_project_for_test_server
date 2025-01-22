@@ -52,6 +52,21 @@ aside {
     border-radius: 1.875rem;
     background: var(--primary-white);
     box-shadow: var(--box-shadow);
+
+    #languageSelector {
+      padding: 0.5rem;
+      width: 50%;
+      border: none;
+      font-size: 14px;
+      color: var(--text-primary-color);
+      font-weight: 500;
+      padding: 0.5rem;
+
+      &:focus {
+        outline: none;
+        cursor: pointer;
+      }
+    }
   }
 
   .upload-result-container {

@@ -18,7 +18,7 @@ from backend.services.extract.match_company.match_company import find_similar_ph
 from backend.services.extract.invoice_num.invoice_num import extract_invoice_number_from_text
 from backend.services.extract.date.date import extract_dates_from_text, filter_primary_date
 from backend.DTO.detail.py.AmountBilledDTO import AmountBilledDTO, AmountDetail
-from backend.services.extract.amount.amount import extract_amounts_from_text
+from backend.services.extract.amount.amount import handle_extract_amounts_from_text
 
 # 로깅 설정 초기화
 setup_logging()
@@ -32,25 +32,23 @@ except Exception as e:
 
 def load_json_file(file_path):
     """JSON 파일을 로드하는 함수"""
-    logging.debug(f"load_json_file 시작: {file_path}")
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
-            logging.debug("JSON 파일 로드 성공")
             return data
     except Exception as e:
-        logging.error(f"오류 발생: {str(e)}", exc_info=True)
+        logging.error(f"extract_text : 오류 발생: {str(e)}", exc_info=True)
         return {'status': 'error', 'message': f'오류 발생: {str(e)}'}
 
 
 def main():
-    logging.debug("main 함수 시작")
+    logging.debug("extract_text.py 실행")
     try:
         # JSON 데이터 로드
         data = load_json_file('/var/www/html/invoiceProject/codebases/backend/config/comany_info.json')
         company_code = None
         if 'status' in data and data['status'] == 'error':
-            logging.error("JSON 데이터 로드 실패")
+            logging.error("extract_text : JSON 데이터 로드 실패")
             print(json.dumps(data, ensure_ascii=False))
             return
         
@@ -83,9 +81,8 @@ def main():
 
         if matched_candidate:
             company_code = matched_candidate['company']['code']
-            logging.info(f"추출된 회사코드: {company_code}")
         else:
-            logging.warning("회사 정보를 찾을 수 없습니다.")    
+            logging.warning("extract_text : 회사 정보를 찾을 수 없습니다.")    
 
         # 안건번호 및 송장번호 추출
         case_number,alternative_options = extract_case_number_from_text(text_content, company_code)
@@ -95,12 +92,10 @@ def main():
             'alternative_options': alternative_options
         }) for number in case_number]
         
-        logging.info(f"추출된 안건번호!: {case_number}")
 
 
         invoice_number, alternative_options = extract_invoice_number_from_text(text_content, company_code)
         invoice_number = [InvoiceNumberDTO(selected_candidate=number, alternative_options=alternative_options) for number in invoice_number]
-        logging.info(f"추출된 송장번호: {invoice_number}")
 
         # 텍스트에서 날짜 추출
         dates = extract_dates_from_text(text_content)
@@ -109,18 +104,16 @@ def main():
         # primary_date를 제외한 alternative_options 생성
         alternative_dates = get_alternative_options(dates, [primary_date])
         date_info = [DateInfoDTO.from_dict({'selected_candidate': primary_date, 'alternative_options': alternative_dates})]
-        logging.info(f"추출된 날짜 정보: {date_info}")
 
         # 청구 금액 추출
-        amount_details, alternative_options = extract_amounts_from_text(text_content)
-        logging.info(f"추출된 청구 금액: {amount_details}, {alternative_options}")
+        amount_details, alternative_options = handle_extract_amounts_from_text(text_content,company_code)
         
         # AmountBilledDTO에 맞게 데이터 구성
         amount_billed = AmountBilledDTO(
             selected_candidate=amount_details,
             alternative_options=alternative_options
         )
-        logging.info(f"추출된 청구 금액: {amount_billed.to_dict()}")
+        logging.info(f"extract_text : 청구 금액 추출 결과: {str(amount_billed)}")
 
         # DTO 생성
         response_dto = TextExtractionResponseDTO(
@@ -131,12 +124,10 @@ def main():
             invoice_date=date_info[0] if date_info else None,
             amount_billed=amount_billed if amount_billed else None
         )
-        logging.info(f"추출된 결과: {response_dto}")
         # 결과 출력
-        logging.info("결과 생성 성공")
         print(response_dto)
     except Exception as e:
-        logging.critical("치명적인 오류 발생", exc_info=True)
+        logging.critical("extract_text : 치명적인 오류 발생", exc_info=True)
         error_output = {
             'status': file_handle_status['STATUS_FAILURE'],
             'message': f'예외 발생: {str(e)}'

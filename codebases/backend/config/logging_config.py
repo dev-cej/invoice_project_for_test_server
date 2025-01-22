@@ -13,7 +13,7 @@ def setup_logging():
 
     handler = RotatingFileHandler(log_path, maxBytes=1*1024*1024, backupCount=1)
     handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s')
     handler.setFormatter(formatter)
 
     logger = logging.getLogger()

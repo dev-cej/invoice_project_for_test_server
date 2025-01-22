@@ -73,7 +73,7 @@ def find_keyword_in_line(line: str, keyword: str) -> Tuple[bool, str]:
     # 4. 여러 단어로 된 키워드인 경우 (예: "Invoice No")
     for i in range(len(words) - len(keyword_parts) + 1):
         if words[i:i+len(keyword_parts)] == keyword_parts:
-            logging.debug(f"!!find_keyword_in_line 복합 키워드 매칭 성공: {keyword}")
+            logging.debug(f"!!find_keyword_in_line 여러 단어 매칭 성공: {keyword}")
             return True, keyword
             
     return False, ""
@@ -118,7 +118,6 @@ def extract_after_separator(text: str, separators: List[str]) -> str:
     separator_pattern = '[' + re.escape(''.join(separators)) + ']'
     # 구분자 주변 공백과 연속된 구분자를 하나로 처리
     normalized_text = re.sub(rf'\s*({separator_pattern}+)\s*', r'\1', text)
-    logging.debug(f"!!extract_after_separator 정규화된 텍스트: {normalized_text}")
     
     # 연속된 구분자들의 마지막 위치 찾기
     match = re.match(rf'^[\s]*({separator_pattern}+)', normalized_text)
@@ -146,7 +145,6 @@ def extract_after_keyword(line: str, keyword: str, separators: List[str]) -> str
         3. 구분자 이후 텍스트 추출
         4. 3개 이상 연속된 공백 이후 텍스트 제거
     """
-    logging.debug(f"!!extract_after_keyword 시작: line: {line} keyword: {keyword} separators: {separators}")
 
     # 1. 키워드 위치 찾기 (대소문자 구분 없이)
     keyword_pos = line.lower().find(keyword.lower())
@@ -159,11 +157,9 @@ def extract_after_keyword(line: str, keyword: str, separators: List[str]) -> str
     
     # 3. 구분자 처리 및 텍스트 추출
     extracted_text = extract_after_separator(remaining_text, separators)
-    logging.debug(f"!!extract_after_keyword 추출된 텍스트: {extracted_text}")
 
     # 4. 3개 이상 연속된 공백 이후 텍스트 제거
     result = remove_text_after_multiple_spaces(extracted_text)
-    logging.debug(f"!!extract_after_keyword 최종 추출 결과: {result}")
     return result
 
 def extract_data_from_text(
@@ -217,16 +213,17 @@ def extract_data_from_text(
            - after_keyword + 같은 줄: 키워드 뒤 데이터 추출
            - 그 외: 대상 라인 전체 반환
     """
-    logging.debug(f"!!extract_data_from_text 시작: keyword: {keyword} extract_type: {extract_type} line_offset: {line_offset} separators: {separators}")
 
-
-    # 빈 라인 제거
-    lines = [filter_empty_lines(text)]
+    # 빈 라인 제거 후 줄 단위로 분리
+    lines = filter_empty_lines(text).splitlines()
     
     for i, line in enumerate(lines):
         found, matched_keyword = find_keyword_in_line(line, keyword)
+        logging.debug(f"!!find_keyword_in_line 키워드 매칭 결과: {found}, {matched_keyword}")
         if found:
+
             target_line_index = i + line_offset
+            logging.debug(f"!!find_keyword_in_line 대상 라인 인덱스: {target_line_index}")
             
             # 라인 인덱스가 범위를 벗어나면 건너뜀
             if target_line_index < 0 or target_line_index >= len(lines):
@@ -234,15 +231,18 @@ def extract_data_from_text(
                 
             # 대상 라인 추출
             target_line = lines[target_line_index].strip()
-            
+            logging.debug(f"!!find_keyword_in_line 대상 라인: {target_line}")
+            logging.debug(f"!!find_keyword_in_line 대상 라인: {lines[target_line_index+1]}")
+
             if extract_type == 'after_keyword' and line_offset == 0:
                 result = extract_after_keyword(target_line, matched_keyword, separators)
+                logging.debug(f"!!find_keyword_in_line 추출 결과: {result}")
                 if result:  # 결과가 있으면 반환
                     return result
                 # 결과가 없으면 계속 다음 매칭을 찾음
                 continue
             else:
-                logging.debug(f"!!extract_data_from_text 라인 전체 추출: {target_line}")
+                logging.debug(f"!!find_keyword_in_line 대상 라인 반환: {target_line}")
                 return target_line
     
     return ""

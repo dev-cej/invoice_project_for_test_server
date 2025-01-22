@@ -9,7 +9,6 @@ setup_logging()
 
 def get_alternative_options(raw_candidates, filtered_candidates):
     """필터링된 후보를 제외한 나머지 후보를 반환하는 함수"""
-    logging.debug(f"Raw candidates: {raw_candidates}")
     alternative_options = list(set(raw_candidates) - set(filtered_candidates))
     return alternative_options
 

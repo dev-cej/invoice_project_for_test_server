@@ -12,7 +12,6 @@ def load_json_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
-            logging.debug("JSON 파일 로드 성공")
             return data
     except FileNotFoundError:
         logging.error("파일을 찾을 수 없습니다.", exc_info=True)
