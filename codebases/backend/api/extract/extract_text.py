@@ -18,7 +18,7 @@ from backend.services.extract.match_company.match_company import find_similar_ph
 from backend.services.extract.invoice_num.invoice_num import extract_invoice_number_from_text
 from backend.services.extract.date.date import extract_dates_from_text, filter_primary_date
 from backend.DTO.detail.py.AmountBilledDTO import AmountBilledDTO, AmountDetail
-from backend.services.extract.amount.amount import handle_extract_amounts_from_text
+from backend.services.extract.amount.amount import extract_amounts_from_text
 
 # 로깅 설정 초기화
 setup_logging()
@@ -106,14 +106,13 @@ def main():
         date_info = [DateInfoDTO.from_dict({'selected_candidate': primary_date, 'alternative_options': alternative_dates})]
 
         # 청구 금액 추출
-        amount_details, alternative_options = handle_extract_amounts_from_text(text_content,company_code)
+        amount_details, alternative_options = extract_amounts_from_text(text_content)
         
         # AmountBilledDTO에 맞게 데이터 구성
         amount_billed = AmountBilledDTO(
             selected_candidate=amount_details,
             alternative_options=alternative_options
         )
-        logging.info(f"extract_text : 청구 금액 추출 결과: {str(amount_billed)}")
 
         # DTO 생성
         response_dto = TextExtractionResponseDTO(

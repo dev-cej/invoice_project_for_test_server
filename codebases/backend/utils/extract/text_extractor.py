@@ -232,7 +232,7 @@ def extract_data_from_text(
             # 대상 라인 추출
             target_line = lines[target_line_index].strip()
             logging.debug(f"!!find_keyword_in_line 대상 라인: {target_line}")
-            logging.debug(f"!!find_keyword_in_line 대상 라인: {lines[target_line_index+1]}")
+            
 
             if extract_type == 'after_keyword' and line_offset == 0:
                 result = extract_after_keyword(target_line, matched_keyword, separators)

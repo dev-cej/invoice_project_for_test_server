@@ -22,7 +22,6 @@ class PDFHighlighter:
                 os.makedirs(self.output_directory, mode=0o755)  # 적절한 권한 설정
             os.chmod(self.output_directory, 0o755)  # 디렉토리 권한 확인
         except Exception as e:
-            
             raise
 
     def parse_extracted_data(self, extractResults):
@@ -40,6 +39,7 @@ class PDFHighlighter:
 
     def extract_highlight_texts(self, data_item):
         """TextExtractionResponseDTO 객체에서 하이라이트할 텍스트를 추출합니다."""
+        logging.debug('extract_highlight_texts 실행' + str(data_item))
         highlight_texts = {
             "case_number": {"selected": [], "alternative": []},
             "invoice_date": {"selected": [], "alternative": []},
@@ -59,19 +59,14 @@ class PDFHighlighter:
         # payer_company의 matched_candidate와 alternative_options 처리
         if data_item.payer_company.matched_candidate:
             highlight_texts["payer_company"]["selected"].append(data_item.payer_company.matched_candidate.matched_phrase)
-
         for option in data_item.payer_company.alternative_options[:3]:
             highlight_texts["payer_company"]["alternative"].append(option.matched_phrase)
-        
         # AmountBilledDTO의 데이터를 처리
         for candidate in data_item.amount_billed.selected_candidate:
             highlight_texts["amount_billed"]["selected"].append(candidate.amount)
-
         for option in data_item.amount_billed.alternative_options[:3]:
             highlight_texts["amount_billed"]["alternative"].append(option.amount)
-
         return highlight_texts
-
 
     def highlight_texts_in_pdf(self, pdf_path, highlight_texts):
         """PDF에서 텍스트를 하이라이트하거나 밑줄을 긋습니다."""
@@ -80,37 +75,42 @@ class PDFHighlighter:
         # 색상 팔레트
         color_map = {
             "case_number": {"selected": (1.0, 0.6, 0.6), "alternative": (1.0, 0.0, 0.0)},  # 진한 빨강
-            "invoice_date": {"selected": (0.6, 1.0, 0.6), "alternative": (0.0, 1.0, 0.0)},  # 진한 초록
-            "invoice_number": {"selected": (0.4, 0.6, 1.0), "alternative": (0.0, 0.0, 1.0)},  # 진한 파랑
-            "payer_company": {"selected": (1.0, 1.0, 0.0), "alternative": (1.0, 0.8, 0.0)},  # 진한 노랑
-            "amount_billed": {"selected": (1.0, 0.7, 0.5), "alternative": (1.0, 0.5, 0.0)}  # 진한 주황
+            "invoice_date": {"selected": (0.6, 1.0, 0.6), "alternative": (0.113, 0.85, 0.086)},  # 진한 초록
+            "invoice_number": {"selected": (0.4, 0.6, 1.0), "alternative": (0.01, 0.0, 1.0)},  # 진한 파랑
+            "payer_company": {"selected": (1.0, 1.0, 0.0), "alternative": (1.0, 0.8, 0.07)},  # 진한 노랑
+            "amount_billed": {"selected": (1.0, 0.7, 0.5), "alternative": (1.0, 0.36, 0.0)}  # 진한 주황
         }
 
         try:
             doc = fitz.open(pdf_path)
             for page_number, page in enumerate(doc):
+                logging.debug(f'Processing page {page_number + 1}')
                 for category, texts in highlight_texts.items():
+                    logging.debug(f'Category: {category}')
                     for search_text in texts["selected"]:
+                        logging.debug(f'Searching for selected text: {search_text}')
                         text_instances = page.search_for(search_text)
                         for inst in text_instances:
+                            logging.debug(f'Highlighting text at: {inst}')
                             highlight = page.add_highlight_annot(inst)
                             highlight.set_colors(stroke=color_map[category]["selected"], fill=color_map[category]["selected"])
                             highlight.update()
                     for search_text in texts["alternative"]:
+                        logging.debug(f'Searching for alternative text: {search_text}')
                         text_instances = page.search_for(search_text)
                         for inst in text_instances:
+                            logging.debug(f'Adding squiggly underline at: {inst}')
                             squiggly = page.add_squiggly_annot(inst)
                             squiggly.set_colors(stroke=color_map[category]["alternative"])
                             squiggly.update()
             doc.save(output_path, garbage=4, deflate=True, clean=True)
             doc.close()
-            
         except Exception as e:
-            
+            logging.error(f'Error processing PDF: {e}')
 
 def main():
     try:
-        
+        logging.debug('highlight_pdf.py 실행')
         extractResults = sys.argv[1]  # JSON 문자열
         highlighter = PDFHighlighter('/var/www/html/invoiceProject/uploads/highlight/')
         extracted_data = highlighter.parse_extracted_data(extractResults)
@@ -121,14 +121,12 @@ def main():
             
             # 파일 존재 여부 확인
             if not os.path.exists(pdf_path):
-                
                 continue
 
             highlight_texts = highlighter.extract_highlight_texts(data_item)
             highlighter.highlight_texts_in_pdf(pdf_path, highlight_texts)
-
     except Exception as e:
-        
+        pass
 
 if __name__ == "__main__":
     main()
