@@ -13,9 +13,11 @@ export const translationKeys = {
   tableInvoiceNumber: "td_invoice_number",
   tableAmountBilled: "td_amount_billed",
   alternativeDataTitle: "alternative_data_title",
+  pdfToggleOriginalView: "pdf_toggle_original_view",
 
   sidebar: {
     uploadFiles: "sidebar_upload_files",
+    uploadBtn: "sidebar_upload_btn",
   },
 
   filter: {
@@ -45,7 +47,8 @@ export const TRANSLATIONS = {
     [translationKeys.tableInvoiceNumber]: "INVOICE NUMBER",
     [translationKeys.tableAmountBilled]: "AMOUNT BILLED",
     [translationKeys.alternativeDataTitle]: "Alternative Data",
-    // ... 다른 번역 데이터
+    [translationKeys.sidebar.uploadBtn]: "Upload",
+    [translationKeys.pdfToggleOriginalView]: "Original View",
   },
   ko: {
     [translationKeys.sidebar.uploadFiles]: "업로드된 파일",
@@ -66,7 +69,8 @@ export const TRANSLATIONS = {
     [translationKeys.tableInvoiceNumber]: "송장번호",
     [translationKeys.tableAmountBilled]: "송장금액",
     [translationKeys.alternativeDataTitle]: "대체 데이터",
-    // ... 다른 번역 데이터
+    [translationKeys.sidebar.uploadBtn]: "업로드",
+    [translationKeys.pdfToggleOriginalView]: "원본보기",
   },
   ja: {
     [translationKeys.sidebar.uploadFiles]: "アップロードファイル",
@@ -87,5 +91,7 @@ export const TRANSLATIONS = {
     [translationKeys.tableStatus]: "ステータス",
     [translationKeys.tableFileType]: "ファイルタイプ",
     [translationKeys.alternativeDataTitle]: "代替データ",
+    [translationKeys.sidebar.uploadBtn]: "アップロード",
+    [translationKeys.pdfToggleOriginalView]: "原本表示",
   },
 };

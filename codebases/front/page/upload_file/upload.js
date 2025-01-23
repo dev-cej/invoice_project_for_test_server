@@ -6,6 +6,10 @@ import { getTranslation } from "../../utils/functions/set_language.js";
 import { translationKeys } from "../../constants/Transitions.js";
 import { FileType } from "../../constants/FileType.js";
 
+const UPLOAD_HTML_PATH = "/page/upload_file/upload.html";
+let currentFileName = null; // 현재 열려 있는 파일 이름을 저장
+const EXTRACTED_DATA_HTML_PATH = "/template/upload/extracted_data_table.html";
+
 document.addEventListener("DOMContentLoaded", async function () {
   try {
     await loadUploadResult();
@@ -15,9 +19,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.error("Initialization error:", error);
   }
 });
-
-const UPLOAD_HTML_PATH = "/page/upload_file/upload.html";
-const EXTRACTED_DATA_HTML_PATH = "/template/upload/extracted_data_table.html";
 
 async function loadUploadResult() {
   try {
@@ -51,56 +52,65 @@ function setupUploadResultInteractions() {
   const resultTableBody = document.getElementById("resultTableBody");
   const downloadButton = document.getElementById("downloadCsvButton");
 
-  // 탭 버튼에 이벤트 리스너 추가
+  setupTabButtonListeners();
+  setupDownloadButtonListener(downloadButton);
+  setupResultTableBodyListener(resultTableBody);
+}
+
+function setupTabButtonListeners() {
   document.querySelectorAll(".tab-button").forEach((tab) => {
     tab.addEventListener("click", () => showTab(tab.id));
   });
+}
 
-  // 다운로드 버튼에 이벤트 리스너 추가
+function setupDownloadButtonListener(downloadButton) {
   if (downloadButton) {
     downloadButton.addEventListener("click", downloadCSV);
   }
+}
 
-  // 이벤트 위임을 사용하여 동적으로 추가되는 요소 처리
+function setupResultTableBodyListener(resultTableBody) {
   resultTableBody.addEventListener("click", handleAlternativeDataClick);
 }
 
 function handleAlternativeDataClick(event) {
   if (!event.target.classList.contains("alternative-data")) return;
 
-  let alternativeData = event.target.textContent.trim();
-  console.log("alternativeData: ", alternativeData);
+  const alternativeData = event.target.textContent.trim();
+  const alternativeType = getAlternativeType(event.target);
+  const fileTableContainer = getFileTableContainer(event.target);
 
-  const alternativeType = event.target
+  if (!alternativeType || !fileTableContainer) return;
+
+  const reviewInput = getReviewInput(fileTableContainer, alternativeType);
+  if (!reviewInput) return;
+
+  const formattedData = formatAlternativeData(alternativeData, alternativeType);
+  reviewInput.value = formattedData;
+}
+
+function getAlternativeType(target) {
+  return target
     .closest(".alternative-item-box")
     ?.querySelector(".alternative-title")
     ?.getAttribute("data-translate");
-  if (!alternativeType) {
-    console.warn("Alternative type not found.");
-    return;
-  }
-  console.log("alternativeType: ", alternativeType);
+}
 
-  const fileTableContainer = event.target.closest(".file-table-container");
-  if (!fileTableContainer) {
-    console.warn("fileTableContainer not found.");
-    return;
-  }
-  console.log("fileTableContainer: ", fileTableContainer);
+function getFileTableContainer(target) {
+  return target.closest(".file-table-container");
+}
 
-  const reviewInput = fileTableContainer
-    .querySelector(`td[data-translate='${alternativeType}']`)
+function getReviewInput(container, type) {
+  return container
+    .querySelector(`td[data-translate='${type}']`)
     ?.nextElementSibling?.nextElementSibling?.querySelector("input");
-  if (!reviewInput) {
-    console.warn("Review input not found for type:", alternativeType);
-    return;
-  }
-  console.log("reviewInput: ", reviewInput);
+}
 
-  if (alternativeType === "td_invoice_date") {
-    alternativeData = formatDateToYYYYMMDD(alternativeData);
+function formatAlternativeData(data, type) {
+  if (type === "td_invoice_date") {
+    return formatDateToYYYYMMDD(data);
   }
-  reviewInput.value = alternativeData;
+  return data;
 }
 
 function formatDateToYYYYMMDD(dateString) {
@@ -216,7 +226,8 @@ function populateRow(clone, row) {
 export function handleAddTable(file) {
   const resultTableBody = document.getElementById("resultTableBody");
   const tableElement = createDynamicTable(file);
-  resultTableBody.insertBefore(tableElement, resultTableBody.firstChild);
+  const secondChild = resultTableBody.children[1];
+  resultTableBody.insertBefore(tableElement, secondChild);
   const newFileLink = resultTableBody.querySelector(
     `tr:first-child .file-link`
   );
@@ -391,51 +402,97 @@ function getPayerCompanyInfo(file) {
 
 function addFileLinkClickListener(linkElement, fileName) {
   if (linkElement) {
-    linkElement.addEventListener("click", (event) => {
+    // 기존 리스너 제거
+    linkElement.removeEventListener("click", handleFileLinkClick);
+
+    // 새로운 리스너 추가
+    linkElement.addEventListener("click", handleFileLinkClick);
+
+    function handleFileLinkClick(event) {
       event.preventDefault(); // 기본 동작 방지
+      event.stopPropagation(); // 이벤트 버블링 방지
       console.log("Clicked file link:", fileName); // 디버깅 로그
       openPdfInViewer(fileName); // PDF 뷰어 열기
-    });
+    }
+  }
+}
+async function openPdfInViewer(fileName) {
+  currentFileName = fileName; // 현재 파일 이름 업데이트
+  const closePdfViewer = document.getElementById("closePdfViewer");
+  const pdfViewerContainer = document.querySelector(".pdf-viewer-container");
+
+  const pdfViewerCheckbox =
+    pdfViewerContainer.querySelector("#pdfViewerCheckbox");
+
+  // 기존 리스너 제거 후 추가
+  pdfViewerCheckbox.removeEventListener("change", handleCheckboxChange);
+  pdfViewerCheckbox.addEventListener("change", handleCheckboxChange);
+
+  function handleCheckboxChange() {
+    loadPdf(fileName);
+  }
+
+  // 초기 로드
+  handleCheckboxChange();
+  closePdfViewer.style.display = "block";
+  closePdfViewer.removeEventListener("click", closePdfViewerHandler);
+  closePdfViewer.addEventListener("click", closePdfViewerHandler);
+
+  function closePdfViewerHandler() {
+    togglePdfViewerDisplay(false);
   }
 }
 
-async function openPdfInViewer(fileName) {
-  const pdfViewer = document.getElementById("pdfViewer");
+function togglePdfViewerDisplay(isVisible) {
+  const pdfViewerContainer = document.querySelector(".pdf-viewer-container");
   const dragBar = document.getElementById("dragBar");
+  const closePdfViewer = document.getElementById("closePdfViewer");
 
-  // 기본 이름 준비
+  const displayStyle = isVisible ? "flex" : "none";
+  pdfViewerContainer.style.display = displayStyle;
+  dragBar.style.display = isVisible ? "block" : "none";
+  closePdfViewer.style.display = displayStyle;
+}
+
+async function loadPdf(fileName) {
+  if (fileName !== currentFileName) return; // 현재 파일 이름과 일치하지 않으면 종료
+  const pdfViewer = document.getElementById("pdfViewer");
+  const pdfViewerContainer = document.querySelector(".pdf-viewer-container");
+  const pdfViewerCheckbox =
+    pdfViewerContainer.querySelector("#pdfViewerCheckbox");
+  const isChecked = pdfViewerCheckbox.checked;
+
   const baseName = fileName.replace(/\.pdf$/i, "");
   const highlightedFileName = `${baseName}_highlighted.pdf`;
 
-  // 경로 목록 정의
-  const paths = [
-    `/uploads/highlight/${encodeURIComponent(
-      highlightedFileName
-    )}#pagemode=none`,
-    `/uploads/pdfs/${encodeURIComponent(fileName)}#pagemode=none`,
-  ];
+  const primaryPath = isChecked
+    ? `/uploads/pdfs/${encodeURIComponent(fileName)}#pagemode=none`
+    : `/uploads/highlight/${encodeURIComponent(
+        highlightedFileName
+      )}#pagemode=none`;
 
-  console.log("paths: ", paths);
+  const fallbackPath = `/uploads/pdfs/${encodeURIComponent(
+    fileName
+  )}#pagemode=none`;
 
-  // 순차적으로 파일 존재 여부 확인
-  for (const path of paths) {
-    try {
-      const response = await fetch(path, { method: "HEAD" });
-      if (response.ok) {
-        pdfViewer.src = path;
-        console.log("path2: ", path);
-        pdfViewer.style.display = "block";
-        dragBar.style.display = "block";
-        return;
-      }
-    } catch (error) {
-      console.log(`경로 확인 중 에러 발생: ${path}`, error);
+  try {
+    pdfViewer.src = ""; // 이전 파일 초기화
+    const response = await fetch(primaryPath, { method: "HEAD" });
+    if (response.ok) {
+      console.log("primaryPath: ", primaryPath);
+      pdfViewer.src = primaryPath;
+    } else {
+      console.log("fallbackPath: ", fallbackPath);
+      pdfViewer.src = fallbackPath;
     }
+    pdfViewerContainer.style.display = "flex";
+    dragBar.style.display = "block";
+  } catch (error) {
+    console.log(`경로 확인 중 에러 발생: ${primaryPath}`, error);
+    pdfViewer.src = fallbackPath;
+    pdfViewerContainer.style.display = "flex";
+    dragBar.style.display = "block";
   }
-
-  // 모든 경로가 실패한 경우
-  console.error("PDF 파일을 찾을 수 없습니다.");
-  alert("PDF 파일을 찾을 수 없습니다.");
 }
 
 function downloadCSV() {

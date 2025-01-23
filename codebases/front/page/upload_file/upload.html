@@ -1,26 +1,40 @@
 <div class="upload-container">
   <div class="top-container">
-    <div class="">
-      <!-- <button class="tab-button" onclick="showTab('all')">전체</button>
+    <!-- <div class=""> -->
+    <!-- <button class="tab-button" onclick="showTab('all')">전체</button>
     <button class="tab-button" onclick="showTab('review')">검토상태</button>
     <button class="tab-button" onclick="showTab('return')">반환상태</button> -->
-    </div>
-    <div id="middle-box">
-      <div id="filter-container"></div>
-      <button id="downloadCsvButton">
-        <span data-translate="result_download_btn" class="button-text">
-          Download
-        </span>
-      </button>
-    </div>
+    <!-- </div> -->
   </div>
 
   <!-- Status and File Type Display as Cards -->
 
   <div class="table-pdf-container" id="all">
-    <div id="resultTableBody"></div>
+    <div id="resultTableBody">
+      <div id="middle-box">
+        <div id="filter-container"></div>
+        <button id="downloadCsvButton">
+          <span data-translate="result_download_btn" class="button-text">
+            Download
+          </span>
+        </button>
+      </div>
+    </div>
     <div id="dragBar"></div>
-    <iframe id="pdfViewer"></iframe>
+    <div class="pdf-viewer-container">
+      <iframe id="pdfViewer"></iframe>
+      <button id="closePdfViewer" class="close-button"></button>
+      <label id="pdfViewerLabel" class="toggle_label">
+        <input
+          role="switch"
+          type="checkbox"
+          id="pdfViewerCheckbox"
+          class="toggle_input"
+        />
+        <span data-translate="pdf_toggle_original_view">원본 보기</span>
+      </label>
+    </div>
+    <!-- 엑스 아이콘 추가 -->
   </div>
 
   <div class="table-pdf-container" id="review" style="display: none">
