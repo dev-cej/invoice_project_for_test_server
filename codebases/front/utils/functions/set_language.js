@@ -9,6 +9,19 @@ function setLanguage(language) {
     const key = element.getAttribute("data-translate");
     element.textContent = TRANSLATIONS[language][key] || key;
   });
+
+  // 언어에 따라 폰트 변경
+  if (language === "ja") {
+    document.documentElement.style.setProperty(
+      "--font-family",
+      '"NotoSansJP", sans-serif'
+    );
+  } else {
+    document.documentElement.style.setProperty(
+      "--font-family",
+      '"Pretendard", sans-serif'
+    );
+  }
 }
 
 export function getLanguage() {

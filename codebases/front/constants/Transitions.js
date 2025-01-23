@@ -14,6 +14,7 @@ export const translationKeys = {
   tableAmountBilled: "td_amount_billed",
   alternativeDataTitle: "alternative_data_title",
   pdfToggleOriginalView: "pdf_toggle_original_view",
+  fileUpload: "file_upload",
 
   sidebar: {
     uploadFiles: "sidebar_upload_files",
@@ -49,6 +50,7 @@ export const TRANSLATIONS = {
     [translationKeys.alternativeDataTitle]: "Alternative Data",
     [translationKeys.sidebar.uploadBtn]: "Upload",
     [translationKeys.pdfToggleOriginalView]: "Original View",
+    [translationKeys.fileUpload]: "Upload Files",
   },
   ko: {
     [translationKeys.sidebar.uploadFiles]: "업로드된 파일",
@@ -71,6 +73,7 @@ export const TRANSLATIONS = {
     [translationKeys.alternativeDataTitle]: "대체 데이터",
     [translationKeys.sidebar.uploadBtn]: "업로드",
     [translationKeys.pdfToggleOriginalView]: "원본보기",
+    [translationKeys.fileUpload]: "파일 업로드",
   },
   ja: {
     [translationKeys.sidebar.uploadFiles]: "アップロードファイル",
@@ -93,5 +96,6 @@ export const TRANSLATIONS = {
     [translationKeys.alternativeDataTitle]: "代替データ",
     [translationKeys.sidebar.uploadBtn]: "アップロード",
     [translationKeys.pdfToggleOriginalView]: "原本表示",
+    [translationKeys.fileUpload]: "ファイルアップロード",
   },
 };
