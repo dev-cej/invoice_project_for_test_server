@@ -226,8 +226,8 @@ function populateRow(clone, row) {
 export function handleAddTable(file) {
   const resultTableBody = document.getElementById("resultTableBody");
   const tableElement = createDynamicTable(file);
-  const secondChild = resultTableBody.children[1];
-  resultTableBody.insertBefore(tableElement, secondChild);
+  resultTableBody.insertBefore(tableElement, resultTableBody.firstChild);
+  console.log("resultTableBody", resultTableBody);
   const newFileLink = resultTableBody.querySelector(
     `tr:first-child .file-link`
   );
@@ -401,6 +401,8 @@ function getPayerCompanyInfo(file) {
 }
 
 function addFileLinkClickListener(linkElement, fileName) {
+  console.log("addFileLinkClickListener", fileName);
+  console.log("linkElement", linkElement);
   if (linkElement) {
     // 기존 리스너 제거
     linkElement.removeEventListener("click", handleFileLinkClick);
@@ -409,6 +411,7 @@ function addFileLinkClickListener(linkElement, fileName) {
     linkElement.addEventListener("click", handleFileLinkClick);
 
     function handleFileLinkClick(event) {
+      console.log("handleFileLinkClick", fileName);
       event.preventDefault(); // 기본 동작 방지
       event.stopPropagation(); // 이벤트 버블링 방지
       console.log("Clicked file link:", fileName); // 디버깅 로그

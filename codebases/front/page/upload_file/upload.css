@@ -7,18 +7,6 @@
   width: 100%;
 }
 
-/* 중간 박스 스타일 */
-#middle-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--primary-white);
-  box-shadow: var(--box-shadow-2);
-  border-radius: 0.9375rem;
-  padding: 0.625rem 1rem;
-}
-
 #filter-container {
   width: 50%;
 }
@@ -67,6 +55,26 @@
   height: 100%;
   overflow: auto;
   gap: 0.5rem;
+}
+
+.left-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+/* 중간 박스 스타일 */
+#middle-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-white);
+  box-shadow: var(--box-shadow-2);
+  border-radius: 0.9375rem;
+  padding: 0.625rem 1rem;
 }
 
 /* 결과 테이블 바디 스타일 */
