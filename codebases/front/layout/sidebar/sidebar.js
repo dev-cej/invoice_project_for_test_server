@@ -1,9 +1,9 @@
-import { FileUploadDetail } from "../../DTO/detail/FileUploadDetail.js";
 import { FileUploadResponse } from "../../DTO/response/FileUploadResponse.js";
 import { FileHandleStatus } from "../../constants/FileHandleStatus.js";
 import { FileType } from "../../constants/FileType.js";
-
 import { handleAddTable } from "../../page/upload_file/upload.js";
+import { getConfig } from "../../config/configManager.js";
+const CONFIG = getConfig();
 
 document.addEventListener("DOMContentLoaded", async function () {
   try {
@@ -84,10 +84,11 @@ function setupSidebarInteractions() {
         formData.append("files[]", file);
 
         const response = await fetch(
-          "https://api.ktainvoice.o-r.kr/upload/upload_file_handler.php",
+          CONFIG.API_URL + "/upload/upload_file_handler.php",
           {
             method: "POST",
             body: formData,
+            mode: "cors", // CORS 모드 설정
           }
         );
 
@@ -124,8 +125,8 @@ function setupSidebarInteractions() {
       alert("파일을 선택하세요.");
       return false;
     }
-    if (files.length > 300) {
-      alert("최대 50개의 파일만 업로드할 수 있습니다.");
+    if (files.length > 100) {
+      alert("최대 100개의 파일만 업로드할 수 있습니다.");
       return false;
     }
     return true;
