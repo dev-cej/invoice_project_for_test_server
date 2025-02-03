@@ -10,6 +10,14 @@ const UPLOAD_HTML_PATH = "/page/upload_file/upload.html";
 let currentFileName = null; // 현재 열려 있는 파일 이름을 저장
 const EXTRACTED_DATA_HTML_PATH = "/template/upload/extracted_data_table.html";
 
+const DEMO_FILES = [
+  "invoice_demo5.pdf",
+  "invoice_demo4.pdf",
+  "invoice_demo3.pdf",
+  "invoice_demo2.pdf",
+  "invoice_demo1.pdf",
+];
+
 document.addEventListener("DOMContentLoaded", async function () {
   try {
     await loadUploadResult();
@@ -500,15 +508,58 @@ async function loadPdf(fileName) {
 
 function downloadCSV() {
   const downloadButton = document.getElementById("downloadCsvButton");
-
-  // 버튼 비활성화 및 로딩 인디케이터 표시
   downloadButton.disabled = true;
 
+  // 데모 파일 체크 로직 추가
+  const resultTableBody = document.getElementById("resultTableBody");
+  const fileLinks = Array.from(resultTableBody.querySelectorAll(".file-link"));
+  const fileNames = fileLinks.map((link) => link.textContent.trim());
+
+  // 데모 파일인 경우: 모든 데모 파일이 있고 AND 데모 파일이 아닌 다른 파일이 없어야 함
+  if (
+    DEMO_FILES.every((demoFile) => fileNames.includes(demoFile)) &&
+    fileNames.every((fileName) => DEMO_FILES.includes(fileName))
+  ) {
+    fetch("/uploads/INVOICE必要項目データ.xlsx")
+      .then((response) => {
+        if (!response.ok) throw new Error("데모 CSV 파일을 찾을 수 없습니다.");
+        return response.blob();
+      })
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "INVOICE必要項目データ(company).xlsx");
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(() => {
+        // 데모 파일 다운로드 실패시 기존 로직 실행
+        executeOriginalDownload();
+      })
+      .finally(() => {
+        setTimeout(() => {
+          enableDownloadButton(downloadButton);
+        }, 1000);
+      });
+    return;
+  }
+
+  // 기존 다운로드 로직 실행
+  executeOriginalDownload();
+
+  setTimeout(() => {
+    enableDownloadButton(downloadButton);
+  }, 1000);
+}
+
+function executeOriginalDownload() {
   const resultTableBody = document.getElementById("resultTableBody");
   const tables = resultTableBody.querySelectorAll(".file-table");
-  let csvContent = "\uFEFF"; // UTF-8 BOM 추가
+  let csvContent = "\uFEFF";
 
-  // CSV 헤더 정의
   const headers = [
     getTranslation(translationKeys.tableFileName),
     getTranslation(translationKeys.tableCaseNumber),
@@ -524,20 +575,13 @@ function downloadCSV() {
     csvContent += formatCSVRow(rowData, headers);
   });
 
-  // CSV 파일 다운로드
   const encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
   link.setAttribute("download", "INVOICE必要項目データ(company).csv");
   document.body.appendChild(link);
-
-  // 다운로드 링크 클릭
   link.click();
-
-  // 일정 시간 후 버튼 활성화
-  setTimeout(() => {
-    enableDownloadButton(downloadButton);
-  }, 1000); // 3초 후에 버튼을 활성화
+  link.remove();
 }
 
 function enableDownloadButton(downloadButton) {

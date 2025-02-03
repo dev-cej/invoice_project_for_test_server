@@ -1,4 +1,27 @@
 COMPANY_PATTERNS = {
+        "12001": {  # WTA Patents
+        "name": "Demo Company",
+        "invoice_number": {
+            "keywords": ["Invoice"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        },
+        "date": {
+            "keywords": ["Invoice"],
+            "line_offset": 1,
+            "extract_type": "line"
+        },
+        "amount": {
+            "keywords": ["TOTAL AMOUNT DUE"],
+            "line_offset": 0,
+            "extract_type": "line"
+        },
+        "case_number": {
+            "keywords": ["Your ref"],
+            "line_offset": 0,
+            "extract_type": "after_keyword"
+        }
+    },
     "10101": {  # L O U I S · P Ö H L A U · L O H R E N T Z
         "name": "L O U I S · P Ö H L A U · L O H R E N T Z",
         "invoice_number": {
