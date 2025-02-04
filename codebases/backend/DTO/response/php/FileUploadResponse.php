@@ -1,7 +1,7 @@
 <?php
 
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/response/php/ApiResponse.php');
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/ExtractResult.php');
+require_once Env::get('BACKEND_PATH') . '/DTO/response/php/ApiResponse.php';
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/ExtractResult.php';
 
 /**
  * Class FileUploadResponse

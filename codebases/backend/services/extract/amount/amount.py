@@ -3,11 +3,9 @@ import logging
 from typing import List, Dict, Optional, Tuple
 import sys
 import os
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.utils.extract.filter_text import get_alternative_options
-from backend.utils.extract.preprocess_text import filter_empty_lines, filter_lines_without_numbers
-from backend.DTO.detail.py.AmountBilledDTO import AmountDetail
+from config.logging_config import setup_logging
+from utils.extract.preprocess_text import filter_empty_lines, filter_lines_without_numbers
+from DTO.detail.py.AmountBilledDTO import AmountDetail
 
 
 setup_logging()

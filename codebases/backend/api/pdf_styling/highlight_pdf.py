@@ -4,9 +4,12 @@ import sys
 import json
 import logging
 import os
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.DTO.response.py.TextExtractionResponse import TextExtractionResponseDTO
+backend_path = os.getenv('BACKEND_PATH')
+upload_path = os.getenv('UPLOAD_PATH')
+backend_api_path = os.getenv('BACKEND_API_PATH')
+sys.path.append(os.path.abspath(backend_path))
+from config.logging_config import setup_logging
+from DTO.response.py.TextExtractionResponse import TextExtractionResponseDTO
 
 setup_logging()
 
@@ -14,17 +17,20 @@ setup_logging()
 class PDFHighlighter:
     def __init__(self, output_directory):
         self.output_directory = output_directory
+        logging.debug(f'output_directory: {self.output_directory}')
         self.setup_output_directory()
 
     def setup_output_directory(self):
         try:
             if not os.path.exists(self.output_directory):
-                os.makedirs(self.output_directory, mode=0o755)  # 적절한 권한 설정
-            os.chmod(self.output_directory, 0o755)  # 디렉토리 권한 확인
+                os.makedirs(self.output_directory, exist_ok=True)
+            # 현재 권한 확인
         except Exception as e:
+            logging.error(f'Error in setup_output_directory: {e}')
             raise
 
     def parse_extracted_data(self, extractResults):
+        logging.debug('parse_extracted_data 실행')
         """JSON 문자열을 파싱하여 TextExtractionResponseDTO 객체 리스트를 반환합니다."""
         data_list = json.loads(extractResults)
         return [TextExtractionResponseDTO.from_dict(data) for data in data_list]
@@ -71,6 +77,8 @@ class PDFHighlighter:
     def highlight_texts_in_pdf(self, pdf_path, highlight_texts):
         """PDF에서 텍스트를 하이라이트하거나 밑줄을 긋습니다."""
         output_path = os.path.join(self.output_directory, f'{os.path.splitext(os.path.basename(pdf_path))[0]}_highlighted.pdf')
+        logging.debug(f'pdf_path: {pdf_path}')
+        logging.debug(f'output_path: {output_path}')
 
         # 색상 팔레트
         color_map = {
@@ -112,12 +120,12 @@ def main():
     try:
         logging.debug('highlight_pdf.py 실행')
         extractResults = sys.argv[1]  # JSON 문자열
-        highlighter = PDFHighlighter('/var/www/html/invoiceProject/uploads/highlight/')
+        highlighter = PDFHighlighter(upload_path + '/highlight/')
         extracted_data = highlighter.parse_extracted_data(extractResults)
-
         for data_item in extracted_data:
+            logging.debug(f'data_item: {data_item}')
             # PDF 파일 경로 설정
-            pdf_path = os.path.join('/var/www/html/invoiceProject/uploads/pdfs/', data_item.file_name)
+            pdf_path = os.path.join(upload_path + '/pdfs/', data_item.file_name)
             
             # 파일 존재 여부 확인
             if not os.path.exists(pdf_path):
@@ -126,6 +134,7 @@ def main():
             highlight_texts = highlighter.extract_highlight_texts(data_item)
             highlighter.highlight_texts_in_pdf(pdf_path, highlight_texts)
     except Exception as e:
+        logging.error(f'Error in main: {e}')
         pass
 
 if __name__ == "__main__":

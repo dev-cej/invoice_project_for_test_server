@@ -3,7 +3,7 @@ import os
 from logging.handlers import RotatingFileHandler
 
 def setup_logging():
-    log_directory = '/var/www/html/invoiceProject/logs'
+    log_directory = os.getenv('LOG_PATH')
     log_file = 'python_script.log'
     log_path = os.path.join(log_directory, log_file)
 

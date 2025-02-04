@@ -2,9 +2,8 @@ from fuzzywuzzy import fuzz
 import logging
 import os
 import sys
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.utils.extract.preprocess_text import preprocess_text, preprocess_line
+from config.logging_config import setup_logging
+from utils.extract.preprocess_text import preprocess_text, preprocess_line
 setup_logging()
 
 def calculate_similarity(processed_line, company, threshold):

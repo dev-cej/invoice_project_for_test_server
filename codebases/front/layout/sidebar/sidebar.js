@@ -83,14 +83,11 @@ function setupSidebarInteractions() {
         const formData = new FormData();
         formData.append("files[]", file);
 
-        const response = await fetch(
-          CONFIG.API_URL + "/upload/upload_file_handler.php",
-          {
-            method: "POST",
-            body: formData,
-            mode: "cors", // CORS 모드 설정
-          }
-        );
+        const response = await fetch(CONFIG.API_URL + "upload/upload_file", {
+          method: "POST",
+          body: formData,
+          mode: "cors", // CORS 모드 설정
+        });
 
         if (!response.ok) {
           throw new Error("Network response was not ok");

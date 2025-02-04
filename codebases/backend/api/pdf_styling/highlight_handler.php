@@ -1,6 +1,5 @@
 <?php
 header('Content-Type: application/json');
-require_once('/var/www/html/invoiceProject/codebases/backend/config/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = file_get_contents('php://input');
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // 하이라이트 스크립트 실행
-        $highlightCommand = escapeshellcmd("$pythonPath $highlightScriptPath $pdfFilePath " . escapeshellarg(json_encode($phrases)) . " 2>&1");
+        $highlightCommand = escapeshellcmd(Env::get('PYTHON_PATH') . " " . $highlightScriptPath . " " . $pdfFilePath . " " . escapeshellarg(json_encode($phrases)) . " 2>&1");
         $highlightOutput = shell_exec($highlightCommand);
         logGeneralError("하이라이트 스크립트 실행 결과: " . $highlightOutput);
 

@@ -4,28 +4,31 @@ import re
 import logging
 import os
 from fuzzywuzzy import fuzz
-from typing import List, Dict
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.DTO.response.py.TextExtractionResponse import TextExtractionResponseDTO
-from backend.DTO.detail.py.CaseNumberDTO import CaseNumberDTO
-from backend.DTO.detail.py.PayerCompanyDTO import PayerCompanyDTO
-from backend.DTO.detail.py.DateInfoDTO import DateInfoDTO
-from backend.DTO.detail.py.InvoiceNumberDTO import InvoiceNumberDTO
-from backend.utils.extract.filter_text import get_alternative_options
-from backend.services.extract.case_num.case_num import extract_case_number_from_text
-from backend.services.extract.match_company.match_company import find_similar_phrases_in_text, select_matched_candidate
-from backend.services.extract.invoice_num.invoice_num import extract_invoice_number_from_text
-from backend.services.extract.date.date import extract_dates_from_text, filter_primary_date
-from backend.DTO.detail.py.AmountBilledDTO import AmountBilledDTO, AmountDetail
-from backend.services.extract.amount.amount import extract_amounts_from_text
+backend_path = os.getenv('BACKEND_PATH')
+constants_path = os.getenv('BACKEND_CONSTANTS_PATH')
+config_path = os.getenv('CONFIG_PATH')
+upload_path = os.getenv('UPLOAD_PATH')
+sys.path.append(os.path.abspath(backend_path))
+from config.logging_config import setup_logging
+from DTO.response.py.TextExtractionResponse import TextExtractionResponseDTO
+from DTO.detail.py.CaseNumberDTO import CaseNumberDTO
+from DTO.detail.py.PayerCompanyDTO import PayerCompanyDTO
+from DTO.detail.py.DateInfoDTO import DateInfoDTO
+from DTO.detail.py.InvoiceNumberDTO import InvoiceNumberDTO
+from utils.extract.filter_text import get_alternative_options
+from services.extract.case_num.case_num import extract_case_number_from_text
+from services.extract.match_company.match_company import find_similar_phrases_in_text, select_matched_candidate
+from services.extract.invoice_num.invoice_num import extract_invoice_number_from_text
+from services.extract.date.date import extract_dates_from_text, filter_primary_date
+from DTO.detail.py.AmountBilledDTO import AmountBilledDTO, AmountDetail
+from services.extract.amount.amount import extract_amounts_from_text
 
 # 로깅 설정 초기화
 setup_logging()
 
 
 try:
-    with open('/var/www/html/invoiceProject/codebases/backend/constants/FileHandleStatus.json', 'r') as file:
+    with open(constants_path + '/FileHandleStatus.json', 'r') as file:
         file_handle_status = json.load(file)
 except Exception as e:
     logging.error("FileHandleStatus.json 파일을 읽는 중 오류 발생", exc_info=True)
@@ -45,7 +48,7 @@ def main():
     logging.debug("extract_text.py 실행")
     try:
         # JSON 데이터 로드
-        data = load_json_file('/var/www/html/invoiceProject/codebases/backend/config/comany_info.json')
+        data = load_json_file(config_path + '/comany_info.json')
         company_code = None
         if 'status' in data and data['status'] == 'error':
             logging.error("extract_text : JSON 데이터 로드 실패")

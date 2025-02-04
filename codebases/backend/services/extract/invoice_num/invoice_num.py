@@ -3,13 +3,12 @@ import logging
 import os
 import sys
 from typing import Optional, List, Tuple
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.utils.extract.filter_text import get_alternative_options
-from backend.services.extract.case_num.case_num import extract_case_numbers_from_text
-from backend.utils.extract.text_extractor import extract_data_from_text
-from backend.utils.pattern.company_patterns import COMPANY_PATTERNS
-from backend.utils.extract.preprocess_text import filter_lines_without_numbers, filter_empty_lines
+from config.logging_config import setup_logging
+from utils.extract.filter_text import get_alternative_options
+from services.extract.case_num.case_num import extract_case_numbers_from_text
+from utils.extract.text_extractor import extract_data_from_text
+from utils.pattern.company_patterns import COMPANY_PATTERNS
+from utils.extract.preprocess_text import filter_lines_without_numbers, filter_empty_lines
 
 setup_logging()
 

@@ -1,10 +1,10 @@
 <?php
 
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/CaseNumber.php');
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/PayerCompany.php');
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/DateInfo.php');
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/InvoiceNumber.php');
-require_once('/var/www/html/invoiceProject/codebases/backend/DTO/detail/php/AmountBilled.php');
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/CaseNumber.php';
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/PayerCompany.php';
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/DateInfo.php';
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/InvoiceNumber.php';
+require_once Env::get('BACKEND_PATH') . '/DTO/detail/php/AmountBilled.php';
 
 
 /**

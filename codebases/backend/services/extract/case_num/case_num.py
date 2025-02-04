@@ -3,11 +3,10 @@ import logging
 import os
 import sys
 from typing import Optional, List, Tuple
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-from backend.utils.pattern.company_patterns import COMPANY_PATTERNS
-from backend.utils.extract.preprocess_text import filter_empty_lines, normalize_spaces
-from backend.utils.extract.text_extractor import extract_data_from_text
+from config.logging_config import setup_logging
+from utils.pattern.company_patterns import COMPANY_PATTERNS
+from utils.extract.preprocess_text import filter_empty_lines, normalize_spaces
+from utils.extract.text_extractor import extract_data_from_text
 
 
 # 로깅 설정 초기화

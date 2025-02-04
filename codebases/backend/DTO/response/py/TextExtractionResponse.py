@@ -1,11 +1,11 @@
 from typing import Optional, Dict
 import json
 
-from backend.DTO.detail.py.CaseNumberDTO import CaseNumberDTO
-from backend.DTO.detail.py.PayerCompanyDTO import PayerCompanyDTO
-from backend.DTO.detail.py.DateInfoDTO import DateInfoDTO
-from backend.DTO.detail.py.InvoiceNumberDTO import InvoiceNumberDTO
-from backend.DTO.detail.py.AmountBilledDTO import AmountBilledDTO
+from DTO.detail.py.CaseNumberDTO import CaseNumberDTO
+from DTO.detail.py.PayerCompanyDTO import PayerCompanyDTO
+from DTO.detail.py.DateInfoDTO import DateInfoDTO
+from DTO.detail.py.InvoiceNumberDTO import InvoiceNumberDTO
+from DTO.detail.py.AmountBilledDTO import AmountBilledDTO
 
 class TextExtractionResponseDTO:
     def __init__(self, 

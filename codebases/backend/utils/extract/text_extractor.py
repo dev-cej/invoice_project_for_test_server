@@ -1,9 +1,9 @@
 # text_extractor.py
 import re
 import logging
-from backend.config.logging_config import setup_logging
+from config.logging_config import setup_logging
 from typing import Tuple, List
-from backend.utils.extract.preprocess_text import filter_empty_lines
+from utils.extract.preprocess_text import filter_empty_lines
 
 setup_logging()
 

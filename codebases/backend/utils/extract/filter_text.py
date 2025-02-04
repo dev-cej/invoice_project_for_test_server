@@ -2,9 +2,7 @@ import logging
 import re
 import os
 import sys
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
-
+from config.logging_config import setup_logging
 setup_logging()
 
 def get_alternative_options(raw_candidates, filtered_candidates):

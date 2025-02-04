@@ -2,8 +2,7 @@ import json
 import logging
 import os
 import sys
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
+from config.logging_config import setup_logging
 
 setup_logging()
 

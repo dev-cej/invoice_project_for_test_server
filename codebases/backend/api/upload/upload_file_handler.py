@@ -3,22 +3,25 @@ import json
 import sys
 import os
 import logging
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.DTO.detail.py.FileUploadDetail import FileUploadDetail
-from backend.config.logging_config import setup_logging
+backend_path = os.getenv('BACKEND_PATH')
+constants_path = os.getenv('BACKEND_CONSTANTS_PATH')
+upload_path = os.getenv('UPLOAD_PATH')
+sys.path.append(os.path.abspath(backend_path))
+from DTO.detail.py.FileUploadDetail import FileUploadDetail
+from config.logging_config import setup_logging
 
 # 로깅 설정 초기화
 setup_logging()
 
 # JSON 파일에서 상수 읽기
 try:
-    with open('/var/www/html/invoiceProject/codebases/backend/constants/FileType.json', 'r') as file:
+    with open(constants_path + '/FileType.json', 'r') as file:
         file_type = json.load(file)
 except Exception as e:
     logging.error("FileType.json 파일을 읽는 중 오류 발생", exc_info=True)
 
 try:
-    with open('/var/www/html/invoiceProject/codebases/backend/constants/FileHandleStatus.json', 'r') as file:
+    with open(constants_path + '/FileHandleStatus.json', 'r') as file:
         file_handle_status = json.load(file)
 except Exception as e:
     logging.error("FileHandleStatus.json 파일을 읽는 중 오류 발생", exc_info=True)
@@ -27,7 +30,7 @@ def process_pdf(file_path):
     try:
         with pdfplumber.open(file_path) as pdf:
             text_found = False
-            output_folder = "/var/www/html/invoiceProject/uploads/texts"
+            output_folder = upload_path + "/texts"
             os.makedirs(output_folder, exist_ok=True)
             
             # PDF 파일명에서 확장자 제거

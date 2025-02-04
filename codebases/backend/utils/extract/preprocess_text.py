@@ -2,8 +2,7 @@ import re
 import logging
 import os
 import sys
-sys.path.append(os.path.abspath('/var/www/html/invoiceProject/codebases'))
-from backend.config.logging_config import setup_logging
+from config.logging_config import setup_logging
 
 # 로깅 설정 초기화
 setup_logging()
