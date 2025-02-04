@@ -24,6 +24,7 @@ def filter_case_numbers_by_context(text, candidates):
     context_keywords = [
         r"Docket\s*No\.?", r"Docket\s*Number", r"Dkt\s*No\.?", r"Dkt\s*Number",
         r"Your\s*Ref\.?", r"Your\s*Reference", r"Your\s*refs", r"Yr\s*Ref", r"Yr\s*Reference",
+
         r"Ref", r"Reference\s*No\.?", r"Reference\s*Number", r"Ref\s*No\.?", r"Ref\s*Number",
         r"Doc", r"Doc\s*No\.?", r"Doc\s*Number", r"Document\s*No\.?", r"Document\s*Number",
         r"貴社整理番号", r"Y/\s*Ref", r"Y/\s*Reference", r"参照番号", r"案件番号", r"請求書番号", r"注文番号", r"契約番号", r"登録番号"
@@ -77,10 +78,10 @@ def extract_case_number_from_text(text: str, company_code: str = None) -> Tuple[
     processed_text = filter_empty_lines(text)
 
     # 1. 회사 코드가 있는 경우 회사별 패턴으로 시도
-    if  company_code in ["10101", "10201"]:
+    if  company_code in ["10101", "10201", "12001"]:
         pattern_result = extract_case_by_company_pattern(processed_text, company_code)
         # 시연용으로 회사코드 10101, 10201 일때만 해당 로직을 적용 (시연용 CASE NUMBER의 패턴이 다르기 때문)
-        if company_code in ["10101", "10201"] and pattern_result:
+        if company_code in ["10101", "10201", "12001"] and pattern_result:
             return [pattern_result], []  # 회사 패턴으로 찾은 경우 대체 옵션 없음
         else: 
             return handle_no_company_code(processed_text)

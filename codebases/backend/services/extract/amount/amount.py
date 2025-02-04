@@ -15,7 +15,7 @@ amount_patterns = [
     r"\b[$€£¥]?\s*([1-9]\d{0,2}(?:\.\d{3})*,\d{2})\b"  # 점으로 천 단위 구분, 쉼표로 소수점
 ]
 
-context_keywords = ["Total", "Amount Due", "Balance"]
+context_keywords = ["TOTAL AMOUNT DUE", "Total", "Amount Due", ]
 currency_symbols = ["$", "€", "£", "¥", "USD", "EUR", "GBP", "JPY"]  # 통화 기호 및 코드 추가
 
 def extract_amounts_from_text(text: str) -> List[Dict]:

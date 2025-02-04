@@ -1,6 +1,12 @@
 {
   "companies": [
     {
+      "code": "12001",
+      "short_name": "Demo Company",
+      "name": "Demo Company",
+      "currency": "USD"
+    },
+    {
       "code": "10101",
       "short_name": "L O U I S · P Ö H L A U · L O H R E N T Z",
       "name": "L O U I S · P Ö H L A U · L O H R E N T Z  Patentanwälte",
