@@ -11,7 +11,7 @@ main {
 aside {
   width: fit-content;
   background-color: var(--primary-white);
-  max-width: 290px;
+  max-width: 18.125rem;
   width: 100%;
 }
 
@@ -56,11 +56,11 @@ aside {
     #languageSelector {
       padding: 0.5rem;
       width: 50%;
+      height: 100%;
       border: none;
-      font-size: 14px;
+      font-size: 0.875rem;
       color: var(--text-primary-color);
       font-weight: 500;
-      padding: 0.5rem;
 
       &:focus {
         outline: none;
