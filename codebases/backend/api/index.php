@@ -1,6 +1,5 @@
 <?php
 require_once '../config/env/env.php';
-require_once '../config/cors/cors.php';
 require_once './router.php';
 require_once '../config/config.php';
 
@@ -20,7 +19,7 @@ $currentDomain = $_SERVER['HTTP_HOST'] ?? '';
 $currentEnv = $environmentMap[$currentDomain] ?? 'test'; // 현재 도메인에 해당하는 환경 확인
 
 Env::load($currentEnv); // 환경 변수 로드
-CorsConfig::setup($currentEnv); // 4. CORS 설정
+// CorsConfig::setup($currentEnv); // 4. CORS 설정
 
 
 // 환경별 설정
