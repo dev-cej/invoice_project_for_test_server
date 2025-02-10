@@ -95,17 +95,26 @@ class PDFHighlighter:
                 logging.debug(f'Processing page {page_number + 1}')
                 for category, texts in highlight_texts.items():
                     logging.debug(f'Category: {category}')
-                    for search_text in texts["selected"]:
+                    # None 체크 추가
+                    selected_texts = texts["selected"] or []
+                    alternative_texts = texts["alternative"] or []
+                    
+                    for search_text in selected_texts:
+                        if not search_text:  # None이나 빈 문자열 건너뛰기
+                            continue
                         logging.debug(f'Searching for selected text: {search_text}')
-                        text_instances = page.search_for(search_text)
+                        text_instances = page.search_for(str(search_text))  # 문자열로 변환
                         for inst in text_instances:
                             logging.debug(f'Highlighting text at: {inst}')
                             highlight = page.add_highlight_annot(inst)
                             highlight.set_colors(stroke=color_map[category]["selected"], fill=color_map[category]["selected"])
                             highlight.update()
-                    for search_text in texts["alternative"]:
+                            
+                    for search_text in alternative_texts:
+                        if not search_text:  # None이나 빈 문자열 건너뛰기
+                            continue
                         logging.debug(f'Searching for alternative text: {search_text}')
-                        text_instances = page.search_for(search_text)
+                        text_instances = page.search_for(str(search_text))  # 문자열로 변환
                         for inst in text_instances:
                             logging.debug(f'Adding squiggly underline at: {inst}')
                             squiggly = page.add_squiggly_annot(inst)

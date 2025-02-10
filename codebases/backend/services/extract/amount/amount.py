@@ -71,8 +71,13 @@ def filter_amount_candidates_by_context(text: str, candidates: List[Dict]) -> Op
     문맥을 기반으로 금액 후보를 필터링하여 가장 가능성이 높은 후보를 반환하는 함수
     """
     logging.debug("문맥을 기반으로 금액 후보를 필터링합니다.")
+    
+    # candidates가 비어있는 경우 처리
+    if not candidates:
+        return None
+        
     closest_candidate = None
-    best_score = float('inf')  # 최적의 점수를 저장할 변수 초기화
+    best_score = float('inf')
 
     # 거리와 금액 크기에 대한 가중치 설정
     distance_weight = 0.7

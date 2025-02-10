@@ -1,9 +1,9 @@
 <?php
+ini_set('display_errors', 1);
 require_once '../config/env/env.php';
 require_once './router.php';
 require_once '../config/config.php';
-
-
+require_once '../database/connection/DatabaseConnection.php';
 
 
 // 기본 보안 헤더
@@ -19,7 +19,6 @@ $currentDomain = $_SERVER['HTTP_HOST'] ?? '';
 $currentEnv = $environmentMap[$currentDomain] ?? 'test'; // 현재 도메인에 해당하는 환경 확인
 
 Env::load($currentEnv); // 환경 변수 로드
-// CorsConfig::setup($currentEnv); // 4. CORS 설정
 
 
 // 환경별 설정
