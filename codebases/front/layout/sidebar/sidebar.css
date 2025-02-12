@@ -32,14 +32,23 @@
 }
 
 #sidebar-header::after,
-#upload-box::after,
-#file-box::after {
+#upload-box::after {
   content: "";
   display: block;
   width: 100%;
   border-bottom: 1px solid var(--background-color);
   position: absolute;
   bottom: 0;
+  left: 0;
+}
+
+#file-box::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--background-color);
+  position: absolute;
+  top: 532px;
   left: 0;
 }
 
@@ -120,7 +129,7 @@
 }
 
 #file-box {
-  flex-grow: 2;
+  flex: 5;
   position: relative;
   overflow-y: auto;
 
@@ -175,6 +184,7 @@
 #content-box {
   padding: 1.5rem 1rem;
   margin-bottom: 1rem;
+  flex: 1;
 
   #content-box-list {
     display: flex;

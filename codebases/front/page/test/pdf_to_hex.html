@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF 렌더링</title>
+    <style>
+      #pdf-viewer {
+        width: 800px;
+        height: 1000px;
+        border: 1px solid #ccc;
+        position: relative;
+        background: white;
+      }
+      .pdf-text {
+        position: absolute;
+        font-family: Arial, sans-serif;
+        white-space: nowrap;
+      }
+      #upload-section {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="upload-section">
+      <input type="file" id="pdf-upload" accept=".pdf" />
+      <button id="upload-button">PDF 업로드</button>
+    </div>
+    <h1>PDF 렌더링 결과</h1>
+    <div id="pdf-viewer"></div>
+
+    <script type="module" src="pdf_to_hex.js"></script>
+  </body>
+</html>

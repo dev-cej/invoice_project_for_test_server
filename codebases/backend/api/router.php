@@ -2,13 +2,18 @@
 function handleRequest() {
     $method = $_SERVER['REQUEST_METHOD'];
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    error_log("path: " . $path);
     
     // API 경로 매핑
     $routes = [
         'POST' => [
             '/upload/upload_file' => Env::get('BACKEND_PATH') . '/api/upload/upload_file_handler.php',
+            '/test/pdf_to_hex' => Env::get('BACKEND_PATH') . '/api/test/pdf_to_hex.php',
             // 다른 POST 엔드포인트들...
         ],
+
+
         'GET' => [
             // GET 엔드포인트들...
         ]
