@@ -46,15 +46,28 @@ function setupUploadButtonClick() {
     var container = document.getElementById("pdf-viewer");
     container.innerHTML = ""; // 기존 내용 초기화
 
-    data.forEach((item) => {
-      var textElement = document.createElement("div");
-      textElement.className = "pdf-text";
-      textElement.style.left = item.x + "px";
-      textElement.style.top = 1000 - item.y + "px";
-      textElement.style.fontSize = item.font_size + "px";
-      textElement.innerText = item.text;
+    // 페이지별로 텍스트 데이터를 처리
+    for (const page in data.text_data) {
+      const textItems = data.text_data[page];
 
-      container.appendChild(textElement);
-    });
+      // 페이지별 컨테이너 생성
+      var pageContainer = document.createElement("div");
+      pageContainer.className = "pdf-page"; // 페이지 컨테이너 클래스 설정
+      pageContainer.style.marginBottom = "20px"; // 페이지 간격 설정
+
+      // 각 텍스트 객체에서 텍스트를 추출하여 한 줄씩 추가
+      textItems.forEach((item) => {
+        var textElement = document.createElement("div");
+        textElement.className = "pdf-text";
+        textElement.style.fontSize = item.font_size + "px"; // 폰트 크기 설정
+        textElement.style.whiteSpace = "pre-wrap"; // 줄바꿈 허용
+        textElement.style.display = "block"; // 블록 요소로 설정하여 한 줄씩 배치
+        textElement.innerText = item.text; // 텍스트 설정
+
+        pageContainer.appendChild(textElement); // 페이지 컨테이너에 추가
+      });
+
+      container.appendChild(pageContainer); // 메인 컨테이너에 페이지 컨테이너 추가
+    }
   }
 }

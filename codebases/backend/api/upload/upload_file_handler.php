@@ -37,27 +37,27 @@ function executePythonScript($scriptPath, $args) {
         escapeshellarg($args)
     );
     
-    logGeneralError("Python 스크립트 실행: $command");
+    
     $output = shell_exec($command . " 2>&1");
     
     if ($output === null) {
-        logGeneralError("Python 스크립트 실행 실패: $command");
+        
         throw new Exception("Python 스크립트 실행 실패");
     }
     
-    logGeneralError("Python 스크립트 출력: " . $output);
+    
     return $output;
 }
 
 try {
     // 업로드된 파일의 개수 로그 기록
     $fileCount = count($_FILES['files']['tmp_name']);
-    logGeneralError("파일 업로드 처리 시작");
+    
     
     foreach ($_FILES['files']['tmp_name'] as $key => $tmpName) {
         $fileName = basename($_FILES['files']['name'][$key]);
         $filePath = $uploadDir.$fileName;
-        logGeneralError("!!파일 경로: $filePath");
+        
         
         if (move_uploaded_file($tmpName, $filePath)) {
             // 1. 파일 유형 확인 스크립트 실행
@@ -98,13 +98,13 @@ try {
             }
             else {
                 $error = error_get_last();
-                logGeneralError($filePath, $error ? $error['message'] : '파일 유형 오류');
+                
                 $extractResults[] = new ExtractResult($fileName, $fileHandleStatus['STATUS_FAILURE'], $fileType['FILE_TYPE_UNKNOWN'], null, null, null, null, null, null);
             }
         } 
         else {
             $error = error_get_last();
-            logGeneralError($filePath, $error ? $error['message'] : '파일 업로드 실패');
+            
             $extractResults[] = new ExtractResult($fileName, $fileHandleStatus['STATUS_FAILURE'], $fileType['FILE_TYPE_UNKNOWN'], null, null, null, null, null, null);
         }
     }
@@ -113,12 +113,12 @@ try {
     echo $response->toJson();
     
     // 3. 하이라이트 작업 실행
-    logGeneralError("하이라이트 작업 시작");
+    
     highlight_text_on_specific_pages($response->getExtractResults(), $highlightScriptPath);
     
 } catch (Exception $e) {
     $last_error = error_get_last();
-    logGeneralError("파일 처리 중 예외 발생: " . $e->getMessage());
+    
     $response = new ApiResponse('error', '파일 처리 중 오류 발생: ' . $e->getMessage() . " " . $last_error['message']);
     echo $response->toJson();
     exit;
@@ -132,12 +132,12 @@ function highlight_text_on_specific_pages($extractResults, $highlightScriptPath)
         // 4. 하이라이트 스크립트 실행
         $output = executePythonScript($highlightScriptPath, $extractResultsJson);
         if ($output === null) {
-            logGeneralError("하이라이트 작업 실패");
+            
         } else {
-            logGeneralError("하이라이트 작업 결과: " . $output);
+            
         }
     } catch (Exception $e) {
-        logGeneralError("하이라이트 작업 중 예외 발생: " . $e->getMessage());
+        
     }
 }
 ?>
